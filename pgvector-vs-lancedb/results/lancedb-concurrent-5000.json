@@ -1,0 +1,17 @@
+{
+  "bench": "lancedb-concurrent-5000",
+  "host": {
+    "machine": "arm64",
+    "system": "Darwin",
+    "python": "3.14.2"
+  },
+  "concurrency": 8,
+  "nprobes": 8,
+  "ef": 80,
+  "refine_factor": 2,
+  "recall": 0.9979,
+  "qps": 1422.1008696324618,
+  "p50_ms": 5.57262497022748,
+  "p99_ms": 7.0756849413737655,
+  "mean_ms": 5.594752030447125
+}

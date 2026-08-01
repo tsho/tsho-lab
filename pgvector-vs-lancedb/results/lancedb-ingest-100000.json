@@ -1,0 +1,20 @@
+{
+  "bench": "lancedb-ingest-100000",
+  "host": {
+    "machine": "arm64",
+    "system": "Darwin",
+    "python": "3.14.2"
+  },
+  "versions": {
+    "lancedb": "0.36.0"
+  },
+  "index": {
+    "index_type": "IVF_HNSW_SQ",
+    "m": 16,
+    "ef_construction": 64
+  },
+  "ingest_s": 1.3991039580432698,
+  "ingest_vec_per_s": 71474.31713355736,
+  "index_build_s": 5.1991151249967515,
+  "dir_bytes": 780549322
+}

@@ -1,0 +1,21 @@
+{
+  "bench": "pgvector-ingest-5000",
+  "host": {
+    "machine": "arm64",
+    "system": "Darwin",
+    "python": "3.14.2"
+  },
+  "versions": {
+    "postgres": "PostgreSQL 17.10 (Debian 17.10-1.pgdg12+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit",
+    "pgvector": "0.8.6"
+  },
+  "hnsw": {
+    "m": 16,
+    "ef_construction": 64
+  },
+  "copy_s": 1.4316625419305637,
+  "copy_vec_per_s": 3492.4431236830546,
+  "index_build_s": 2.208637624979019,
+  "table_bytes": 83107840,
+  "index_bytes": 40968192
+}
