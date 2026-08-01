@@ -1,0 +1,15 @@
+{
+  "bench": "pgvector-concurrent-5000",
+  "host": {
+    "machine": "arm64",
+    "system": "Darwin",
+    "python": "3.14.2"
+  },
+  "concurrency": 8,
+  "ef_search": 80,
+  "recall": 0.9988,
+  "qps": 2584.6279894192166,
+  "p50_ms": 2.6721255271695554,
+  "p99_ms": 5.616071119438857,
+  "mean_ms": 2.822422996512614
+}

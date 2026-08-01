@@ -1,0 +1,29 @@
+# pgvector サーバ (比較対象の片割れ)。LanceDB は組み込みなのでコンテナ不要。
+# リソース制限は記事に記載する実測条件そのもの。変更したら PLAN.md と記事も更新すること。
+services:
+  pgvector:
+    image: pgvector/pgvector:0.8.6-pg17
+    container_name: pgvector-bench
+    environment:
+      POSTGRES_USER: bench
+      POSTGRES_PASSWORD: bench
+      POSTGRES_DB: bench
+    command: >
+      postgres
+      -c shared_buffers=3GB
+      -c maintenance_work_mem=2GB
+      -c max_parallel_maintenance_workers=6
+      -c max_wal_size=4GB
+    shm_size: 1g
+    ports:
+      - "15432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: "8"
+          memory: 6g
+
+volumes:
+  pgdata:
