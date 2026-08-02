@@ -2,7 +2,7 @@
 # リソース制限は記事に記載する実測条件そのもの。変更したら PLAN.md と記事も更新すること。
 services:
   pgvector:
-    image: pgvector/pgvector:0.8.6-pg17
+    image: pgvector/pgvector:0.8.6-pg18
     container_name: pgvector-bench
     environment:
       POSTGRES_USER: bench
@@ -18,7 +18,7 @@ services:
     ports:
       - "15432:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql
     deploy:
       resources:
         limits:

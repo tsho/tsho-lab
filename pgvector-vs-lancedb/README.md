@@ -5,7 +5,7 @@ Benchmark code and measured results for the article:
 - EN: https://implicit-none.com/en/pgvector-vs-lancedb-benchmark/
 - JA: https://implicit-none.com/ja/pgvector-vs-lancedb-benchmark/
 
-Compares **pgvector 0.8.6** (PostgreSQL 17, HNSW) and **LanceDB 0.36.0**
+Compares **pgvector 0.8.6** (PostgreSQL 18, HNSW) and **LanceDB 0.36.0**
 (IVF_HNSW_SQ) on 100k DBpedia OpenAI embeddings (1536-dim, cosine, k=10)
 across four axes: ingest + index build, recall-latency curves, concurrency
 (1 vs 8 threads), and filtered search (1% / 10% selectivity).
