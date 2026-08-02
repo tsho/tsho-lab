@@ -6,16 +6,16 @@
     "python": "3.14.2"
   },
   "versions": {
-    "postgres": "PostgreSQL 17.10 (Debian 17.10-1.pgdg12+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit",
+    "postgres": "PostgreSQL 18.4 (Debian 18.4-1.pgdg12+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit",
     "pgvector": "0.8.6"
   },
   "hnsw": {
     "m": 16,
     "ef_construction": 64
   },
-  "copy_s": 28.909229375072755,
-  "copy_vec_per_s": 3459.1029287769916,
-  "index_build_s": 70.50594699999783,
+  "copy_s": 31.348636624985375,
+  "copy_vec_per_s": 3189.931389880553,
+  "index_build_s": 60.318821375025436,
   "table_bytes": 1656291328,
   "index_bytes": 819208192
 }
