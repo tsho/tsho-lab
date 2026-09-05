@@ -29,7 +29,8 @@ gcloud compute instances create tpu-v6e-vm \
     --image-project=ubuntu-os-accelerator-images \
     --image-family=ubuntu-accel-2204-amd64-tpu-v5e-v5p-v6e \
     --maintenance-policy=TERMINATE \
-    --metadata=startup-script="echo 'TPU VM Booted'"
+    --metadata=startup-script="echo 'TPU VM Booted'" \
+    --async   # 即座に戻る。付けないと CLI が容量割当まで待ち続ける (Ctrl-C してもキューは生きる)
 
 # キュー待ち監視 (RUNNING が出たら Ctrl-C)
 watch -n 30 "gcloud compute instances describe tpu-v6e-vm --zone=us-east5-a \
