@@ -20,8 +20,8 @@ from common import (DATA_DIR, DIM, FILTERS, K, Timer, load_base, load_gt,
                     load_queries, paths, percentiles, recall_at_k, save_result)
 
 INDEX = {"index_type": "IVF_HNSW_SQ", "m": 16, "ef_construction": 64}
-# (nprobes, ef, refine_factor)。SQ 量子化の近似誤差で recall が頭打ちになるため、
-# 高 recall 帯は refine_factor (全精度ベクトルでの再ランク) で到達させる。
+# (nprobes, ef, refine_factor). SQ quantization error caps recall, so the
+# high-recall range is reached with refine_factor (re-ranking on full-precision vectors).
 SWEEP = [
     {"nprobes": 1, "ef": 10, "refine_factor": None},
     {"nprobes": 2, "ef": 20, "refine_factor": None},
