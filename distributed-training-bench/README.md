@@ -38,8 +38,14 @@ fraction of GPU time spent inside NCCL collectives.
 ## Quick start
 
 ```bash
-# 1. check quota (reuse the script from vllm-benchmark-scripts)
-PROJECT=my-proj ./check-quota.sh gpu
+# 1. check quota. check-quota.sh lives in a separate repo: https://github.com/tsho/vllm-benchmark-scripts
+#    It reports A100 80GB / H100 quota and the zones that offer those machine types.
+curl -sLO https://raw.githubusercontent.com/tsho/vllm-benchmark-scripts/main/check-quota.sh
+PROJECT=my-proj bash check-quota.sh gpu
+#    It does not cover L4. For TYPE=l4x4, check the region's L4 quota directly:
+gcloud compute regions describe us-central1 --project=my-proj --format="value(quotas)" \
+    | tr ';' '\n' | grep -i 'NVIDIA_L4'
+#    Quota is only the right to request GPUs. It says nothing about physical stock in a zone.
 
 # 2. bring up a box (SPOT=1 is ~1/3 the price and fine for this)
 SPOT=1 PROJECT=my-proj ZONE=us-central1-a TYPE=a100x4 ./launch-gpu.sh
