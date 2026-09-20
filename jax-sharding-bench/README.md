@@ -1,7 +1,7 @@
 # jax-sharding-bench
 
 Write-up:
-- [JAX on TPU v6e: DP vs FSDP-like Benchmark at 0.8B and 3.2B](https://implicit-none.com/en/jax-tpu-v6e-dp-fsdp-benchmark/) (EN) 
+- [JAX on TPU v6e: DP vs FSDP-like Benchmark at 0.8B and 3.2B](https://implicit-none.com/en/jax-tpu-v6e-dp-fsdp-benchmark/) (EN)
 - [TPU v6e×4でDP vs FSDP-likeを実測：0.8Bと3.2Bで勝敗が逆転](https://implicit-none.com/ja/jax-tpu-v6e-dp-fsdp-benchmark/) (JA)
 
 The **ICI chapter** of the interconnect series. Companion to
