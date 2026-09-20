@@ -11,10 +11,10 @@ Sharding modes (GSPMD via NamedSharding on a 1-D "data" mesh):
   fsdp  params sharded on axis 0 + sharded batch     ~ ZeRO-3 / FSDP2(reshard)
         (XLA inserts all-gathers per use; reduce-scatters grads)
 
-Run on a TPU VM (v5e-8 / v6e-8):
-  python3 bench.py --mode dp   --steps 15
-  python3 bench.py --mode fsdp --steps 15
-  python3 bench.py --mode fsdp --dim 2048 --layers 24   # bigger model
+Run on a single-host TPU VM (measured on v6e-4; see RUNBOOK.md):
+  python3 bench.py --mode dp   --tag 0p8b
+  python3 bench.py --mode fsdp --tag 0p8b
+  python3 bench.py --mode fsdp --dim 3072 --layers 28 --heads 24 --tag 3p2b   # 3.27B
 
 Writes results/*.jsonl with the same schema spirit as the GPU bench.
 """
