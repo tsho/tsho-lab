@@ -46,6 +46,6 @@ jobs-l4)   GKE_ACCEL=nvidia-l4          "$(dirname "$0")/submit-jobs.sh" l4 ;;
 jobs-a100) GKE_ACCEL=nvidia-tesla-a100  "$(dirname "$0")/submit-jobs.sh" a100 ;;
 down)
   gcloud container clusters delete "$CLUSTER" --project "$PROJECT" --zone "$ZONE" --quiet
-  echo "cluster deleted. (bucket gs://${BUCKET} は残しています — 結果回収後に手動削除可)"
+  echo "cluster deleted. (bucket gs://${BUCKET} is kept — delete it by hand once you have the results)"
   ;;
 esac
