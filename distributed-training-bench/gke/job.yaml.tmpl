@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: dtb-${JOB_NAME}
+spec:
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 86400
+  template:
+    spec:
+      restartPolicy: Never
+      nodeSelector:
+        cloud.google.com/gke-accelerator: ${GKE_ACCEL}
+      tolerations:
+        - key: nvidia.com/gpu
+          operator: Exists
+          effect: NoSchedule
+      containers:
+        - name: bench
+          image: ${IMAGE}
+          command: ["bash", "-lc"]
+          args:
+            - |
+              set -e
+              nvidia-smi topo -m || true
+              ${BENCH_CMD}
+              python3 /bench/upload_results.py "${BUCKET}" "${JOB_NAME}"
+          resources:
+            limits:
+              nvidia.com/gpu: 4
