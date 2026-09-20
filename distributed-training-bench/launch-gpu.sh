@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #
 # Create a GPU VM for the distributed-training benchmark.
-# Follows vllm-benchmark-scripts/launch-gpu.sh, with multi-GPU shapes added.
+# Follows launch-gpu.sh from https://github.com/tsho/vllm-benchmark-scripts,
+# with multi-GPU shapes added.
 #
 # Usage:
 #   PROJECT=p ZONE=us-central1-a TYPE=a100x4 ./launch-gpu.sh   # NVLink
@@ -9,8 +10,9 @@
 #   PROJECT=p ZONE=us-central1-a TYPE=a100x2  ./launch-gpu.sh   # smallest shape
 #   SPOT=1 PROJECT=p ZONE=us-central1-a TYPE=a100x4 ./launch-gpu.sh
 #
-# Prerequisite: confirm quota and stock first with check-quota.sh
-#       (vllm-benchmark-scripts/check-quota.sh works as is)
+# Prerequisite: confirm quota first with check-quota.sh from
+#       https://github.com/tsho/vllm-benchmark-scripts
+#       (it covers A100 80GB / H100, not L4 — see README.md for the L4 check)
 #
 # Why both a100x4 and l4x4:
 #   ZeRO-3 issues a large volume of all-gather / reduce-scatter every step,
@@ -51,7 +53,7 @@ esac
 NAME="${NAME:-dtb-$TYPE}"
 
 # Deep Learning VM (CUDA 12.9 + NVIDIA driver 580 + Ubuntu 24.04 LTS)。
-# Same image as vllm-benchmark-scripts, so the environment does not differ.
+# Same image as the vllm-benchmark-scripts repo above, so the environment does not differ.
 IMAGE_FAMILY="${IMAGE_FAMILY:-common-cu129-ubuntu-2404-nvidia-580}"
 IMAGE_PROJECT="${IMAGE_PROJECT:-deeplearning-platform-release}"
 
