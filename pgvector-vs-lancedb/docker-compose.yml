@@ -1,5 +1,5 @@
-# pgvector サーバ (比較対象の片割れ)。LanceDB は組み込みなのでコンテナ不要。
-# リソース制限は記事に記載する実測条件そのもの。変更したら PLAN.md と記事も更新すること。
+# pgvector server (one side of the comparison). LanceDB is embedded, so it needs no container.
+# The resource limits are the measurement conditions reported in the write-up. If you change them, update the write-up too.
 services:
   pgvector:
     image: pgvector/pgvector:0.8.6-pg18

@@ -22,7 +22,7 @@ from common import (DIM, FILTERS, K, PG_DSN, Timer, load_base, load_gt,
 HNSW = {"m": 16, "ef_construction": 64}
 EF_SEARCH = [10, 20, 40, 80, 160, 320]
 CONCURRENCY = 8
-CONC_EF = 80  # ~0.95 recall 帯 (query 軸の結果を見て要調整)
+CONC_EF = 80  # ~0.95 recall range (tune after looking at the query-axis results)
 
 
 def vec_literal(v):
@@ -59,8 +59,8 @@ def do_ingest(scale):
                 "CREATE INDEX items_hnsw ON items USING hnsw (embedding vector_cosine_ops) "
                 f"WITH (m = {HNSW['m']}, ef_construction = {HNSW['ef_construction']})")
 
-        # 統計を確定させる。これを怠るとプランナが HNSW+後フィルタを選び、
-        # 低選択率フィルタで recall が 1 桁 % に崩壊する (実測で確認済み)
+        # Refresh planner statistics. Without this the planner picks HNSW + post-filter,
+        # and recall collapses to single-digit % on low-selectivity filters (confirmed by measurement)
         cur.execute("ANALYZE items")
 
         cur.execute("SELECT pg_total_relation_size('items'), pg_relation_size('items_hnsw')")
@@ -136,11 +136,11 @@ def do_concurrent(scale):
 
 
 def do_filtered(scale):
-    """iterative_scan off (素の HNSW + post-filter) と relaxed_order の両系列を取る。
+    """Measure both iterative_scan off (plain HNSW + post-filter) and relaxed_order.
 
-    off は候補 ef 件を取ってから WHERE で絞るため、低選択率では recall が崩壊する
-    (pgvector 0.8 で iterative_scan が入った理由そのもの)。プランナが seq scan に
-    切り替えて exact になるケースもあるため、実行プランも 1 クエリ分記録する。
+    With off, ef candidates are fetched first and WHERE filters them afterwards, so recall collapses at low selectivity
+    (the reason iterative_scan was added in pgvector 0.8). The planner may also switch to a seq scan
+    and become exact, so the execution plan of one query is recorded as well.
     """
     queries, gt = load_queries(scale), load_gt(scale)
     out, plans = {}, {}
