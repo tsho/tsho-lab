@@ -35,6 +35,9 @@ So: run the identical workload on hardware that differs *only* in interconnect.
 Three numbers per configuration: throughput, peak memory per rank, and the
 fraction of GPU time spent inside NCCL collectives.
 
+Write-up: [DeepSpeed ZeRO vs PyTorch FSDP2, Measured: 1.8x on NVLink, Barely Finishing on PCIe](https://implicit-none.com/en/deepspeed-zero-vs-fsdp2-benchmark/) (EN) ·
+[DeepSpeed ZeRO-1/2/3 vs PyTorch FSDP2 実測ベンチマーク：A100・L4 4 GPU比較](https://implicit-none.com/ja/deepspeed-zero-vs-fsdp2-benchmark/) (JA)
+
 ## Quick start
 
 ```bash
