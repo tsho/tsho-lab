@@ -17,7 +17,7 @@ NAMES+=("${TAG}-fsdp-reshard");  CMDS+=("torchrun --nproc_per_node=4 bench_fsdp.
 NAMES+=("${TAG}-fsdp-noreshard");CMDS+=("torchrun --nproc_per_node=4 bench_fsdp.py --no-reshard-after-forward --steps 15 --profile")
 NAMES+=("${TAG}-fsdp-offload"); CMDS+=("torchrun --nproc_per_node=4 bench_fsdp.py --reshard-after-forward --offload --steps 15 --profile")
 
-MODE=${MODE:-watch}   # MODE=all で一括投入して即終了 (K8s が1本ずつ実行・GCSへ自動アップロード)
+MODE=${MODE:-watch}   # MODE=all submits every job and exits (K8s runs them one at a time; results upload to GCS)
 
 cd "$(dirname "$0")"
 render() {
@@ -33,8 +33,8 @@ if [ "$MODE" = "all" ]; then
     render "${NAMES[$i]}" "${CMDS[$i]}" | kubectl apply -f -
   done
   echo ""
-  echo "${#NAMES[@]}本を投入しました。ノードは 4 GPU なので K8s が自動で1本ずつ実行します。"
-  echo "セッションを閉じてOK。進捗確認 (いつでも・再接続後に):"
+  echo "Submitted ${#NAMES[@]} jobs. The node has 4 GPUs, so K8s runs them one at a time."
+  echo "You can close this session. To check progress (any time, also after reconnecting):"
   echo "  kubectl get jobs"
   echo "  kubectl get pods"
   echo "  gsutil ls gs://${BUCKET}/"

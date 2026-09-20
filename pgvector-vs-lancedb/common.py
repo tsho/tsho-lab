@@ -16,7 +16,7 @@ N_QUERIES = 1000
 K = 10
 PG_DSN = "host=127.0.0.1 port=15432 user=bench password=bench dbname=bench"
 
-# 選択率つきカテゴリ (決定的に付与)
+# Categories with known selectivity (assigned deterministically)
 FILTERS = {"cat1pct": 100, "cat10pct": 10}  # name -> modulo (i % mod == 0)
 
 
