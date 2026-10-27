@@ -1,0 +1,16 @@
+{
+  "timestamp_utc": "2026-10-26T16:58:35Z",
+  "python": "3.12.15 (main, Oct  1 2026, 15:41:07) [GCC 11.4.0]",
+  "platform": "Linux-6.8.0-1015-gcp-x86_64-with-glibc2.35",
+  "torch": "2.14.1+cpu",
+  "torch_tpu": "0.2.0",
+  "libtpu": "0.0.51",
+  "numpy": "2.5.4",
+  "device_count": 1,
+  "default_eager_mode": "EagerMode.DEFER_NEVER",
+  "device_properties": {
+    "name": "TPU v6e",
+    "multi_processor_count": 1,
+    "total_memory": 34359738368
+  }
+}
