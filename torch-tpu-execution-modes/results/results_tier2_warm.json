@@ -1,0 +1,52 @@
+{
+  "mode": "compile",
+  "tag": "tier2_cache_warm",
+  "env_applied": {
+    "TORCH_TPU_TIER2_COMPILATION_CACHE": "bench_tier2"
+  },
+  "effective_eager_mode": "EagerMode.DEFER_NEVER",
+  "precision_override": "default",
+  "compile_dynamic": "default",
+  "params_b": 0.871,
+  "params_exact": 870909952,
+  "vocab": 32000,
+  "dim": 2048,
+  "layers": 16,
+  "heads": 16,
+  "ff_mult": 4,
+  "seq_len": 2048,
+  "batch_size": 1,
+  "tokens_per_step": 2048,
+  "warmup_steps": 2,
+  "measured_steps": 5,
+  "setup_sec": 0.0065,
+  "first_step_sec": 14.1857,
+  "first_step_plus_setup_sec": 14.1922,
+  "first_step_ms": 14185.68,
+  "step_ms_median": 93.59,
+  "step_ms_mean": 93.65,
+  "step_ms_stdev": 0.45,
+  "step_ms_p10": 93.08,
+  "step_ms_p90": 94.28,
+  "step_ms_min": 93.08,
+  "step_ms_max": 94.28,
+  "tokens_per_sec": 21882.4,
+  "first_loss": 10.87941,
+  "final_loss": 10.87215,
+  "warmup_step_ms": [
+    14185.68,
+    93.36
+  ],
+  "measured_step_ms": [
+    93.08,
+    93.59,
+    93.83,
+    93.45,
+    94.28
+  ],
+  "dynamic_sweep": [],
+  "device_name": "TPU v6e",
+  "hbm_gb_static_per_device": 32.0,
+  "peak_hbm_measured": null,
+  "peak_hbm_note": "torch_tpu 0.2.0 does not expose a runtime max_memory_allocated API; get_device_properties() in 0.2.0 only exposes static total_memory (32 GiB)."
+}

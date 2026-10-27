@@ -1,0 +1,98 @@
+Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cpu
+Collecting torch_tpu==0.2.0
+  Using cached torch_tpu-0.2.0-cp312-cp312-manylinux_2_31_x86_64.whl.metadata (8.5 kB)
+Collecting numpy>=2 (from torch_tpu==0.2.0)
+  Using cached numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting absl-py>=2 (from torch_tpu==0.2.0)
+  Using cached absl_py-2.5.1-py3-none-any.whl.metadata (3.3 kB)
+Collecting libtpu>=0.0.50 (from torch_tpu==0.2.0)
+  Using cached libtpu-0.0.51-cp312-cp312-manylinux_2_31_x86_64.whl.metadata (2.1 kB)
+Collecting portpicker>=1.6 (from torch_tpu==0.2.0)
+  Using cached portpicker-1.6.0-py3-none-any.whl.metadata (1.5 kB)
+Collecting tensorboard>=2.20 (from torch_tpu==0.2.0)
+  Using cached tensorboard-2.21.0-py3-none-any.whl.metadata (1.8 kB)
+Collecting frozendict>=2 (from torch_tpu==0.2.0)
+  Using cached frozendict-2.4.7-py3-none-any.whl.metadata (23 kB)
+Collecting immutabledict>=4 (from torch_tpu==0.2.0)
+  Using cached immutabledict-4.3.1-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyzmq>=27 (from torch_tpu==0.2.0)
+  Using cached pyzmq-27.2.0-cp312-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+Collecting torch<=2.15.0,>=2.11.0 (from torch_tpu==0.2.0)
+  Downloading torch-2.14.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (37 kB)
+Collecting filelock (from torch<=2.15.0,>=2.11.0->torch_tpu==0.2.0)
+  Using cached filelock-4.2.4-py3-none-any.whl.metadata (2.0 kB)
+Collecting typing-extensions>=4.10.0 (from torch<=2.15.0,>=2.11.0->torch_tpu==0.2.0)
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting setuptools>=77.0.3 (from torch<=2.15.0,>=2.11.0->torch_tpu==0.2.0)
+  Using cached setuptools-84.2.1-py3-none-any.whl.metadata (6.6 kB)
+Collecting sympy>=1.13.3 (from torch<=2.15.0,>=2.11.0->torch_tpu==0.2.0)
+  Using cached sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx>=2.5.1 (from torch<=2.15.0,>=2.11.0->torch_tpu==0.2.0)
+  Using cached networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+Collecting jinja2 (from torch<=2.15.0,>=2.11.0->torch_tpu==0.2.0)
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec>=0.8.5 (from torch<=2.15.0,>=2.11.0->torch_tpu==0.2.0)
+  Using cached fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting psutil (from portpicker>=1.6->torch_tpu==0.2.0)
+  Using cached psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch<=2.15.0,>=2.11.0->torch_tpu==0.2.0)
+  Using cached mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting grpcio<2.0,>=1.74.0 (from tensorboard>=2.20->torch_tpu==0.2.0)
+  Using cached grpcio-1.85.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (3.8 kB)
+Collecting markdown>=2.6.8 (from tensorboard>=2.20->torch_tpu==0.2.0)
+  Using cached markdown-3.11.2-py3-none-any.whl.metadata (5.1 kB)
+Collecting packaging (from tensorboard>=2.20->torch_tpu==0.2.0)
+  Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pillow (from tensorboard>=2.20->torch_tpu==0.2.0)
+  Using cached pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting protobuf<8.0.0,>=6.31.1 (from tensorboard>=2.20->torch_tpu==0.2.0)
+  Using cached protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+Collecting tensorboard-data-server<0.8.0,>=0.7.0 (from tensorboard>=2.20->torch_tpu==0.2.0)
+  Using cached tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl.metadata (1.1 kB)
+Collecting werkzeug>=1.0.1 (from tensorboard>=2.20->torch_tpu==0.2.0)
+  Using cached werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+Collecting markupsafe>=2.1.1 (from werkzeug>=1.0.1->tensorboard>=2.20->torch_tpu==0.2.0)
+  Using cached markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Downloading torch_tpu-0.2.0-cp312-cp312-manylinux_2_31_x86_64.whl (96.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 96.2/96.2 MB 118.4 MB/s  0:00:00
+Downloading torch-2.14.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl (196.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 121.4 MB/s  0:00:01
+Downloading absl_py-2.5.1-py3-none-any.whl (137 kB)
+Downloading frozendict-2.4.7-py3-none-any.whl (16 kB)
+Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+Downloading immutabledict-4.3.1-py3-none-any.whl (5.0 kB)
+Downloading libtpu-0.0.51-cp312-cp312-manylinux_2_31_x86_64.whl (204.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 204.8/204.8 MB 132.7 MB/s  0:00:01
+Downloading networkx-3.7-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 125.9 MB/s  0:00:00
+Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 173.4 MB/s  0:00:00
+Downloading portpicker-1.6.0-py3-none-any.whl (16 kB)
+Downloading pyzmq-27.2.0-cp312-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (872 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 872.3/872.3 kB 74.1 MB/s  0:00:00
+Downloading setuptools-84.2.1-py3-none-any.whl (876 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 876.3/876.3 kB 76.1 MB/s  0:00:00
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 151.1 MB/s  0:00:00
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 45.7 MB/s  0:00:00
+Downloading tensorboard-2.21.0-py3-none-any.whl (5.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 151.0 MB/s  0:00:00
+Downloading grpcio-1.85.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (7.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.4/7.4 MB 162.5 MB/s  0:00:00
+Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+Downloading tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl (6.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 158.8 MB/s  0:00:00
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading markdown-3.11.2-py3-none-any.whl (114 kB)
+Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading filelock-4.2.4-py3-none-any.whl (162 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 146.8 MB/s  0:00:00
+Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+Installing collected packages: mpmath, typing-extensions, tensorboard-data-server, sympy, setuptools, pyzmq, psutil, protobuf, pillow, packaging, numpy, networkx, markupsafe, markdown, libtpu, immutabledict, fsspec, frozendict, filelock, absl-py, werkzeug, portpicker, jinja2, grpcio, torch, tensorboard, torch_tpu
+
+Successfully installed absl-py-2.5.1 filelock-4.2.4 frozendict-2.4.7 fsspec-2026.9.0 grpcio-1.85.0 immutabledict-4.3.1 jinja2-3.1.6 libtpu-0.0.51 markdown-3.11.2 markupsafe-3.0.4 mpmath-1.3.0 networkx-3.7 numpy-2.5.4 packaging-26.3 pillow-13.0.0 portpicker-1.6.0 protobuf-7.36.2 psutil-7.2.2 pyzmq-27.2.0 setuptools-84.2.1 sympy-1.14.0 tensorboard-2.21.0 tensorboard-data-server-0.7.2 torch-2.14.1+cpu torch_tpu-0.2.0 typing-extensions-4.16.0 werkzeug-3.1.9
