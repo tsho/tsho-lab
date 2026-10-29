@@ -1,0 +1,61 @@
+{
+  "env": {
+    "torch": "2.15.0+cu132",
+    "python": "3.12.16",
+    "cuda_runtime": "13.2",
+    "world_size": 2,
+    "nccl_version": "2.30.7",
+    "backend": "nccl"
+  },
+  "backend_registry": {
+    "resolved": {
+      "nccl": "nccl",
+      "nccl-legacy": "nccl-legacy",
+      "gloo": "gloo"
+    },
+    "default_for_cuda": "nccl"
+  },
+  "all_gather_future_shape": {
+    "future_result": {
+      "kind": "list",
+      "len": 2,
+      "first": {
+        "kind": "tensor",
+        "shape": [
+          4
+        ],
+        "dtype": "torch.float32"
+      }
+    },
+    "unwrapped": {
+      "kind": "list",
+      "len": 2,
+      "first": {
+        "kind": "tensor",
+        "shape": [
+          4
+        ],
+        "dtype": "torch.float32"
+      }
+    }
+  },
+  "cross_device_tensor": "RuntimeError: Expected tensor on cuda:0 but found tensor on cuda:1",
+  "fsdp2_reduce_dtype_none": {
+    "param_dtypes": {
+      "0.weight": "torch.float32",
+      "0.bias": "torch.float32",
+      "2.weight": "torch.float32",
+      "2.bias": "torch.float32"
+    },
+    "grad_dtypes": {
+      "0.weight": "torch.float32",
+      "0.bias": "torch.float32",
+      "2.weight": "torch.float32",
+      "2.bias": "torch.float32"
+    },
+    "policy": {
+      "param_dtype": "bfloat16",
+      "reduce_dtype": null
+    }
+  }
+}
