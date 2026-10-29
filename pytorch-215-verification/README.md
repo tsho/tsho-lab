@@ -43,18 +43,27 @@ python3 compare.py results/torch-2.14.1.json results/torch-2.15.0.json
 
 ## Numerics on arm64
 
-Float32 `sin`/`cos` moved to faster kernels with a looser bound. Measured as
-max error in **float32 ULPs** against a float64 reference over
-`linspace(-20, 20, 20001)`, restricted to `|result| >= 0.5` — near a zero of
-`sin` the result is tiny while the argument-reduction error is not, so the ULP
-ratio there says nothing about kernel quality.
+Float32 `sin`/`cos` moved to faster kernels with a looser bound.
+
+| Condition | Value |
+|---|---|
+| Input | `linspace(-20, 20, 20001)` rounded to float32 (20,001 points) |
+| Reference | the same float32 inputs evaluated in float64 |
+| ULP size | `numpy.spacing(np.float32(reference))` — the float32 ULP |
+| Filter | `abs(result) >= 0.5` (near a zero of `sin` the result is tiny while the argument-reduction error is not, so the ratio says nothing about kernel quality) |
+| Points used | 13,194 for `sin`, 13,613 for `cos` |
+| **Statistic quoted** | **maximum** |
 
 | | 2.14.1 | 2.15.0 | Release note |
 |---|---:|---:|---|
-| `sin` | 0.71 ULP | **1.57 ULP** | 1.0 ULP -> 3.5 ULP |
-| `cos` | 0.67 ULP | **1.77 ULP** | 1.0 ULP -> 3.5 ULP |
+| `sin` | 0.7098 ULP | **1.5675 ULP** | 1.0 ULP -> 3.5 ULP |
+| `cos` | 0.6707 ULP | **1.7700 ULP** | 1.0 ULP -> 3.5 ULP |
 
-Both stay inside the documented 3.5 ULP bound; this sample never reached it.
+Maximum against maximum: both stay inside the documented 3.5 ULP bound, and
+this sample never reached it. Mean and median are both under 0.04 ULP, so most
+points match the correctly rounded float64 value bit for bit and the error is
+concentrated in a few. `verify.py` reports max, mean, median and the point
+counts together so the quoted figure cannot be mistaken for another statistic.
 The output bits differ, so stored golden outputs will not match:
 
 ```
@@ -78,12 +87,20 @@ Float32 reduction order changed on NEON as well, over `randn(65536)` with
 | `torch.histc(x, out=)` with a different `out` dtype | no error | `RuntimeError: torch.histogram: input tensor and hist tensor should have the same dtype, but got input float and hist double` |
 | `libtorch_cuda.so` links `libcurand` | yes (`libcurand.so.10`) | **no** |
 | `torch.cuda.graph_annotations` members | `clear_kernel_annotations`, `get_kernel_annotations`, `is_available`, `mark_kernels` | adds `dump_kernel_py_stacks`, `get_kernel_py_stacks` |
-| `all_gather(async_op=True).get_future().wait()` | `[tensor(2, 4)]` — one stacked tensor | **`[tensor(4), tensor(4)]`** — one per rank |
+| `all_gather(async_op=True).get_future().wait()` on **NCCL** | `[tensor(2, 4)]` — one stacked tensor | **`[tensor(4), tensor(4)]`** — one per rank |
+| the same on **gloo** (`migration_check.py`, CPU) | `[tensor(4), tensor(4)]` | `[tensor(4), tensor(4)]` — unchanged |
 | `all_reduce` on a tensor belonging to another rank's device | **no error** | `RuntimeError: Expected tensor on cuda:0 but found tensor on cuda:1` |
 
 The `all_gather` change is the one most likely to break working code silently:
 anything that took `wait()[0]` and treated it as the stacked result now gets
 rank 0's slice instead.
+
+**It is backend-specific.** gloo already returned a per-rank list in 2.14.1, so
+2.15's NCCL moved to what gloo was already doing. The documented migration —
+read the output list after `work.wait()` rather than the future — was run on
+gloo against both versions and produced the full `(2, 4)` result each time
+(`migration_check.py`). The `nccl-legacy` workaround in the notes was **not**
+executed here.
 
 The cross-device result deserves a caveat. Run on its own, 2.14.1 accepted the
 wrong-device tensor and returned without error in 6 seconds. Run as part of the
@@ -102,8 +119,11 @@ trigger for the hang was not isolated.
   256x256 float64 matrix gave bit-identical factors, pivots and reconstruction
   error in both.
 - **The rewritten NCCL backend becoming the default.** `get_backend()` returns
-  `nccl` and `torch.cuda.nccl.version()` is 2.30.7 in both; `nccl-legacy` also
-  resolves in **both**, so the name alone does not distinguish them.
+  `nccl` and `torch.cuda.nccl.version()` is 2.30.7 in both. Note that
+  `dist.Backend("nccl-legacy")` resolving on 2.14.1 only reflects unknown names
+  being accepted as-is, and is **not** evidence that the legacy implementation
+  exists there. What was rewritten is PyTorch's C++ layer, not the NCCL library,
+  so matching names and library versions cannot distinguish the two.
 - **FSDP2 gradients moving to `grad_dtype` under `reduce_dtype=None`.** With
   fp32 parameters and `param_dtype=bfloat16`, gradients came back `float32` in
   both versions. The test probably cannot separate the two: `grad_dtype`
@@ -130,6 +150,7 @@ Reported as-is rather than dropped, since "not observed" is a result:
 | `verify.py` | CPU/arm64 checks; prints one JSON document |
 | `gpu_verify.py` | single-GPU CUDA checks |
 | `dist_verify.py` | two-GPU distributed checks (`--skip`/`--only` to isolate one) |
+| `migration_check.py` | the recommended `all_gather` migration, on gloo / CPU |
 | `setup_gpu.sh` | builds both cu132 venvs on a CUDA host |
 | `compare.py` | diffs two result files |
 | `run.sh` | builds a venv per version, runs both, diffs |

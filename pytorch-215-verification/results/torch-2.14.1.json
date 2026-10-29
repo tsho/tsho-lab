@@ -49,12 +49,26 @@
     }
   },
   "sin_cos_f32_ulp": {
+    "input": "linspace(-20, 20, 20001) rounded to float32",
+    "reference": "the same float32 inputs evaluated in float64",
     "sin": {
+      "statistic_quoted": "max",
       "max_ulp": 0.7098,
+      "mean_ulp": 0.0,
+      "median_ulp": 0.0,
+      "n_total": 20001,
+      "n_used": 13194,
+      "floor_abs_result": 0.5,
       "bits_sha": "7e4de91a766b5749"
     },
     "cos": {
+      "statistic_quoted": "max",
       "max_ulp": 0.6707,
+      "mean_ulp": 0.0175,
+      "median_ulp": 0.0331,
+      "n_total": 20001,
+      "n_used": 13613,
+      "floor_abs_result": 0.5,
       "bits_sha": "f9daed17ff4a8e42"
     }
   },

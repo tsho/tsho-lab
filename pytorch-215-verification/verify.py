@@ -180,10 +180,15 @@ def _profiler():
 
 # ------------------------------------------------- silent numerical behaviour
 
-def ulp_error(got: torch.Tensor, ref_f64: torch.Tensor, floor: float = 0.5) -> float:
-    """Max error in float32 ULPs, ignoring points where the reference is near
-    zero. At a zero of sin the result is tiny while the argument-reduction
-    error is not, so the ULP ratio there says nothing about kernel quality."""
+def ulp_stats(got: torch.Tensor, ref_f64: torch.Tensor, floor: float = 0.5) -> dict:
+    """Error in float32 ULPs against a float64 reference.
+
+    Reports max, mean and median, and how many points were used, so the figure
+    quoted elsewhere cannot be mistaken for a different statistic. Points where
+    the reference is near zero are dropped: at a zero of sin the result is tiny
+    while the argument-reduction error is not, so the ratio there says nothing
+    about kernel quality.
+    """
     import numpy as np
     keep = ref_f64.abs() >= floor
     g = got.double()[keep].numpy()
@@ -191,7 +196,16 @@ def ulp_error(got: torch.Tensor, ref_f64: torch.Tensor, floor: float = 0.5) -> f
     # np.spacing on float32 gives the float32 ULP. math.ulp would give the
     # float64 ULP and inflate every ratio by about 2**29.
     ulp = np.spacing(r.astype(np.float32)).astype(np.float64)
-    return float((np.abs(g - r) / ulp).max())
+    err = np.abs(g - r) / ulp
+    return {
+        "statistic_quoted": "max",
+        "max_ulp": round(float(err.max()), 4),
+        "mean_ulp": round(float(err.mean()), 4),
+        "median_ulp": round(float(np.median(err)), 4),
+        "n_total": int(ref_f64.numel()),
+        "n_used": int(keep.sum()),
+        "floor_abs_result": floor,
+    }
 
 
 @check("sin_cos_f32_ulp")
@@ -199,16 +213,15 @@ def _sincos():
     torch.manual_seed(0)
     x = torch.linspace(-20, 20, 20001, dtype=torch.float64)
     x32 = x.float()
-    out = {}
+    out = {"input": "linspace(-20, 20, 20001) rounded to float32",
+           "reference": "the same float32 inputs evaluated in float64"}
     for op in ("sin", "cos"):
         ref = getattr(torch, op)(x32.double())  # f64 math on the f32 inputs
         got = getattr(torch, op)(x32)
-        out[op] = {
-            "max_ulp": round(ulp_error(got, ref), 4),
-            # a stable fingerprint of the exact bits produced
-            "bits_sha": __import__("hashlib").sha256(
-                got.numpy().tobytes()).hexdigest()[:16],
-        }
+        out[op] = ulp_stats(got, ref)
+        # a stable fingerprint of the exact bits produced
+        out[op]["bits_sha"] = __import__("hashlib").sha256(
+            got.numpy().tobytes()).hexdigest()[:16]
     return out
 
 
