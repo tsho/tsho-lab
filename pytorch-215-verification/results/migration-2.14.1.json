@@ -1,0 +1,39 @@
+{
+  "env": {
+    "torch": "2.14.1",
+    "backend": "gloo",
+    "world_size": 2
+  },
+  "migration_pattern": {
+    "gathered_shape": [
+      2,
+      4
+    ],
+    "gathered_rows": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    ],
+    "correct": true
+  },
+  "future_result_on_this_backend": {
+    "kind": "list",
+    "len": 2,
+    "first": {
+      "kind": "tensor",
+      "shape": [
+        4
+      ],
+      "dtype": "torch.float32"
+    }
+  }
+}

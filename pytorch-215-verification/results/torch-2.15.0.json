@@ -1,0 +1,156 @@
+{
+  "env": {
+    "torch": "2.15.0",
+    "python": "3.14.6",
+    "mps_available": true
+  },
+  "reload_torch": "ImportError: `torch` can only be initialized once per process, so this module cannot be imported again: neither via `importlib.reload(torch)`, nor by re-importing after a fa",
+  "complex_order_ops": {
+    "sort": "TypeError:  Sort does not support complex dtypes on CPU",
+    "argsort": "TypeError:  Sort does not support complex dtypes on CPU",
+    "topk": "TypeError:  topk does not support complex dtypes on CPU",
+    "argmax": "TypeError: argmax(): does not support complex input",
+    "argmin": "TypeError: argmin(): does not support complex input"
+  },
+  "split_unbind_grad_fn": {
+    "split": "SplitBackward0",
+    "split_with_sizes": "SplitWithSizesBackward0",
+    "unbind": "UnbindBackward0",
+    "split_functionalized": "SplitBackward0",
+    "unbind_functionalized": "UnbindBackward0"
+  },
+  "optimizer_bare_set": [
+    "FutureWarning: optimizer parameters need to be organized in ordered collections, but the ordering of tensors in sets will change betwee"
+  ],
+  "weights_only_nested_tensor": "UnpicklingError: Weights only load failed. This file can still be loaded, to do so you have two options, \u001b[1mdo those steps only if you trust the source of the checkpoint\u001b[0m. ",
+  "new_apis": {
+    "torch.foreach": "module",
+    "torch.optim.functional": "module",
+    "torch.mps.Stream": "type",
+    "torch.mps.current_stream": "function",
+    "torch.mps.default_stream": "function",
+    "torch.mps.set_stream": "function",
+    "torch.compiler.precompile": "module"
+  },
+  "precompile_members": {
+    "type": "module",
+    "has_capture": true,
+    "has_load": true
+  },
+  "pipelining_rename": "neither name found in torch.distributed.pipelining",
+  "profiler_metadata_json": {
+    "on_class": {
+      "metadata_json": false,
+      "metadata": false,
+      "event_metadata": true
+    },
+    "on_instance": {
+      "metadata_json": false,
+      "metadata": true,
+      "event_metadata": true
+    }
+  },
+  "sin_cos_f32_ulp": {
+    "input": "linspace(-20, 20, 20001) rounded to float32",
+    "reference": "the same float32 inputs evaluated in float64",
+    "sin": {
+      "statistic_quoted": "max",
+      "max_ulp": 1.5675,
+      "mean_ulp": 0.0,
+      "median_ulp": 0.0,
+      "n_total": 20001,
+      "n_used": 13194,
+      "floor_abs_result": 0.5,
+      "bits_sha": "0fee8f6820a836d9"
+    },
+    "cos": {
+      "statistic_quoted": "max",
+      "max_ulp": 1.77,
+      "mean_ulp": 0.0309,
+      "median_ulp": 0.0367,
+      "n_total": 20001,
+      "n_used": 13613,
+      "floor_abs_result": 0.5,
+      "bits_sha": "32d9e3252c814cb0"
+    }
+  },
+  "sum_norm_f32_bits": {
+    "sum": "c6e973c3",
+    "norm": "ddad7f43",
+    "sum_dim0_4096x16": "c7e973c3"
+  },
+  "linspace_logspace_low_precision": {
+    "float16": {
+      "linspace": [
+        0.0,
+        0.0625,
+        0.125,
+        0.1875,
+        0.25,
+        0.3125,
+        0.375,
+        0.4375,
+        0.5,
+        0.5625,
+        0.625,
+        0.6875,
+        0.75,
+        0.8125,
+        0.875,
+        0.9375,
+        1.0
+      ],
+      "logspace": [
+        1.0,
+        1.7783,
+        3.1621,
+        5.625,
+        10.0,
+        17.7812,
+        31.625,
+        56.2188,
+        100.0,
+        177.875,
+        316.25,
+        562.5,
+        1000.0
+      ]
+    },
+    "bfloat16": {
+      "linspace": [
+        0.0,
+        0.0625,
+        0.125,
+        0.1875,
+        0.25,
+        0.3125,
+        0.375,
+        0.4375,
+        0.5,
+        0.5625,
+        0.625,
+        0.6875,
+        0.75,
+        0.8125,
+        0.875,
+        0.9375,
+        1.0
+      ],
+      "logspace": [
+        1.0,
+        1.7812,
+        3.1562,
+        5.625,
+        10.0,
+        17.75,
+        31.625,
+        56.25,
+        100.0,
+        178.0,
+        316.0,
+        564.0,
+        1000.0
+      ]
+    }
+  }
+}

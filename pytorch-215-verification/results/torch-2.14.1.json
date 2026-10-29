@@ -1,0 +1,154 @@
+{
+  "env": {
+    "torch": "2.14.1",
+    "python": "3.14.6",
+    "mps_available": true
+  },
+  "reload_torch": "RuntimeError: Only a single TORCH_LIBRARY can be used to register the namespace triton; please put all of your definitions in a single TORCH_LIBRARY block.  If you were tryin",
+  "complex_order_ops": {
+    "sort": "RuntimeError:  Sort does not support complex dtypes on CPU",
+    "argsort": "RuntimeError:  Sort does not support complex dtypes on CPU",
+    "topk": "RuntimeError:  topk does not support complex dtypes on CPU",
+    "argmax": "RuntimeError: argmax(): does not support complex input",
+    "argmin": "RuntimeError: argmin(): does not support complex input"
+  },
+  "split_unbind_grad_fn": {
+    "split": "SplitBackward0",
+    "split_with_sizes": "SplitWithSizesBackward0",
+    "unbind": "UnbindBackward0",
+    "split_functionalized": "SplitBackward0",
+    "unbind_functionalized": "UnbindBackward0"
+  },
+  "optimizer_bare_set": "no warning",
+  "weights_only_nested_tensor": "no error",
+  "new_apis": {
+    "torch.foreach": "missing",
+    "torch.optim.functional": "missing",
+    "torch.mps.Stream": "missing",
+    "torch.mps.current_stream": "missing",
+    "torch.mps.default_stream": "missing",
+    "torch.mps.set_stream": "missing",
+    "torch.compiler.precompile": "_PrecompileApi"
+  },
+  "precompile_members": {
+    "type": "_PrecompileApi",
+    "has_capture": false,
+    "has_load": true
+  },
+  "pipelining_rename": "neither name found in torch.distributed.pipelining",
+  "profiler_metadata_json": {
+    "on_class": {
+      "metadata_json": true,
+      "metadata": false,
+      "event_metadata": false
+    },
+    "on_instance": {
+      "metadata_json": true,
+      "metadata": true,
+      "event_metadata": true
+    }
+  },
+  "sin_cos_f32_ulp": {
+    "input": "linspace(-20, 20, 20001) rounded to float32",
+    "reference": "the same float32 inputs evaluated in float64",
+    "sin": {
+      "statistic_quoted": "max",
+      "max_ulp": 0.7098,
+      "mean_ulp": 0.0,
+      "median_ulp": 0.0,
+      "n_total": 20001,
+      "n_used": 13194,
+      "floor_abs_result": 0.5,
+      "bits_sha": "7e4de91a766b5749"
+    },
+    "cos": {
+      "statistic_quoted": "max",
+      "max_ulp": 0.6707,
+      "mean_ulp": 0.0175,
+      "median_ulp": 0.0331,
+      "n_total": 20001,
+      "n_used": 13613,
+      "floor_abs_result": 0.5,
+      "bits_sha": "f9daed17ff4a8e42"
+    }
+  },
+  "sum_norm_f32_bits": {
+    "sum": "c9e973c3",
+    "norm": "e2ad7f43",
+    "sum_dim0_4096x16": "c8e973c3"
+  },
+  "linspace_logspace_low_precision": {
+    "float16": {
+      "linspace": [
+        0.0,
+        0.0625,
+        0.125,
+        0.1875,
+        0.25,
+        0.3125,
+        0.375,
+        0.4375,
+        0.5,
+        0.5625,
+        0.625,
+        0.6875,
+        0.75,
+        0.8125,
+        0.875,
+        0.9375,
+        1.0
+      ],
+      "logspace": [
+        1.0,
+        1.7783,
+        3.1621,
+        5.625,
+        10.0,
+        17.7812,
+        31.625,
+        56.2188,
+        100.0,
+        177.875,
+        316.25,
+        562.5,
+        1000.0
+      ]
+    },
+    "bfloat16": {
+      "linspace": [
+        0.0,
+        0.0625,
+        0.125,
+        0.1875,
+        0.25,
+        0.3125,
+        0.375,
+        0.4375,
+        0.5,
+        0.5625,
+        0.625,
+        0.6875,
+        0.75,
+        0.8125,
+        0.875,
+        0.9375,
+        1.0
+      ],
+      "logspace": [
+        1.0,
+        1.7812,
+        3.1562,
+        5.625,
+        10.0,
+        17.75,
+        31.625,
+        56.25,
+        100.0,
+        178.0,
+        316.0,
+        564.0,
+        1000.0
+      ]
+    }
+  }
+}
