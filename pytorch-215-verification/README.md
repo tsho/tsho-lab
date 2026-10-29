@@ -5,12 +5,23 @@ Runs PyTorch 2.15.0's release-note claims against the actual wheels, on both
 check records what the build *did*, so the comparison shows the change rather
 than asserting it.
 
-Host: Apple Silicon (arm64) macOS, `python3.14`, CPU and MPS. That makes the
-AArch64 numerical items directly observable. CUDA, ROCm, XPU and
-distributed-backend claims are **out of scope** and are not checked here.
+Two hosts:
+
+- **arm64 macOS**, `python3.14`, CPU and MPS — makes the AArch64 numerical items
+  directly observable (`verify.py`).
+- **2x NVIDIA L4 on GCP**, driver 580.178.04, `python3.12` — the CUDA and
+  distributed items (`gpu_verify.py`, `dist_verify.py`).
+
+Both torch builds on the GPU host are **cu132**, the only CUDA build published
+for 2.14.1 and 2.15.0 alike, so the comparison is not confounded by a CUDA
+version change. The driver reports CUDA 13.0 and runs the cu132 wheels through
+CUDA minor-version compatibility. ROCm and XPU claims are out of scope.
 
 ```bash
-./run.sh                    # 2.14.1 vs 2.15.0
+./run.sh                    # CPU/arm64: 2.14.1 vs 2.15.0
+./setup_gpu.sh              # GPU host: build both cu132 venvs
+~/pt2150/bin/python gpu_verify.py > results/gpu-torch-2.15.0.json
+~/pt2150/bin/torchrun --nproc_per_node=2 dist_verify.py --out results/dist-torch-2.15.0.json
 OLD=2.13.0 ./run.sh         # different baseline
 python3 compare.py results/torch-2.14.1.json results/torch-2.15.0.json
 ```
@@ -60,7 +71,41 @@ Float32 reduction order changed on NEON as well, over `randn(65536)` with
 | `norm()` | 255.679230 | 255.679153 | 5 ULP (3.0e-07 relative) |
 | `view(4096,16).sum(0).sum()` | -243.913208 | -243.913193 | 1 ULP |
 
-## Claims this host could not confirm
+## CUDA and distributed (2x L4, cu132)
+
+| Check | 2.14.1 | 2.15.0 |
+|---|---|---|
+| `torch.histc(x, out=)` with a different `out` dtype | no error | `RuntimeError: torch.histogram: input tensor and hist tensor should have the same dtype, but got input float and hist double` |
+| `libtorch_cuda.so` links `libcurand` | yes (`libcurand.so.10`) | **no** |
+| `torch.cuda.graph_annotations` members | `clear_kernel_annotations`, `get_kernel_annotations`, `is_available`, `mark_kernels` | adds `dump_kernel_py_stacks`, `get_kernel_py_stacks` |
+| `all_gather(async_op=True).get_future().wait()` | `[tensor(2, 4)]` — one stacked tensor | **`[tensor(4), tensor(4)]`** — one per rank |
+| `all_reduce` on a tensor belonging to another rank's device | **no error** | `RuntimeError: Expected tensor on cuda:0 but found tensor on cuda:1` |
+
+The `all_gather` change is the one most likely to break working code silently:
+anything that took `wait()[0]` and treated it as the stacked result now gets
+rank 0's slice instead.
+
+The cross-device result deserves a caveat. Run on its own, 2.14.1 accepted the
+wrong-device tensor and returned without error in 6 seconds. Run as part of the
+full check sequence, the same 2.14.1 job hung and had to be killed, while 2.15.0
+raised immediately. So "no error" there is not the same as "harmless"; the exact
+trigger for the hang was not isolated.
+
+## Claims that did not reproduce on CUDA
+
+- **`linspace`/`logspace` precision for float16/bfloat16.** Identical output on
+  CPU *and* on CUDA in both versions, for float16, bfloat16 and float32.
+- **cuBLAS/cuBLASLt workspaces moving from cached to per-operation.** Reserved
+  memory around repeated 2048x2048 matmuls was 70.0 MiB in both versions, and
+  peak allocation matched to 0.01 MiB.
+- **MAGMA deprecated for pivoted LU in favour of cuSOLVER.** `lu_factor` on a
+  256x256 float64 matrix gave bit-identical factors, pivots and reconstruction
+  error in both.
+- **The rewritten NCCL backend becoming the default.** `get_backend()` returns
+  `nccl` and `torch.cuda.nccl.version()` is 2.30.7 in both; `nccl-legacy` also
+  resolves in **both**, so the name alone does not distinguish them.
+
+## Claims the CPU host could not confirm
 
 Reported as-is rather than dropped, since "not observed" is a result:
 
@@ -78,7 +123,10 @@ Reported as-is rather than dropped, since "not observed" is a result:
 
 | File | Purpose |
 |---|---|
-| `verify.py` | the checks; prints one JSON document |
+| `verify.py` | CPU/arm64 checks; prints one JSON document |
+| `gpu_verify.py` | single-GPU CUDA checks |
+| `dist_verify.py` | two-GPU distributed checks (`--skip`/`--only` to isolate one) |
+| `setup_gpu.sh` | builds both cu132 venvs on a CUDA host |
 | `compare.py` | diffs two result files |
 | `run.sh` | builds a venv per version, runs both, diffs |
 | `results/` | raw output per version |
