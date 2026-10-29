@@ -1,0 +1,14 @@
+{
+  "env": {
+    "torch": "2.14.1+cu132",
+    "python": "3.12.16",
+    "cuda_runtime": "13.2",
+    "world_size": 2,
+    "nccl_version": "2.30.7",
+    "backend": "nccl"
+  },
+  "backend_registry": "skipped",
+  "all_gather_future_shape": "skipped",
+  "cross_device_tensor": "no error",
+  "fsdp2_reduce_dtype_none": "skipped"
+}

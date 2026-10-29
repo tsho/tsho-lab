@@ -1,0 +1,172 @@
+{
+  "env": {
+    "torch": "2.14.1+cu132",
+    "python": "3.12.16",
+    "cuda_runtime": "13.2",
+    "device_count": 2,
+    "device_name": "NVIDIA L4",
+    "capability": [
+      8,
+      9
+    ],
+    "driver_cuda": [
+      "580.178.04"
+    ]
+  },
+  "linspace_logspace_cuda": {
+    "float16": {
+      "linspace": [
+        0.0,
+        0.0625,
+        0.125,
+        0.1875,
+        0.25,
+        0.3125,
+        0.375,
+        0.4375,
+        0.5,
+        0.5625,
+        0.625,
+        0.6875,
+        0.75,
+        0.8125,
+        0.875,
+        0.9375,
+        1.0
+      ],
+      "logspace": [
+        1.0,
+        1.7783203125,
+        3.162109375,
+        5.625,
+        10.0,
+        17.78125,
+        31.625,
+        56.21875,
+        100.0,
+        177.875,
+        316.25,
+        562.5,
+        1000.0
+      ],
+      "linspace_abs_err_sum": 0.0
+    },
+    "bfloat16": {
+      "linspace": [
+        0.0,
+        0.0625,
+        0.125,
+        0.1875,
+        0.25,
+        0.3125,
+        0.375,
+        0.4375,
+        0.5,
+        0.5625,
+        0.625,
+        0.6875,
+        0.75,
+        0.8125,
+        0.875,
+        0.9375,
+        1.0
+      ],
+      "logspace": [
+        1.0,
+        1.78125,
+        3.15625,
+        5.625,
+        10.0,
+        17.75,
+        31.625,
+        56.25,
+        100.0,
+        178.0,
+        316.0,
+        564.0,
+        1000.0
+      ],
+      "linspace_abs_err_sum": 0.0
+    },
+    "float32": {
+      "linspace": [
+        0.0,
+        0.0625,
+        0.125,
+        0.1875,
+        0.25,
+        0.3125,
+        0.375,
+        0.4375,
+        0.5,
+        0.5625,
+        0.625,
+        0.6875,
+        0.75,
+        0.8125,
+        0.875,
+        0.9375,
+        1.0
+      ],
+      "logspace": [
+        1.0,
+        1.778279423713684,
+        3.1622776985168457,
+        5.6234130859375,
+        10.0,
+        17.782794952392578,
+        31.62277603149414,
+        56.234130859375,
+        100.0,
+        177.82794189453125,
+        316.2277526855469,
+        562.34130859375,
+        1000.0
+      ],
+      "linspace_abs_err_sum": 0.0
+    }
+  },
+  "histc_out_dtype": {
+    "mismatched_out_dtype": "no error",
+    "matching_out_dtype": "no error"
+  },
+  "cublas_workspace_memory": {
+    "reserved_base_mib": 0.0,
+    "reserved_after_tensors_mib": 32.0,
+    "reserved_after_matmuls_mib": 70.0,
+    "workspace_growth_mib": 38.0,
+    "peak_allocated_mib": 56.13
+  },
+  "lu_factor_backend": {
+    "reconstruction_max_abs_err": 1.3100631690576847e-14,
+    "lu_checksum": 109505.6308984408,
+    "pivots_checksum": 48587,
+    "preferred_linalg_library": "_LinalgBackend.Default"
+  },
+  "graph_annotations_api": {
+    "has_clear_kernel_annotations": true,
+    "members": [
+      "clear_kernel_annotations",
+      "get_kernel_annotations",
+      "is_available",
+      "mark_kernels"
+    ]
+  },
+  "curand_dependency": {
+    "links_curand": true,
+    "cuda_libs": [
+      "libcublas.so.13",
+      "libcublasLt.so.13",
+      "libcudart.so.13",
+      "libcudnn.so.9",
+      "libcufft.so.12",
+      "libcufile.so.0",
+      "libcupti.so.13",
+      "libcurand.so.10",
+      "libcusparse.so.12",
+      "libcusparseLt.so.0",
+      "libnvrtc.so.13",
+      "libnvshmem_host.so.3"
+    ]
+  }
+}
