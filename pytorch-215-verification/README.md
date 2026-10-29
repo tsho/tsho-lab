@@ -104,6 +104,12 @@ trigger for the hang was not isolated.
 - **The rewritten NCCL backend becoming the default.** `get_backend()` returns
   `nccl` and `torch.cuda.nccl.version()` is 2.30.7 in both; `nccl-legacy` also
   resolves in **both**, so the name alone does not distinguish them.
+- **FSDP2 gradients moving to `grad_dtype` under `reduce_dtype=None`.** With
+  fp32 parameters and `param_dtype=bfloat16`, gradients came back `float32` in
+  both versions. The test probably cannot separate the two: `grad_dtype`
+  defaults to the parameter's dtype, which is already fp32 here, so old and new
+  behaviour coincide. A case where `grad_dtype` differs from the parameter dtype
+  would be needed.
 
 ## Claims the CPU host could not confirm
 
@@ -116,8 +122,6 @@ Reported as-is rather than dropped, since "not observed" is a result:
 - **`pipeline_per_direction_p2p` renamed to `pipeline_per_edge_p2p`.** Neither
   name is exported anywhere under `torch.distributed.pipelining` in either
   version.
-- **`linspace`/`logspace` precision for float16/bfloat16.** Identical outputs
-  on CPU in both versions; the improvement may be CUDA-only.
 
 ## Files
 
