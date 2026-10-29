@@ -1,5 +1,9 @@
 # pytorch-215-verification
 
+Write-up:
+- [What Breaks in PyTorch 2.15? all_gather and Complex Ops Measured Against 2.14.1](https://implicit-none.com/en/pytorch-215-release-notes/) (EN)
+- [JA version](https://implicit-none.com/ja/pytorch-215-release-notes/)
+
 Runs PyTorch 2.15.0's release-note claims against the actual wheels, on both
 2.14.1 and 2.15.0, and diffs the results. Nothing here is taken on trust: each
 check records what the build *did*, so the comparison shows the change rather
