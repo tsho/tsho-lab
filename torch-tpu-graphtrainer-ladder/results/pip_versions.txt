@@ -1,0 +1,7 @@
+libtpu                                   0.0.50
+numpy                                    2.5.4
+tokamax                                  0.0.14
+torch                                    2.15.0+cpu
+torch_tpu                                0.2.0
+transformers                             5.21.0
+tyro                                     1.0.16

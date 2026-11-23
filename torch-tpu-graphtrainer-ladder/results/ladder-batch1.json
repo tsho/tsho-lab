@@ -1,0 +1,54 @@
+{
+  "rung1_eager": {
+    "steps_used": 20,
+    "step_ms": 320.0,
+    "tps_per_chip": 6387,
+    "tps_total": 25548,
+    "mfu_pct": 5.72,
+    "tflops_per_chip": 52.5,
+    "mem_gib": 0.98,
+    "mem_pct": 3.06,
+    "final_loss": 3.36387,
+    "final_grad_norm": 2.1189,
+    "speedup_vs_eager": 1.0
+  },
+  "rung2_compile": {
+    "steps_used": 20,
+    "step_ms": 200.0,
+    "tps_per_chip": 10339,
+    "tps_total": 41356,
+    "mfu_pct": 9.25,
+    "tflops_per_chip": 85.0,
+    "mem_gib": 0.98,
+    "mem_pct": 3.06,
+    "final_loss": 3.36297,
+    "final_grad_norm": 2.1048,
+    "speedup_vs_eager": 1.619
+  },
+  "rung3_graph": {
+    "steps_used": 20,
+    "step_ms": 190.0,
+    "tps_per_chip": 10584,
+    "tps_total": 42336,
+    "mfu_pct": 9.48,
+    "tflops_per_chip": 87.0,
+    "mem_gib": 13.4,
+    "mem_pct": 41.89,
+    "final_loss": 3.36403,
+    "final_grad_norm": 2.0916,
+    "speedup_vs_eager": 1.657
+  },
+  "rung4_optim": {
+    "steps_used": 20,
+    "step_ms": 160.0,
+    "tps_per_chip": 13131,
+    "tps_total": 52524,
+    "mfu_pct": 11.76,
+    "tflops_per_chip": 107.94,
+    "mem_gib": 13.42,
+    "mem_pct": 41.94,
+    "final_loss": 3.36379,
+    "final_grad_norm": 0.0,
+    "speedup_vs_eager": 2.056
+  }
+}
