@@ -1,0 +1,20 @@
+{
+  "b4_rung1_eager": {
+    "tps_per_chip": 11019,
+    "mfu_pct": 9.87,
+    "step_ms": 740.0,
+    "mem_gib": 3.91
+  },
+  "b4_rung2_compile": {
+    "tps_per_chip": 15369,
+    "mfu_pct": 13.76,
+    "step_ms": 530.0,
+    "mem_gib": 3.91
+  },
+  "b4_rung4_optim": {
+    "tps_per_chip": 19395,
+    "mfu_pct": 17.37,
+    "step_ms": 420.0,
+    "mem_gib": 19.69
+  }
+}

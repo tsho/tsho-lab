@@ -1,0 +1,124 @@
+I1027 11:23:14.848710 132081682308224 trainer.py:621] Peak FLOPS used for computing MFU: 9.180e+14
+I1027 11:23:14.849249 140325157100672 trainer.py:621] Peak FLOPS used for computing MFU: 9.180e+14
+I1027 11:23:14.849825 124413076839552 trainer.py:621] Peak FLOPS used for computing MFU: 9.180e+14
+I1027 11:23:36.620685 140325157100672 metrics.py:540] step:  1  loss: 12.21991  grad_norm: 13.8059  memory: 13.40GiB(41.89%)  tps: 91  tflops: 0.75  mfu: 0.08%  time_end_to_end: 22.48s
+I1027 11:23:36.620794 132081682308224 metrics.py:540] step:  1  loss: 12.21991  grad_norm: 13.8059  memory: 13.40GiB(41.89%)  tps: 91  tflops: 0.75  mfu: 0.08%  time_end_to_end: 22.48s
+I1027 11:23:36.620807 124413076839552 metrics.py:540] step:  1  loss: 12.21991  grad_norm: 13.8059  memory: 13.40GiB(41.89%)  tps: 91  tflops: 0.75  mfu: 0.08%  time_end_to_end: 22.48s
+I1027 11:23:36.815572 124413076839552 metrics.py:540] step:  2  loss:  9.61953  grad_norm: 28.2622  memory: 13.40GiB(41.89%)  tps: 10,533  tflops: 86.58  mfu: 9.43%  time_end_to_end: 0.19s
+I1027 11:23:36.815628 140325157100672 metrics.py:540] step:  2  loss:  9.61953  grad_norm: 28.2622  memory: 13.40GiB(41.89%)  tps: 10,523  tflops: 86.50  mfu: 9.42%  time_end_to_end: 0.19s
+I1027 11:23:36.815637 132081682308224 metrics.py:540] step:  2  loss:  9.61953  grad_norm: 28.2622  memory: 13.40GiB(41.89%)  tps: 10,527  tflops: 86.54  mfu: 9.43%  time_end_to_end: 0.19s
+I1027 11:23:37.003876 140325157100672 metrics.py:540] step:  3  loss: 11.44751  grad_norm: 31.1686  memory: 13.40GiB(41.89%)  tps: 10,896  tflops: 89.56  mfu: 9.76%  time_end_to_end: 0.19s
+I1027 11:23:37.003929 124413076839552 metrics.py:540] step:  3  loss: 11.44751  grad_norm: 31.1686  memory: 13.40GiB(41.89%)  tps: 10,890  tflops: 89.52  mfu: 9.75%  time_end_to_end: 0.19s
+I1027 11:23:37.003941 132081682308224 metrics.py:540] step:  3  loss: 11.44751  grad_norm: 31.1686  memory: 13.40GiB(41.89%)  tps: 10,892  tflops: 89.54  mfu: 9.75%  time_end_to_end: 0.19s
+I1027 11:23:37.193193 140325157100672 metrics.py:540] step:  4  loss: 11.24620  grad_norm: 25.0668  memory: 13.40GiB(41.89%)  tps: 10,835  tflops: 89.07  mfu: 9.70%  time_end_to_end: 0.19s
+I1027 11:23:37.193263 132081682308224 metrics.py:540] step:  4  loss: 11.24620  grad_norm: 25.0668  memory: 13.40GiB(41.89%)  tps: 10,833  tflops: 89.05  mfu: 9.70%  time_end_to_end: 0.19s
+I1027 11:23:37.193276 124413076839552 metrics.py:540] step:  4  loss: 11.24620  grad_norm: 25.0668  memory: 13.40GiB(41.89%)  tps: 10,833  tflops: 89.05  mfu: 9.70%  time_end_to_end: 0.19s
+I1027 11:23:37.383324 140325157100672 metrics.py:540] step:  5  loss:  9.07367  grad_norm: 20.1835  memory: 13.40GiB(41.89%)  tps: 10,788  tflops: 88.68  mfu: 9.66%  time_end_to_end: 0.19s
+I1027 11:23:37.383377 132081682308224 metrics.py:540] step:  5  loss:  9.07367  grad_norm: 20.1835  memory: 13.40GiB(41.89%)  tps: 10,789  tflops: 88.69  mfu: 9.66%  time_end_to_end: 0.19s
+I1027 11:23:37.383397 124413076839552 metrics.py:540] step:  5  loss:  9.07367  grad_norm: 20.1835  memory: 13.40GiB(41.89%)  tps: 10,789  tflops: 88.69  mfu: 9.66%  time_end_to_end: 0.19s
+I1027 11:23:37.575236 140325157100672 metrics.py:540] step:  6  loss:  7.90978  grad_norm: 20.1725  memory: 13.40GiB(41.89%)  tps: 10,688  tflops: 87.86  mfu: 9.57%  time_end_to_end: 0.19s
+I1027 11:23:37.575248 124413076839552 metrics.py:540] step:  6  loss:  7.90978  grad_norm: 20.1725  memory: 13.40GiB(41.89%)  tps: 10,692  tflops: 87.89  mfu: 9.57%  time_end_to_end: 0.19s
+I1027 11:23:37.575295 132081682308224 metrics.py:540] step:  6  loss:  7.90978  grad_norm: 20.1725  memory: 13.40GiB(41.89%)  tps: 10,688  tflops: 87.86  mfu: 9.57%  time_end_to_end: 0.19s
+I1027 11:23:37.763601 140325157100672 metrics.py:540] step:  7  loss:  6.69386  grad_norm: 15.8333  memory: 13.40GiB(41.89%)  tps: 10,891  tflops: 89.52  mfu: 9.75%  time_end_to_end: 0.19s
+I1027 11:23:37.763682 132081682308224 metrics.py:540] step:  7  loss:  6.69386  grad_norm: 15.8333  memory: 13.40GiB(41.89%)  tps: 10,888  tflops: 89.50  mfu: 9.75%  time_end_to_end: 0.19s
+I1027 11:23:37.763873 124413076839552 metrics.py:540] step:  7  loss:  6.69386  grad_norm: 15.8333  memory: 13.40GiB(41.89%)  tps: 10,886  tflops: 89.49  mfu: 9.75%  time_end_to_end: 0.19s
+I1027 11:23:37.952192 140325157100672 metrics.py:540] step:  8  loss:  5.52320  grad_norm: 14.7353  memory: 13.40GiB(41.89%)  tps: 10,877  tflops: 89.41  mfu: 9.74%  time_end_to_end: 0.19s
+I1027 11:23:37.952237 132081682308224 metrics.py:540] step:  8  loss:  5.52320  grad_norm: 14.7353  memory: 13.40GiB(41.89%)  tps: 10,879  tflops: 89.42  mfu: 9.74%  time_end_to_end: 0.19s
+I1027 11:23:37.952260 124413076839552 metrics.py:540] step:  8  loss:  5.52320  grad_norm: 14.7353  memory: 13.40GiB(41.89%)  tps: 10,888  tflops: 89.50  mfu: 9.75%  time_end_to_end: 0.19s
+I1027 11:23:38.140455 140325157100672 metrics.py:540] step:  9  loss:  4.30197  grad_norm:  9.8383  memory: 13.40GiB(41.89%)  tps: 10,897  tflops: 89.57  mfu: 9.76%  time_end_to_end: 0.19s
+I1027 11:23:38.140476 132081682308224 metrics.py:540] step:  9  loss:  4.30197  grad_norm:  9.8383  memory: 13.40GiB(41.89%)  tps: 10,897  tflops: 89.58  mfu: 9.76%  time_end_to_end: 0.19s
+I1027 11:23:38.140661 124413076839552 metrics.py:540] step:  9  loss:  4.30197  grad_norm:  9.8383  memory: 13.40GiB(41.89%)  tps: 10,896  tflops: 89.57  mfu: 9.76%  time_end_to_end: 0.19s
+I1027 11:23:38.332035 140325157100672 metrics.py:540] step: 10  loss:  4.64062  grad_norm: 29.9712  memory: 13.40GiB(41.89%)  tps: 10,708  tflops: 88.02  mfu: 9.59%  time_end_to_end: 0.19s
+I1027 11:23:38.332088 132081682308224 metrics.py:540] step: 10  loss:  4.64062  grad_norm: 29.9712  memory: 13.40GiB(41.89%)  tps: 10,705  tflops: 88.00  mfu: 9.59%  time_end_to_end: 0.19s
+I1027 11:23:38.332112 124413076839552 metrics.py:540] step: 10  loss:  4.64062  grad_norm: 29.9712  memory: 13.40GiB(41.89%)  tps: 10,714  tflops: 88.07  mfu: 9.59%  time_end_to_end: 0.19s
+I1027 11:23:38.526584 132081682308224 metrics.py:540] step: 11  loss:  4.16650  grad_norm: 15.3482  memory: 13.40GiB(41.89%)  tps: 10,546  tflops: 86.69  mfu: 9.44%  time_end_to_end: 0.19s
+I1027 11:23:38.526585 140325157100672 metrics.py:540] step: 11  loss:  4.16650  grad_norm: 15.3482  memory: 13.40GiB(41.89%)  tps: 10,544  tflops: 86.67  mfu: 9.44%  time_end_to_end: 0.19s
+I1027 11:23:38.526599 124413076839552 metrics.py:540] step: 11  loss:  4.16650  grad_norm: 15.3482  memory: 13.40GiB(41.89%)  tps: 10,547  tflops: 86.70  mfu: 9.44%  time_end_to_end: 0.19s
+I1027 11:23:38.715056 140325157100672 metrics.py:540] step: 12  loss:  4.51808  grad_norm: 18.1345  memory: 13.40GiB(41.89%)  tps: 10,884  tflops: 89.47  mfu: 9.75%  time_end_to_end: 0.19s
+I1027 11:23:38.715064 132081682308224 metrics.py:540] step: 12  loss:  4.51808  grad_norm: 18.1345  memory: 13.40GiB(41.89%)  tps: 10,883  tflops: 89.46  mfu: 9.75%  time_end_to_end: 0.19s
+I1027 11:23:38.715078 124413076839552 metrics.py:540] step: 12  loss:  4.51808  grad_norm: 18.1345  memory: 13.40GiB(41.89%)  tps: 10,884  tflops: 89.47  mfu: 9.75%  time_end_to_end: 0.19s
+I1027 11:23:38.906954 132081682308224 metrics.py:540] step: 13  loss:  4.15975  grad_norm: 11.1522  memory: 13.40GiB(41.89%)  tps: 10,690  tflops: 87.87  mfu: 9.57%  time_end_to_end: 0.19s
+I1027 11:23:38.906984 140325157100672 metrics.py:540] step: 13  loss:  4.15975  grad_norm: 11.1522  memory: 13.40GiB(41.89%)  tps: 10,687  tflops: 87.85  mfu: 9.57%  time_end_to_end: 0.19s
+I1027 11:23:38.907202 124413076839552 metrics.py:540] step: 13  loss:  4.15975  grad_norm: 11.1522  memory: 13.40GiB(41.89%)  tps: 10,687  tflops: 87.85  mfu: 9.57%  time_end_to_end: 0.19s
+I1027 11:23:39.101146 132081682308224 metrics.py:540] step: 14  loss:  3.95114  grad_norm:  9.4220  memory: 13.40GiB(41.89%)  tps: 10,563  tflops: 86.83  mfu: 9.46%  time_end_to_end: 0.19s
+I1027 11:23:39.101148 140325157100672 metrics.py:540] step: 14  loss:  3.95114  grad_norm:  9.4220  memory: 13.40GiB(41.89%)  tps: 10,564  tflops: 86.83  mfu: 9.46%  time_end_to_end: 0.19s
+I1027 11:23:39.101160 124413076839552 metrics.py:540] step: 14  loss:  3.95114  grad_norm:  9.4220  memory: 13.40GiB(41.89%)  tps: 10,575  tflops: 86.93  mfu: 9.47%  time_end_to_end: 0.19s
+I1027 11:23:39.295059 140325157100672 metrics.py:540] step: 15  loss:  3.72270  grad_norm:  8.3006  memory: 13.40GiB(41.89%)  tps: 10,578  tflops: 86.95  mfu: 9.47%  time_end_to_end: 0.19s
+I1027 11:23:39.295075 124413076839552 metrics.py:540] step: 15  loss:  3.72270  grad_norm:  8.3006  memory: 13.40GiB(41.89%)  tps: 10,584  tflops: 87.01  mfu: 9.48%  time_end_to_end: 0.19s
+I1027 11:23:39.295096 132081682308224 metrics.py:540] step: 15  loss:  3.72270  grad_norm:  8.3006  memory: 13.40GiB(41.89%)  tps: 10,575  tflops: 86.93  mfu: 9.47%  time_end_to_end: 0.19s
+I1027 11:23:39.488916 140325157100672 metrics.py:540] step: 16  loss:  3.56098  grad_norm:  7.4335  memory: 13.40GiB(41.89%)  tps: 10,582  tflops: 86.98  mfu: 9.48%  time_end_to_end: 0.19s
+I1027 11:23:39.488924 132081682308224 metrics.py:540] step: 16  loss:  3.56098  grad_norm:  7.4335  memory: 13.40GiB(41.89%)  tps: 10,583  tflops: 86.99  mfu: 9.48%  time_end_to_end: 0.19s
+I1027 11:23:39.489078 124413076839552 metrics.py:540] step: 16  loss:  3.56098  grad_norm:  7.4335  memory: 13.40GiB(41.89%)  tps: 10,582  tflops: 86.98  mfu: 9.48%  time_end_to_end: 0.19s
+I1027 11:23:39.683594 140325157100672 metrics.py:540] step: 17  loss:  3.41562  grad_norm:  5.7994  memory: 13.40GiB(41.89%)  tps: 10,537  tflops: 86.62  mfu: 9.44%  time_end_to_end: 0.19s
+I1027 11:23:39.683650 132081682308224 metrics.py:540] step: 17  loss:  3.41562  grad_norm:  5.7994  memory: 13.40GiB(41.89%)  tps: 10,534  tflops: 86.59  mfu: 9.43%  time_end_to_end: 0.19s
+I1027 11:23:39.683773 124413076839552 metrics.py:540] step: 17  loss:  3.41562  grad_norm:  5.7994  memory: 13.40GiB(41.89%)  tps: 10,543  tflops: 86.67  mfu: 9.44%  time_end_to_end: 0.19s
+I1027 11:23:39.875879 140325157100672 metrics.py:540] step: 18  loss:  3.44335  grad_norm:  9.1411  memory: 13.40GiB(41.89%)  tps: 10,667  tflops: 87.69  mfu: 9.55%  time_end_to_end: 0.19s
+I1027 11:23:39.875899 132081682308224 metrics.py:540] step: 18  loss:  3.44335  grad_norm:  9.1411  memory: 13.40GiB(41.89%)  tps: 10,669  tflops: 87.70  mfu: 9.55%  time_end_to_end: 0.19s
+I1027 11:23:39.875900 124413076839552 metrics.py:540] step: 18  loss:  3.44335  grad_norm:  9.1411  memory: 13.40GiB(41.89%)  tps: 10,677  tflops: 87.76  mfu: 9.56%  time_end_to_end: 0.19s
+I1027 11:23:40.069437 140325157100672 metrics.py:540] step: 19  loss:  3.43717  grad_norm:  8.7575  memory: 13.40GiB(41.89%)  tps: 10,598  tflops: 87.12  mfu: 9.49%  time_end_to_end: 0.19s
+I1027 11:23:40.069443 132081682308224 metrics.py:540] step: 19  loss:  3.43717  grad_norm:  8.7575  memory: 13.40GiB(41.89%)  tps: 10,598  tflops: 87.12  mfu: 9.49%  time_end_to_end: 0.19s
+I1027 11:23:40.069454 124413076839552 metrics.py:540] step: 19  loss:  3.43717  grad_norm:  8.7575  memory: 13.40GiB(41.89%)  tps: 10,606  tflops: 87.19  mfu: 9.50%  time_end_to_end: 0.19s
+I1027 11:23:40.268211 132081682308224 metrics.py:540] step: 20  loss:  3.34178  grad_norm:  6.0761  memory: 13.40GiB(41.89%)  tps: 10,320  tflops: 84.83  mfu: 9.24%  time_end_to_end: 0.20s
+I1027 11:23:40.268212 140325157100672 metrics.py:540] step: 20  loss:  3.34178  grad_norm:  6.0761  memory: 13.40GiB(41.89%)  tps: 10,320  tflops: 84.83  mfu: 9.24%  time_end_to_end: 0.20s
+I1027 11:23:40.268228 124413076839552 metrics.py:540] step: 20  loss:  3.34178  grad_norm:  6.0761  memory: 13.40GiB(41.89%)  tps: 10,320  tflops: 84.83  mfu: 9.24%  time_end_to_end: 0.20s
+I1027 11:23:40.463873 140325157100672 metrics.py:540] step: 21  loss:  3.21034  grad_norm:  5.3134  memory: 13.40GiB(41.89%)  tps: 10,483  tflops: 86.17  mfu: 9.39%  time_end_to_end: 0.20s
+I1027 11:23:40.463879 132081682308224 metrics.py:540] step: 21  loss:  3.21034  grad_norm:  5.3134  memory: 13.40GiB(41.89%)  tps: 10,482  tflops: 86.17  mfu: 9.39%  time_end_to_end: 0.20s
+I1027 11:23:40.464041 124413076839552 metrics.py:540] step: 21  loss:  3.21034  grad_norm:  5.3134  memory: 13.40GiB(41.89%)  tps: 10,483  tflops: 86.17  mfu: 9.39%  time_end_to_end: 0.20s
+I1027 11:23:40.667094 140325157100672 metrics.py:540] step: 22  loss:  3.35129  grad_norm:  6.0316  memory: 13.40GiB(41.89%)  tps: 10,093  tflops: 82.97  mfu: 9.04%  time_end_to_end: 0.20s
+I1027 11:23:40.667146 124413076839552 metrics.py:540] step: 22  loss:  3.35129  grad_norm:  6.0316  memory: 13.40GiB(41.89%)  tps: 10,098  tflops: 83.01  mfu: 9.04%  time_end_to_end: 0.20s
+I1027 11:23:40.667155 132081682308224 metrics.py:540] step: 22  loss:  3.35129  grad_norm:  6.0316  memory: 13.40GiB(41.89%)  tps: 10,090  tflops: 82.94  mfu: 9.04%  time_end_to_end: 0.20s
+I1027 11:23:40.858892 124413076839552 metrics.py:540] step: 23  loss:  3.30909  grad_norm:  5.1243  memory: 13.40GiB(41.89%)  tps: 10,698  tflops: 87.94  mfu: 9.58%  time_end_to_end: 0.19s
+I1027 11:23:40.858955 140325157100672 metrics.py:540] step: 23  loss:  3.30909  grad_norm:  5.1243  memory: 13.40GiB(41.89%)  tps: 10,691  tflops: 87.88  mfu: 9.57%  time_end_to_end: 0.19s
+I1027 11:23:40.858968 132081682308224 metrics.py:540] step: 23  loss:  3.30909  grad_norm:  5.1243  memory: 13.40GiB(41.89%)  tps: 10,694  tflops: 87.90  mfu: 9.58%  time_end_to_end: 0.19s
+I1027 11:23:41.055129 140325157100672 metrics.py:540] step: 24  loss:  3.40217  grad_norm:  4.1293  memory: 13.40GiB(41.89%)  tps: 10,455  tflops: 85.94  mfu: 9.36%  time_end_to_end: 0.20s
+I1027 11:23:41.055160 132081682308224 metrics.py:540] step: 24  loss:  3.40217  grad_norm:  4.1293  memory: 13.40GiB(41.89%)  tps: 10,454  tflops: 85.94  mfu: 9.36%  time_end_to_end: 0.20s
+I1027 11:23:41.055302 124413076839552 metrics.py:540] step: 24  loss:  3.40217  grad_norm:  4.1293  memory: 13.40GiB(41.89%)  tps: 10,452  tflops: 85.91  mfu: 9.36%  time_end_to_end: 0.20s
+I1027 11:23:41.247577 140325157100672 metrics.py:540] step: 25  loss:  3.48343  grad_norm:  3.5043  memory: 13.40GiB(41.89%)  tps: 10,659  tflops: 87.62  mfu: 9.54%  time_end_to_end: 0.19s
+I1027 11:23:41.247620 124413076839552 metrics.py:540] step: 25  loss:  3.48343  grad_norm:  3.5043  memory: 13.40GiB(41.89%)  tps: 10,666  tflops: 87.68  mfu: 9.55%  time_end_to_end: 0.19s
+I1027 11:23:41.247621 132081682308224 metrics.py:540] step: 25  loss:  3.48343  grad_norm:  3.5043  memory: 13.40GiB(41.89%)  tps: 10,657  tflops: 87.61  mfu: 9.54%  time_end_to_end: 0.19s
+I1027 11:23:41.440058 140325157100672 metrics.py:540] step: 26  loss:  3.35005  grad_norm:  3.0831  memory: 13.40GiB(41.89%)  tps: 10,657  tflops: 87.60  mfu: 9.54%  time_end_to_end: 0.19s
+I1027 11:23:41.440073 132081682308224 metrics.py:540] step: 26  loss:  3.35005  grad_norm:  3.0831  memory: 13.40GiB(41.89%)  tps: 10,659  tflops: 87.62  mfu: 9.54%  time_end_to_end: 0.19s
+I1027 11:23:41.440082 124413076839552 metrics.py:540] step: 26  loss:  3.35005  grad_norm:  3.0831  memory: 13.40GiB(41.89%)  tps: 10,658  tflops: 87.61  mfu: 9.54%  time_end_to_end: 0.19s
+I1027 11:23:41.635750 124413076839552 metrics.py:540] step: 27  loss:  3.24128  grad_norm:  2.8199  memory: 13.40GiB(41.89%)  tps: 10,483  tflops: 86.17  mfu: 9.39%  time_end_to_end: 0.20s
+I1027 11:23:41.635877 140325157100672 metrics.py:540] step: 27  loss:  3.24128  grad_norm:  2.8199  memory: 13.40GiB(41.89%)  tps: 10,474  tflops: 86.10  mfu: 9.38%  time_end_to_end: 0.20s
+I1027 11:23:41.635897 132081682308224 metrics.py:540] step: 27  loss:  3.24128  grad_norm:  2.8199  memory: 13.40GiB(41.89%)  tps: 10,475  tflops: 86.10  mfu: 9.38%  time_end_to_end: 0.20s
+I1027 11:23:41.828113 140325157100672 metrics.py:540] step: 28  loss:  3.34804  grad_norm:  2.5490  memory: 13.40GiB(41.89%)  tps: 10,670  tflops: 87.71  mfu: 9.55%  time_end_to_end: 0.19s
+I1027 11:23:41.828143 124413076839552 metrics.py:540] step: 28  loss:  3.34804  grad_norm:  2.5490  memory: 13.40GiB(41.89%)  tps: 10,663  tflops: 87.65  mfu: 9.55%  time_end_to_end: 0.19s
+I1027 11:23:41.828149 132081682308224 metrics.py:540] step: 28  loss:  3.34804  grad_norm:  2.5490  memory: 13.40GiB(41.89%)  tps: 10,669  tflops: 87.70  mfu: 9.55%  time_end_to_end: 0.19s
+I1027 11:23:42.021858 132081682308224 metrics.py:540] step: 29  loss:  3.44272  grad_norm:  2.3580  memory: 13.40GiB(41.89%)  tps: 10,589  tflops: 87.04  mfu: 9.48%  time_end_to_end: 0.19s
+I1027 11:23:42.021865 140325157100672 metrics.py:540] step: 29  loss:  3.44272  grad_norm:  2.3580  memory: 13.40GiB(41.89%)  tps: 10,587  tflops: 87.03  mfu: 9.48%  time_end_to_end: 0.19s
+I1027 11:23:42.021882 124413076839552 metrics.py:540] step: 29  loss:  3.44272  grad_norm:  2.3580  memory: 13.40GiB(41.89%)  tps: 10,588  tflops: 87.03  mfu: 9.48%  time_end_to_end: 0.19s
+I1027 11:23:42.215590 124413076839552 metrics.py:540] step: 30  loss:  3.36403  grad_norm:  2.0916  memory: 13.40GiB(41.89%)  tps: 10,591  tflops: 87.06  mfu: 9.48%  time_end_to_end: 0.19s
+I1027 11:23:42.215593 140325157100672 metrics.py:540] step: 30  loss:  3.36403  grad_norm:  2.0916  memory: 13.40GiB(41.89%)  tps: 10,590  tflops: 87.05  mfu: 9.48%  time_end_to_end: 0.19s
+I1027 11:23:42.215641 132081682308224 metrics.py:540] step: 30  loss:  3.36403  grad_norm:  2.0916  memory: 13.40GiB(41.89%)  tps: 10,586  tflops: 87.02  mfu: 9.48%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:14,849 - root - INFO - Peak FLOPS used for computing MFU: 9.180e+14
+[titan] 2026-10-27 11:23:36,620 - root - INFO - step:  1  loss: 12.21991  grad_norm: 13.8059  memory: 13.40GiB(41.89%)  tps: 91  tflops: 0.75  mfu: 0.08%  time_end_to_end: 22.48s
+[titan] 2026-10-27 11:23:36,815 - root - INFO - step:  2  loss:  9.61953  grad_norm: 28.2622  memory: 13.40GiB(41.89%)  tps: 10,527  tflops: 86.53  mfu: 9.43%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:37,003 - root - INFO - step:  3  loss: 11.44751  grad_norm: 31.1686  memory: 13.40GiB(41.89%)  tps: 10,894  tflops: 89.55  mfu: 9.76%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:37,193 - root - INFO - step:  4  loss: 11.24620  grad_norm: 25.0668  memory: 13.40GiB(41.89%)  tps: 10,834  tflops: 89.06  mfu: 9.70%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:37,383 - root - INFO - step:  5  loss:  9.07367  grad_norm: 20.1835  memory: 13.40GiB(41.89%)  tps: 10,785  tflops: 88.65  mfu: 9.66%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:37,575 - root - INFO - step:  6  loss:  7.90978  grad_norm: 20.1725  memory: 13.40GiB(41.89%)  tps: 10,692  tflops: 87.89  mfu: 9.57%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:37,763 - root - INFO - step:  7  loss:  6.69386  grad_norm: 15.8333  memory: 13.40GiB(41.89%)  tps: 10,889  tflops: 89.51  mfu: 9.75%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:37,952 - root - INFO - step:  8  loss:  5.52320  grad_norm: 14.7353  memory: 13.40GiB(41.89%)  tps: 10,874  tflops: 89.38  mfu: 9.74%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:38,140 - root - INFO - step:  9  loss:  4.30197  grad_norm:  9.8383  memory: 13.40GiB(41.89%)  tps: 10,895  tflops: 89.56  mfu: 9.76%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:38,332 - root - INFO - step: 10  loss:  4.64062  grad_norm: 29.9712  memory: 13.40GiB(41.89%)  tps: 10,705  tflops: 88.00  mfu: 9.59%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:38,526 - root - INFO - step: 11  loss:  4.16650  grad_norm: 15.3482  memory: 13.40GiB(41.89%)  tps: 10,549  tflops: 86.72  mfu: 9.45%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:38,715 - root - INFO - step: 12  loss:  4.51808  grad_norm: 18.1345  memory: 13.40GiB(41.89%)  tps: 10,881  tflops: 89.44  mfu: 9.74%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:38,907 - root - INFO - step: 13  loss:  4.15975  grad_norm: 11.1522  memory: 13.40GiB(41.89%)  tps: 10,686  tflops: 87.84  mfu: 9.57%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:39,101 - root - INFO - step: 14  loss:  3.95114  grad_norm:  9.4220  memory: 13.40GiB(41.89%)  tps: 10,567  tflops: 86.86  mfu: 9.46%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:39,295 - root - INFO - step: 15  loss:  3.72270  grad_norm:  8.3006  memory: 13.40GiB(41.89%)  tps: 10,573  tflops: 86.92  mfu: 9.47%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:39,488 - root - INFO - step: 16  loss:  3.56098  grad_norm:  7.4335  memory: 13.40GiB(41.89%)  tps: 10,582  tflops: 86.98  mfu: 9.48%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:39,683 - root - INFO - step: 17  loss:  3.41562  grad_norm:  5.7994  memory: 13.40GiB(41.89%)  tps: 10,539  tflops: 86.63  mfu: 9.44%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:39,875 - root - INFO - step: 18  loss:  3.44335  grad_norm:  9.1411  memory: 13.40GiB(41.89%)  tps: 10,668  tflops: 87.70  mfu: 9.55%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:40,069 - root - INFO - step: 19  loss:  3.43717  grad_norm:  8.7575  memory: 13.40GiB(41.89%)  tps: 10,595  tflops: 87.09  mfu: 9.49%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:40,268 - root - INFO - step: 20  loss:  3.34178  grad_norm:  6.0761  memory: 13.40GiB(41.89%)  tps: 10,321  tflops: 84.84  mfu: 9.24%  time_end_to_end: 0.20s
+[titan] 2026-10-27 11:23:40,463 - root - INFO - step: 21  loss:  3.21034  grad_norm:  5.3134  memory: 13.40GiB(41.89%)  tps: 10,480  tflops: 86.15  mfu: 9.38%  time_end_to_end: 0.20s
+[titan] 2026-10-27 11:23:40,667 - root - INFO - step: 22  loss:  3.35129  grad_norm:  6.0316  memory: 13.40GiB(41.89%)  tps: 10,091  tflops: 82.95  mfu: 9.04%  time_end_to_end: 0.20s
+[titan] 2026-10-27 11:23:40,858 - root - INFO - step: 23  loss:  3.30909  grad_norm:  5.1243  memory: 13.40GiB(41.89%)  tps: 10,692  tflops: 87.89  mfu: 9.57%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:41,055 - root - INFO - step: 24  loss:  3.40217  grad_norm:  4.1293  memory: 13.40GiB(41.89%)  tps: 10,457  tflops: 85.96  mfu: 9.36%  time_end_to_end: 0.20s
+[titan] 2026-10-27 11:23:41,247 - root - INFO - step: 25  loss:  3.48343  grad_norm:  3.5043  memory: 13.40GiB(41.89%)  tps: 10,656  tflops: 87.60  mfu: 9.54%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:41,440 - root - INFO - step: 26  loss:  3.35005  grad_norm:  3.0831  memory: 13.40GiB(41.89%)  tps: 10,658  tflops: 87.61  mfu: 9.54%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:41,635 - root - INFO - step: 27  loss:  3.24128  grad_norm:  2.8199  memory: 13.40GiB(41.89%)  tps: 10,474  tflops: 86.09  mfu: 9.38%  time_end_to_end: 0.20s
+[titan] 2026-10-27 11:23:41,828 - root - INFO - step: 28  loss:  3.34804  grad_norm:  2.5490  memory: 13.40GiB(41.89%)  tps: 10,666  tflops: 87.68  mfu: 9.55%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:42,021 - root - INFO - step: 29  loss:  3.44272  grad_norm:  2.3580  memory: 13.40GiB(41.89%)  tps: 10,587  tflops: 87.03  mfu: 9.48%  time_end_to_end: 0.19s
+[titan] 2026-10-27 11:23:42,215 - root - INFO - step: 30  loss:  3.36403  grad_norm:  2.0916  memory: 13.40GiB(41.89%)  tps: 10,588  tflops: 87.04  mfu: 9.48%  time_end_to_end: 0.19s
