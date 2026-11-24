@@ -1,0 +1,8 @@
+# Extra packages for the test and measurement scripts. vllm-torchtpu itself
+# brings in vllm, torch, torch_tpu, libtpu and jax at versions its
+# pyproject.toml pins, so they are deliberately NOT listed here -- pinning
+# them separately would fight that resolution.
+#
+# Install after setup.sh, inside the same venv:
+#   uv pip install -r requirements.txt
+openai>=1.0

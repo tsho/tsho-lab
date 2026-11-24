@@ -1,0 +1,19 @@
+{
+  "python": "3.12.16",
+  "packages": {
+    "vllm": null,
+    "vllm-torchtpu": "0.33.0",
+    "torch": "2.13.0+cpu",
+    "torch-tpu": "0.2.0",
+    "torch_tpu": "0.2.0",
+    "libtpu": "0.0.50",
+    "libtpu-nightly": null,
+    "jax": "0.11.2",
+    "jaxlib": "0.11.2",
+    "tpu-sync-torch": "0.0.1.dev20261029081917",
+    "tpu-info": "0.7.1",
+    "transformers": "5.20.2"
+  },
+  "torch_version_runtime": "2.13.0+cpu",
+  "torch_tpu_version_runtime": "unknown"
+}

@@ -1,0 +1,34 @@
+## uname
+Linux t1v-n-REDACTED-w-0 6.8.0-1015-gcp #17~22.04.1-Ubuntu SMP Tue Sep  3 16:11:52 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+## os-release
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.5 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+## cpu
+44
+model name	: AMD EPYC 9B14
+## memory
+               total        used        free      shared  buff/cache   available
+Mem:             172           1         169           0           2         170
+Swap:              0           0           0
+## disk
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root        97G  8.8G   89G  10% /
+## default python
+Python 3.10.12
+## tpu devices
+total 0
+crw-rw-rw- 1 root root 239,   0 Nov 24 10:27 0
+drwxr-xr-x 2 root root       60 Nov 24 10:27 devices
+crw-rw-rw- 1 root root  10, 196 Nov 24 10:27 vfio
+## accel devices
+no /dev/accel*
