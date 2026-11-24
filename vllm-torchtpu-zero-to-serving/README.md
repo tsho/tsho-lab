@@ -152,7 +152,7 @@ request per shape cannot support one.
 ## Versions
 
 The installation docs say `pyproject.toml` pins compatible versions
-"automatically" without giving numbers. Resolved from PyPI on 2026-11-24:
+"automatically" and do not list the numbers. Resolved from PyPI on 2026-11-24:
 
 | Package | Version |
 |---|---|
@@ -163,6 +163,14 @@ The installation docs say `pyproject.toml` pins compatible versions
 | `libtpu` | 0.0.50 |
 | `jax`, `jaxlib` | 0.11.2 |
 | `transformers` | 5.20.2 |
+
+`setup.sh` installs `vllm-torchtpu==0.33.0` by default so these results stay
+reproducible as upstream moves. To track the latest release instead, run it
+with an empty override:
+
+```bash
+VLLM_TORCHTPU_VERSION= ./setup.sh
+```
 
 Two things worth noting. `torch` is the **CPU** build, which is correct: the
 accelerator is reached through `torch_tpu` and `libtpu`, and this is why
