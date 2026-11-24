@@ -80,7 +80,15 @@ source "$VENV/bin/activate"
 # Without it, pip pulls gigabytes of nvidia-* wheels that are useless on TPU.
 mark install_vllm_torchtpu
 export UV_TORCH_BACKEND=cpu
-uv pip install vllm-torchtpu
+# Pinned to the version this experiment measured, so the published results
+# stay reproducible as upstream moves. Override to track latest:
+#   VLLM_TORCHTPU_VERSION= ./setup.sh     (empty = unpinned)
+VLLM_TORCHTPU_VERSION="${VLLM_TORCHTPU_VERSION-0.33.0}"
+if [ -n "$VLLM_TORCHTPU_VERSION" ]; then
+  uv pip install "vllm-torchtpu==$VLLM_TORCHTPU_VERSION"
+else
+  uv pip install vllm-torchtpu
+fi
 
 mark record_versions
 uv pip freeze > "$HOME/pip_versions.txt"
