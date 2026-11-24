@@ -1,0 +1,11 @@
+begin 1795520814
+record_environment 1795520814
+apt_libibverbs 1795520814
+dpkg_lock_wait_seconds 0
+install_uv 1795520822
+install_python312 1795520823
+create_venv 1795520824
+install_vllm_torchtpu 1795520824
+record_versions 1795520831
+verify_backend 1795520841
+end 1795520848

@@ -1,0 +1,465 @@
+--- begin (11:46:54) ---
+--- record_environment (11:46:54) ---
+--- apt_libibverbs (11:46:54) ---
+  dpkg free after 0s
+W: https://download.docker.com/linux/ubuntu/dists/jammy/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Selecting previously unselected package libnl-route-3-200:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 76892 files and directories currently installed.)
+Preparing to unpack .../libnl-route-3-200_3.5.0-0.1_amd64.deb ...
+Unpacking libnl-route-3-200:amd64 (3.5.0-0.1) ...
+Selecting previously unselected package libibverbs1:amd64.
+Preparing to unpack .../libibverbs1_39.0-1_amd64.deb ...
+Unpacking libibverbs1:amd64 (39.0-1) ...
+Selecting previously unselected package ibverbs-providers:amd64.
+Preparing to unpack .../ibverbs-providers_39.0-1_amd64.deb ...
+Unpacking ibverbs-providers:amd64 (39.0-1) ...
+Setting up libnl-route-3-200:amd64 (3.5.0-0.1) ...
+Setting up libibverbs1:amd64 (39.0-1) ...
+Setting up ibverbs-providers:amd64 (39.0-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.8) ...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+--- install_uv (11:47:02) ---
+downloading uv 0.13.9 x86_64-unknown-linux-gnu
+installing to /home/user/.local/bin
+  uv
+  uvx
+everything's installed!
+
+To add $HOME/.local/bin to your PATH, either restart your shell or run:
+
+    source $HOME/.local/bin/env (sh, bash, zsh)
+    source $HOME/.local/bin/env.fish (fish)
+--- install_python312 (11:47:03) ---
+Downloading cpython-3.12.16-linux-x86_64-gnu (download) (33.1MiB)
+ Downloaded cpython-3.12.16-linux-x86_64-gnu (download)
+Installed Python 3.12.16 in 673ms
+ + cpython-3.12.16-linux-x86_64-gnu (python3.12)
+--- create_venv (11:47:04) ---
+Using CPython 3.12.16
+Creating virtual environment at: uv_venv
+Activate with: source uv_venv/bin/activate
+--- install_vllm_torchtpu (11:47:04) ---
+Using Python 3.12.16 environment at: uv_venv
+Resolved 210 packages in 881ms
+Downloading pandas (11.5MiB)
+Downloading pycountry (7.7MiB)
+Downloading pillow (6.8MiB)
+Downloading virtualenv (5.5MiB)
+Downloading cryptography (4.5MiB)
+Downloading uvloop (4.3MiB)
+Downloading hf-xet (4.1MiB)
+Downloading tokenizers (3.2MiB)
+Downloading anthropic (2.5MiB)
+Downloading openai (2.3MiB)
+Downloading networkx (2.0MiB)
+Downloading aiohttp (1.8MiB)
+Downloading sentencepiece (1.3MiB)
+Downloading pydantic-core (2.2MiB)
+Downloading pygments (1.2MiB)
+Downloading tiktoken (1.1MiB)
+Downloading setuptools (1.0MiB)
+Downloading torch (182.9MiB)
+Downloading numba (3.6MiB)
+Downloading jax (3.2MiB)
+Downloading mistral-common (6.3MiB)
+Downloading oss-harmony (3.4MiB)
+Downloading vllm-torchtpu (11.9MiB)
+Downloading grpcio (7.0MiB)
+Downloading xgrammar (1.3MiB)
+Downloading numpy (15.8MiB)
+Downloading sympy (6.0MiB)
+Downloading opencv-python-headless (60.8MiB)
+Downloading apache-tvm-ffi (3.4MiB)
+Downloading pyarrow (52.5MiB)
+Downloading tensorboard-data-server (6.3MiB)
+Downloading orbax-checkpoint (1.4MiB)
+Downloading scipy (33.7MiB)
+Downloading outlines-core (2.2MiB)
+Downloading tensorstore (20.8MiB)
+Downloading libtpu (204.4MiB)
+Downloading tpu-sync-torch (86.1MiB)
+Downloading jaxlib (85.7MiB)
+Downloading llvmlite (53.7MiB)
+Downloading torch-tpu (91.8MiB)
+Downloading llguidance (2.9MiB)
+Downloading transformers (12.2MiB)
+Downloading tensorboard (5.3MiB)
+Downloading ray (75.7MiB)
+Downloading py-spy (2.8MiB)
+Downloading torchvision (1.8MiB)
+ Downloaded torchvision
+Downloading vllm-torchtpu-core (2.2MiB)
+Downloading triton (272.4MiB)
+ Downloaded setuptools
+ Downloaded tiktoken
+ Downloaded pygments
+ Downloaded xgrammar
+ Downloaded sentencepiece
+ Downloaded orbax-checkpoint
+ Downloaded aiohttp
+ Downloaded networkx
+ Downloaded pydantic-core
+ Downloaded outlines-core
+ Downloaded openai
+ Downloaded anthropic
+ Downloaded vllm-torchtpu-core
+ Downloaded py-spy
+ Downloaded llguidance
+ Downloaded jax
+ Downloaded tokenizers
+ Downloaded oss-harmony
+ Downloaded apache-tvm-ffi
+ Downloaded numba
+ Downloaded hf-xet
+ Downloaded uvloop
+ Downloaded cryptography
+ Downloaded tensorboard
+ Downloaded virtualenv
+ Downloaded sympy
+ Downloaded tensorboard-data-server
+ Downloaded mistral-common
+ Downloaded pillow
+ Downloaded grpcio
+ Downloaded pycountry
+ Downloaded pandas
+ Downloaded transformers
+ Downloaded numpy
+ Downloaded vllm-torchtpu
+ Downloaded tensorstore
+ Downloaded torch
+ Downloaded scipy
+ Downloaded triton
+ Downloaded pyarrow
+ Downloaded llvmlite
+ Downloaded opencv-python-headless
+ Downloaded ray
+ Downloaded jaxlib
+ Downloaded tpu-sync-torch
+ Downloaded torch-tpu
+ Downloaded libtpu
+Prepared 210 packages in 5.72s
+Installed 210 packages in 380ms
+ + absl-py==2.5.1
+ + agent-detector==2.0.0
+ + aiofiles==25.1.0
+ + aiohappyeyeballs==2.7.1
+ + aiohttp==3.14.5
+ + aiohttp-cors==0.8.1
+ + aiosignal==1.4.0
+ + annotated-doc==0.0.7
+ + annotated-types==0.8.0
+ + anthropic==2.13.0
+ + anyio==4.16.0
+ + apache-tvm-ffi==0.1.16
+ + astor==0.8.1
+ + attrs==26.1.0
+ + blake3==1.0.11
+ + cachetools==8.0.2
+ + cbor2==6.3.0
+ + certifi==2026.11.20
+ + cffi==2.1.1
+ + charset-normalizer==3.5.3
+ + click==8.5.1
+ + cloudpickle==3.1.3
+ + colorful==0.5.8
+ + compressed-tensors==0.17.0
+ + cryptography==50.0.2
+ + decorator==5.3.2
+ + depyf==0.20.0
+ + detect-installer==0.2.1
+ + dill==0.4.1
+ + distlib==0.4.4
+ + dnspython==2.9.2
+ + docstring-parser==0.18.0
+ + einops==0.8.2
+ + email-validator==2.4.0
+ + etils==1.15.0
+ + fastapi==0.136.3
+ + fastapi-cli==0.0.34
+ + fastapi-cloud-cli==0.28.0
+ + fastar==0.12.0
+ + filelock==4.3.1
+ + frozendict==2.5.1
+ + frozenlist==1.8.0
+ + fsspec==2026.9.0
+ + gcsfs==2026.10.1
+ + google-api-core==2.44.0
+ + google-auth==2.63.1
+ + google-auth-oauthlib==1.5.0
+ + google-cloud-core==2.8.0
+ + google-cloud-storage==3.17.2
+ + google-cloud-storage-control==1.17.0
+ + google-crc32c==1.9.0
+ + google-resumable-media==2.11.0
+ + googleapis-common-protos==1.76.0
+ + grpc-google-iam-v1==0.14.6
+ + grpcio==1.85.4
+ + grpcio-status==1.85.4
+ + h11==0.16.0
+ + hf-xet==1.8.0
+ + httpcore==1.0.9
+ + httpcore2==2.16.2
+ + httptools==0.9.0
+ + httpx==0.28.1
+ + httpx2==2.16.2
+ + huggingface-hub==2.4.0
+ + humanize==4.17.0
+ + idna==3.20
+ + ijson==3.6.0
+ + immutabledict==4.3.1
+ + interegular==0.3.3
+ + jax==0.11.2
+ + jaxlib==0.11.2
+ + jinja2==3.1.6
+ + jiter==0.19.0
+ + jmespath==1.1.0
+ + jsonschema==4.26.0
+ + jsonschema-specifications==2025.9.1
+ + lark==1.2.2
+ + libtpu==0.0.50
+ + llguidance==1.7.6
+ + llvmlite==0.47.0
+ + lm-format-enforcer==0.11.3
+ + loguru==0.8.0
+ + markdown==3.11.3
+ + markdown-it-py==4.3.0
+ + markupsafe==3.0.4
+ + mcp==2.3.0
+ + mcp-types==2.3.0
+ + mdurl==0.1.2
+ + mistral-common==1.13.1
+ + ml-dtypes==0.7.0
+ + model-hosting-container-standards==0.1.16
+ + mpmath==1.3.0
+ + msgpack==1.2.4
+ + msgspec==0.22.0
+ + multidict==7.2.1
+ + networkx==3.7
+ + ninja==1.13.2
+ + numba==0.65.0
+ + numpy==2.3.5
+ + oauthlib==4.0.1
+ + openai==3.58.0
+ + opencensus==0.11.4
+ + opencensus-context==0.1.3
+ + opencv-python-headless==x.x.x.x
+ + opentelemetry-api==1.45.2
+ + opentelemetry-exporter-http-transport==0.66b2
+ + opentelemetry-exporter-otlp==1.45.2
+ + opentelemetry-exporter-otlp-common==0.66b2
+ + opentelemetry-exporter-otlp-proto-common==1.45.2
+ + opentelemetry-exporter-otlp-proto-grpc==1.45.2
+ + opentelemetry-exporter-otlp-proto-http==1.45.2
+ + opentelemetry-exporter-prometheus==0.66b2
+ + opentelemetry-proto==1.45.2
+ + opentelemetry-sdk==1.45.2
+ + opentelemetry-semantic-conventions==0.66b2
+ + opentelemetry-semantic-conventions-ai==0.5.1
+ + opt-einsum==3.4.0
+ + orbax-checkpoint==0.12.12
+ + orjson==3.13.0
+ + oss-harmony==0.0.12
+ + outlines-core==0.2.14
+ + packaging==26.4
+ + pandas==3.1.1
+ + partial-json-parser==x.x.x.x.post7
+ + pathwaysutils==0.1.14
+ + pillow==13.0.0
+ + platformdirs==4.14.8
+ + portpicker==1.6.0
+ + prometheus-client==0.26.0
+ + prometheus-fastapi-instrumentator==8.1.0
+ + propcache==0.5.4
+ + proto-plus==1.29.0
+ + protobuf==7.36.2
+ + psutil==7.2.2
+ + py-cpuinfo==9.0.0
+ + py-spy==0.4.4
+ + pyarrow==26.0.1
+ + pyasn1==0.6.5
+ + pyasn1-modules==0.4.2
+ + pybase64==1.5.2
+ + pycountry==26.2.16
+ + pycparser==3.12
+ + pydantic==2.14.4
+ + pydantic-core==2.50.5
+ + pydantic-extra-types==2.11.1
+ + pydantic-settings==2.16.3
+ + pygments==2.21.0
+ + pyjwt==2.15.1
+ + python-dateutil==4.0.0
+ + python-discovery==1.9.7
+ + python-dotenv==1.2.4
+ + python-json-logger==4.2.0
+ + python-multipart==0.0.34
+ + pyyaml==6.0.4
+ + pyzmq==27.3.0
+ + ray==2.60.1
+ + referencing==0.37.0
+ + regex==2026.11.23
+ + requests==2.34.2
+ + requests-oauthlib==2.0.0
+ + rich==15.0.0
+ + rich-toolkit==0.20.6
+ + rignore==0.8.1
+ + rpds-py==2026.9.1
+ + safetensors==0.8.0
+ + scipy==1.18.1
+ + sentencepiece==0.2.1
+ + sentry-sdk==3.0.0
+ + setproctitle==1.3.8
+ + setuptools==80.10.2
+ + shellingham==1.5.4
+ + simplejson==4.3.0
+ + six==1.17.0
+ + smart-open==10.0.0
+ + sniffio==1.3.1
+ + sse-starlette==3.7.1
+ + starlette==1.10.0
+ + supervisor==4.3.0
+ + sympy==1.14.0
+ + tensorboard==2.21.0
+ + tensorboard-data-server==0.7.2
+ + tensorstore==0.1.86
+ + tiktoken==0.14.0
+ + tokenizers==0.23.3
+ + torch==2.13.0+cpu
+ + torch-tpu==0.2.0
+ + torchvision==0.28.0+cpu
+ + tpu-info==0.7.1
+ + tpu-sync-torch==0.0.1.dev20261029081917
+ + tqdm==4.70.1
+ + transformers==5.20.2
+ + triton==3.9.0
+ + truststore==0.10.5
+ + typer==0.29.2
+ + typing-extensions==4.16.0
+ + typing-inspection==0.4.5
+ + tzdata==2026.6
+ + urllib3==2.8.0
+ + uvicorn==0.54.0
+ + uvloop==0.23.0
+ + virtualenv==21.15.13
+ + vllm-torchtpu==0.33.0
+ + vllm-torchtpu-core==0.33.0
+ + watchfiles==1.3.0
+ + websockets==17.4
+ + werkzeug==3.1.9
+ + wrapt==2.5.2
+ + xgrammar==0.2.8
+ + yarl==1.25.1
+ + zipp==4.1.2
+--- record_versions (11:47:11) ---
+Using Python 3.12.16 environment at: uv_venv
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795520837.823060    6609 pjrt_api.cc:119] GetPjrtApi was found for TPU at /home/user/uv_venv/lib/python3.12/site-packages/libtpu/libtpu.so
+I0000 00:00:1795520840.194828    6609 device_rt.cc:166] PjRt runtime initialization deferred for tpu
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+I0000 00:00:1795520840.204003    6609 libtpu_version.cc:63] Setting libtpu version to: 0.0.50
+--- verify_backend (11:47:21) ---
+## current_platform.device_name
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795520843.019712    6666 pjrt_api.cc:119] GetPjrtApi was found for TPU at /home/user/uv_venv/lib/python3.12/site-packages/libtpu/libtpu.so
+I0000 00:00:1795520844.026085    6666 device_rt.cc:166] PjRt runtime initialization deferred for tpu
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+I0000 00:00:1795520844.028861    6666 libtpu_version.cc:63] Setting libtpu version to: 0.0.50
+tpu
+## tpu-info
+Libtpu version: 0.0.50                                                          
+Accelerator type: v6e                                                           
+                                                                                
+TPU Chips                                      
+┏━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━┓
+┃ Chip        ┃ Type         ┃ Devices ┃ PID  ┃
+┡━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━┩
+│ /dev/vfio/0 │ TPU v6e chip │ 1       │ None │
+└─────────────┴──────────────┴─────────┴──────┘
+╭───────────────────────── Runtime Utilization Status ─────────────────────────╮
+│ WARNING: Libtpu metrics unavailable. Is there a framework using the TPU? See │
+│ tpu_info docs for more information.                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+TPU Runtime Utilization                
+┏━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┓
+┃ Chip ┃ HBM Usage (GiB) ┃ Duty cycle ┃
+┡━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━┩
+│ 0    │ N/A             │ N/A        │
+└──────┴─────────────────┴────────────┘
+TensorCore Utilization              
+┏━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Core ID ┃ TensorCore Utilization ┃
+┡━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ 0       │ 0.00%                  │
+└─────────┴────────────────────────┘
+╭─────────────────────── Buffer Transfer Latency Status ───────────────────────╮
+│ WARNING: Buffer Transfer Latency metrics unavailable. Did you start a        │
+│ MULTI_SLICE workload with `TPU_RUNTIME_METRICS_PORTS=8431,8432,8433,8434`?   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────── gRPC TCP Minimum RTT Status ─────────────────────────╮
+│ WARNING: gRPC TCP Minimum RTT metrics unavailable. Did you start a           │
+│ MULTI_SLICE workload with `TPU_RUNTIME_METRICS_PORTS=8431,8432,8433,8434`?   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────── gRPC TCP Delivery Rate Status ────────────────────────╮
+│ WARNING: gRPC TCP Delivery Rate metrics unavailable. Did you start a         │
+│ MULTI_SLICE workload with `TPU_RUNTIME_METRICS_PORTS=8431,8432,8433,8434`?   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+## JAX-backend packages that must NOT be present
+none (expected)
+--- end (11:47:28) ---
+
+=== timings (unix seconds) ===
+begin 1795520814
+record_environment 1795520814
+apt_libibverbs 1795520814
+dpkg_lock_wait_seconds 0
+install_uv 1795520822
+install_python312 1795520823
+create_venv 1795520824
+install_vllm_torchtpu 1795520824
+record_versions 1795520831
+verify_backend 1795520841
+end 1795520848
+
+Wrote: ~/environment.txt ~/pip_versions.txt ~/versions.json ~/setup_timings.txt
