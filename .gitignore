@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Experiment logs published under results/sanitized_logs/ are deliberately
+# tracked. They are run through sanitize_logs.py before commit, which strips
+# usernames, home paths, TPU VM hostnames, routable IPs and tokens. The
+# blanket *.log rule above would otherwise exclude them silently.
+!**/results/sanitized_logs/*.log
