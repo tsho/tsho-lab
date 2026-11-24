@@ -1,0 +1,76 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "health": {
+    "status": 200,
+    "body": ""
+  },
+  "v1_models": {
+    "status": 200,
+    "body": "{\"object\":\"list\",\"data\":[{\"id\":\"Qwen/Qwen3-8B\",\"object\":\"model\",\"created\":1795521230,\"owned_by\":\"vllm\",\"root\":\"Qwen/Qwen3-8B\",\"parent\":null,\"max_model_len\":8192,\"permission\":[{\"id\":\"modelperm-956addf374ebfa4d\",\"object\":\"model_permission\",\"created\":1795521230,\"allow_create_engine\":false,\"allow_sampling\":true,\"allow_logprobs\":true,\"allow_search_indices\":false,\"allow_view\":true,\"allow_fine_tuning\":false,\"organization\":\"*\",\"group\":null,\"is_blocking\":false}]}]}"
+  },
+  "model_used": "Qwen/Qwen3-8B",
+  "v1_completions": {
+    "status": 200,
+    "latency_s": 0.45,
+    "usage": {
+      "prompt_tokens": 4,
+      "total_tokens": 20,
+      "completion_tokens": 16,
+      "prompt_tokens_details": null,
+      "completion_tokens_details": null
+    },
+    "finish_reason": "length",
+    "text_head": "{\"index\": 0, \"text\": \" Thermoplastic Polyurethane. It is a type of polyurethane that\", \"logprobs\": null, \"finish_reason\": \"length\", \"stop_reason\": null, \"token_ids\": null, \"prompt_logprobs\": null, \"prompt_token_ids\": null, \"routed_experts\": null, \"weight_versions\": null}"
+  },
+  "v1_chat_completions": {
+    "status": 200,
+    "latency_s": 3.683,
+    "usage": {
+      "prompt_tokens": 22,
+      "total_tokens": 278,
+      "completion_tokens": 256,
+      "prompt_tokens_details": null,
+      "completion_tokens_details": null
+    },
+    "finish_reason": "length",
+    "text_head": "{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"<think>\\nOkay, so I need to explain the difference between prefill and decode in LLM inference. Let me start by recalling what I know about large language models and their inference process. \\n\\nFirst, when a model is generating text, it processes the input step by step. But I think there are two main phases involved: prefill and decode. Wait, maybe prefill is the initial part where the model processes the input prompt, and then decode is the part where it generates the output tokens one by one. But I'm not entirely sure. Let me think m"
+  },
+  "sdk": {
+    "nonstreaming_english": {
+      "ok": true,
+      "latency_s": 3.659,
+      "prompt_tokens": 22,
+      "completion_tokens": 256,
+      "finish_reason": "length",
+      "content_head": "<think>\nOkay, so I need to explain the difference between prefill and decode in LLM inference. Let me start by recalling what I know about large language models and their inference process. \n\nFirst, when a model is generating text, it processes the input step by step. But I think there are two main phases involved: prefill and decode. Wait, maybe prefill is the initial part where the model process"
+    },
+    "nonstreaming_japanese": {
+      "ok": true,
+      "latency_s": 3.624,
+      "prompt_tokens": 27,
+      "completion_tokens": 256,
+      "finish_reason": "length",
+      "content_head": "<think>\nOkay, I need to explain the difference between prefill and decode in LLM inference. Let me start by recalling what I know about large language models and their inference process.\n\nFirst, when a model is generating text, it processes the input and then generates the output step by step. But I remember that there's a distinction between the initial processing and the actual generation. Maybe"
+    },
+    "nonstreaming_code": {
+      "ok": true,
+      "latency_s": 3.624,
+      "prompt_tokens": 22,
+      "completion_tokens": 256,
+      "finish_reason": "length",
+      "content_head": "<think>\nOkay, I need to write a Python function that returns the nth Fibonacci number iteratively. Let me think about how the Fibonacci sequence works. The Fibonacci numbers are a series where each number is the sum of the two preceding ones. So, the sequence starts with 0 and 1, then each subsequent number is the sum of the previous two. Like 0, 1, 1, 2, 3, 5, 8, etc.\n\nWait, but what's the defini"
+    },
+    "streaming_english": {
+      "ok": true,
+      "ttft_s": 0.057,
+      "total_s": 3.659,
+      "chunks": 256,
+      "finish_reason": "length",
+      "usage": {
+        "prompt_tokens": 22,
+        "completion_tokens": 256
+      },
+      "content_head": "<think>\nOkay, so I need to explain the difference between prefill and decode in LLM inference. Let me start by recalling what I know about large language models and their inference process. \n\nFirst, when a model is generating text, it processes the input step by step. But I think there are two main phases involved: prefill and decode. Wait, maybe prefill is the initial part where the model process"
+    }
+  }
+}

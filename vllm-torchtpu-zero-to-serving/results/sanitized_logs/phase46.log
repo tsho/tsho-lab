@@ -1,0 +1,959 @@
++ cd /home/user
++ ./setup.sh
++ echo SETUP_EXIT=0
+SETUP_EXIT=0
++ tail -5 /home/user/setup.log
+record_versions 1795520831
+verify_backend 1795520841
+end 1795520848
+
+Wrote: ~/environment.txt ~/pip_versions.txt ~/versions.json ~/setup_timings.txt
++ source /home/user/.local/bin/env
+++ case ":${PATH}:" in
+++ export PATH=/home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ PATH=/home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++ source /home/user/uv_venv/bin/activate
+++ '[' -n x ']'
+++ '[' /home/user/uv_venv/bin/activate = ./runall.sh ']'
+++ '[' false = true ']'
+++ deactivate nondestructive
+++ unset -f pydoc
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ hash -r
+++ '[' -z '' ']'
+++ unset VIRTUAL_ENV
+++ unset VIRTUAL_ENV_PROMPT
+++ '[' '!' nondestructive = nondestructive ']'
+++ VIRTUAL_ENV=/home/user/uv_venv
+++ '[' linux-gnu = cygwin ']'
+++ '[' linux-gnu = msys ']'
+++ export VIRTUAL_ENV
+++ '[' false = true ']'
+++ _OLD_VIRTUAL_PATH=/home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ PATH=/home/user/uv_venv/bin:/home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ export PATH
+++ '[' x '!=' x ']'
++++ basename /home/user/uv_venv
+++ VIRTUAL_ENV_PROMPT=uv_venv
+++ export VIRTUAL_ENV_PROMPT
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ PS1='(uv_venv) '
+++ export PS1
+++ alias pydoc
+++ true
+++ hash -r
++ export UV_TORCH_BACKEND=cpu
++ UV_TORCH_BACKEND=cpu
++ uv pip install -q openai
++ echo OPENAI_OK
+OPENAI_OK
++ echo '###### disk before download ######'
+###### disk before download ######
++ df -h /
++ tail -1
+/dev/root        97G   14G   84G  15% /
++ du -sh /home/user/.cache/huggingface
++ echo 'no hf cache yet'
+no hf cache yet
++ echo '###### starting server ######'
+###### starting server ######
++ nohup ./serve.sh
+++ seq 1 400
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ sleep 2
++ for i in $(seq 1 400)
++ curl -sf http://127.0.0.1:8000/health
++ echo SERVER_UP_AFTER=380s
+SERVER_UP_AFTER=380s
++ break
++ echo '###### where did the weights go? ######'
+###### where did the weights go? ######
++ df -h /
++ tail -1
+/dev/root        97G   30G   67G  31% /
++ echo '--- du of each hf subdir (du does NOT follow symlinks) ---'
+--- du of each hf subdir (du does NOT follow symlinks) ---
++ du -sh /home/user/.cache/huggingface/hub /home/user/.cache/huggingface/xet
+16G	/home/user/.cache/huggingface/hub
+588K	/home/user/.cache/huggingface/xet
++ echo '--- files over 100MB anywhere under the cache ---'
+--- files over 100MB anywhere under the cache ---
++ find /home/user/.cache/huggingface -type f -size +100M
++ head -10
+/home/user/.cache/huggingface/hub/blobs/d5/d5896122818183507065a14a89ab73d7c90784031154ad074896049c30f607d7
+/home/user/.cache/huggingface/hub/blobs/03/03e5a8f00169473ee4be2b67cf8ce228bd13ea708b211424c7527ad2a062900c
+/home/user/.cache/huggingface/hub/blobs/eb/eb5ff94ab9f166bee2bde126be1685b655f9857949505ab9ef0f20b522e6f200
+/home/user/.cache/huggingface/hub/blobs/9a/9a29f7c79ee4a1e5902d54bd8197bd28a4facd1f7b79c71c2321dee7a758e34b
+/home/user/.cache/huggingface/hub/blobs/00/00fc0074a30b3f49de8ac046752beeb14efe64c145ff83879c04888b6c1a51d8
++ echo '--- apparent size following symlinks ---'
+--- apparent size following symlinks ---
++ du -shL /home/user/.cache/huggingface/hub/models--Qwen--Qwen3-8B
+16G	/home/user/.cache/huggingface/hub/models--Qwen--Qwen3-8B
++ echo '--- snapshot safetensors entries ---'
+--- snapshot safetensors entries ---
++ ls -l /home/user/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218/
++ grep -i safetensors
++ head -6
+lrwxrwxrwx 1 sho sho 76 Nov 24 11:49 model-00001-of-00005.safetensors -> ../../blobs/31d6a825ae35f11fb85b195b4c42c146c051e446433125a215336abdf95cbf5f
+lrwxrwxrwx 1 sho sho 76 Nov 24 11:49 model-00002-of-00005.safetensors -> ../../blobs/5991236cea6fe21f3d43cab0f0e84448734fbbe0789816202989f2ddc9d18282
+lrwxrwxrwx 1 sho sho 76 Nov 24 11:49 model-00003-of-00005.safetensors -> ../../blobs/c5185c4794be2d8a9784d5753c9922db38df478ce11f9ed0b415b7304d896836
+lrwxrwxrwx 1 sho sho 76 Nov 24 11:49 model-00004-of-00005.safetensors -> ../../blobs/b5ee7de71fbf17db3d5704e0c8f2bc7d005ca9e1d7ca2aeb19827b0cfcaa917a
+lrwxrwxrwx 1 sho sho 76 Nov 24 11:48 model-00005-of-00005.safetensors -> ../../blobs/20c2d6366ab85c90786ccdd829cd2b9e7d30ef3b2ebbb998280e7e4014b542ff
+lrwxrwxrwx 1 sho sho 52 Nov 24 11:47 model.safetensors.index.json -> ../../blobs/2b85c00f1b118961cd7a477e2bba0fe197a4ce1a
++ echo '###### tpu-info with server up ######'
+###### tpu-info with server up ######
++ tpu-info
++ grep -B2 -A6 'HBM Usage'
+TPU Runtime Utilization                      
+┏━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┓
+┃ Chip ┃ HBM Usage (GiB)       ┃ Duty cycle ┃
+┡━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━┩
+│ 0    │ 28.30 GiB / 31.24 GiB │ 2.34%      │
+└──────┴───────────────────────┴────────────┘
+TensorCore Utilization              
+┏━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Core ID ┃ TensorCore Utilization ┃
++ echo '###### startup facts from the log ######'
+###### startup facts from the log ######
++ grep -oE 'compile_sizes.: \[[0-9, ]+\]' /home/user/serve_api.log
++ head -1
+compile_sizes': [16, 32, 64, 128, 256, 512, 1024, 2048]
++ grep -cE 'compile_prefix isolation' /home/user/serve_api.log
++ sed 's/^/compile_prefix_warnings=/'
+compile_prefix_warnings=2
++ grep -oE 'Automatically using fp8_[a-z0-9]+ for FP8 KV cache on TPU v6e' /home/user/serve_api.log
++ head -1
+Automatically using fp8_e5m2 for FP8 KV cache on TPU v6e
++ grep -iE 'KV cache size|Maximum concurrency|available KV cache|model weights take|GPU KV cache' /home/user/serve_api.log
++ head -6
+(EngineCore pid=7196) INFO 11-24 11:50:59 [kv_cache_utils.py:1147] TPU KV cache size: 185,088 tokens, Maximum concurrency for 8,192 tokens per request: 22.59x
++ echo '###### PHASE 4: API endpoints ######'
+###### PHASE 4: API endpoints ######
++ python smoke_test.py --out results/smoke_test_results.json
+model id in use: Qwen/Qwen3-8B
+{
+  "health": 200,
+  "v1_models": 200,
+  "v1_completions": 200,
+  "v1_chat_completions": 200
+}
+wrote results/smoke_test_results.json
++ echo SMOKE_EXIT=0
+SMOKE_EXIT=0
++ echo '###### PHASE 6: smoke benchmark ######'
+###### PHASE 6: smoke benchmark ######
++ bash benchmark_smoke.sh
+=== using the official vllm bench serve CLI ===
+--- short (128 in / 128 out) ---
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795521263.651385    9434 pjrt_api.cc:119] GetPjrtApi was found for TPU at /home/user/uv_venv/lib/python3.12/site-packages/libtpu/libtpu.so
+I0000 00:00:1795521264.625483    9434 device_rt.cc:166] PjRt runtime initialization deferred for tpu
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+I0000 00:00:1795521264.628197    9434 libtpu_version.cc:63] Setting libtpu version to: 0.0.50
+Pin memory is not supported on TPU.
+Namespace(subparser='bench', bench_type='serve', dispatch_function=<function BenchmarkServingSubcommand.cmd at 0x7328927b4f40>, trust_remote_code=False, seed=0, num_prompts=1, dataset_name='random', no_stream=False, dataset_path=None, no_oversample=False, skip_chat_template=False, enable_multimodal_chat=False, disable_shuffle=False, custom_output_len=256, custom_ensure_client_side_data=False, spec_bench_output_len=256, spec_bench_category=None, sharegpt_output_len=None, timed_trace_chunk_hash_size=16, timed_trace_sec_multiplier=1, timed_trace_label_timestamp='timestamp', timed_trace_label_input_length='input_length', timed_trace_label_output_length='output_length', timed_trace_label_hash_ids='hash_ids', blazedit_min_distance=0.0, blazedit_max_distance=1.0, asr_max_audio_len_sec=inf, asr_min_audio_len_sec=0.0, random_input_len=128, random_output_len=128, random_range_ratio='0.0', random_prefix_len=0, random_batch_size=1, no_reranker=False, random_mm_base_items_per_request=1, random_mm_num_mm_items_range_ratio=0.0, random_mm_limit_mm_per_prompt={'image': 255, 'video': 1}, random_mm_bucket_config={(256, 256, 1): 0.5, (720, 1280, 1): 0.5, (720, 1280, 16): 0.0}, hf_subset=None, hf_split=None, hf_name=None, hf_output_len=None, bfcl_categories=None, prefix_repetition_prefix_len=256, prefix_repetition_suffix_len=256, prefix_repetition_num_prefixes=10, prefix_repetition_output_len=128, speed_bench_dataset_subset='qualitative', speed_bench_output_len=4096, speed_bench_category=None, label=None, backend='openai-chat', base_url='http://127.0.0.1:8000', host='127.0.0.1', port=8000, endpoint='/v1/chat/completions', header=None, max_concurrency=None, model='Qwen/Qwen3-8B', input_len=None, output_len=None, tokenizer=None, tokenizer_mode='auto', use_beam_search=False, logprobs=None, request_rate=inf, burstiness=1.0, probe_request_rate=0.0, disable_tqdm=False, num_warmups=0, profile=False, save_result=True, save_detailed=False, append_result=False, metadata=None, result_dir=None, result_filename='results/bench_short.json', ignore_eos=False, self_timed=None, percentile_metrics=None, metric_percentiles='99', goodput=None, request_id_prefix='bench-39ab4273-', top_p=None, top_k=None, min_p=None, temperature=None, frequency_penalty=None, presence_penalty=None, repetition_penalty=None, served_model_name=None, lora_modules=None, lora_assignment='random', ramp_up_strategy=None, ramp_up_start_rps=None, ramp_up_end_rps=None, ready_check_timeout_sec=0, chat_template_kwargs=None, extra_body=None, skip_tokenizer_init=False, insecure=False, plot_timeline=False, timeline_itl_thresholds='25,50', plot_dataset_stats=False, log_config_file=None, logging_config=LoggingConfig(log_level='INFO', formatter='text', configure_logging=True, pylogging_config_file=None))
+
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]
+Fetching 10 files: 100%|██████████| 10/10 [00:00<00:00, 2073.82it/s]
+(MainProcess pid=9434) INFO 11-24 11:54:32 [utils.py:88] Sampling input_len from [128, 128] and output_len from [128, 128]
+WARNING: vllm bench serve no longer sets temperature==0 (greedy) in requests by default. The default will be determined on the server side and can be model/API specific. For the old behavior, include --temperature=0.
+Starting initial single prompt test run...
+Skipping endpoint ready check.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1.0 (Poisson process)
+Maximum request concurrency: None
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:05<00:00,  5.16s/it]
+100%|██████████| 1/1 [00:05<00:00,  5.16s/it]
+tip: install termplotlib and gnuplot to plot the metrics
+============ Serving Benchmark Result ============
+Successful requests:                     1         
+Failed requests:                         0         
+Benchmark duration (s):                  5.16      
+Total input tokens:                      136       
+Total generated tokens:                  128       
+Request throughput (req/s):              0.19      
+Output token throughput (tok/s):         24.82     
+Peak output token throughput (tok/s):    70.00     
+Peak concurrent requests:                1.00      
+Total token throughput (tok/s):          51.19     
+---------------Time to First Token----------------
+Mean TTFT (ms):                          3362.51   
+Median TTFT (ms):                        3362.51   
+P99 TTFT (ms):                           3362.51   
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          14.13     
+Median TPOT (ms):                        14.13     
+P99 TPOT (ms):                           14.13     
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           14.13     
+Median ITL (ms):                         13.96     
+P99 ITL (ms):                            15.52     
+==================================================
+nanobind: leaked 4 instances!
+nanobind: leaked 64 types!
+ - leaked type "triton._C.libtriton.ir.location"
+ - leaked type "TMEM_LOAD_REDUCE_MODIFIER"
+ - leaked type "triton._C.libtriton.ir.block"
+ - leaked type "triton._C.libtriton.gluon_ir.GluonOpBuilder"
+ - leaked type "triton._C.libtriton.ir.builder"
+ - leaked type "triton._C.libtriton.nvidia.cublas.CublasLt"
+ - leaked type "triton._C.libtriton.ir.integer_attr"
+ - leaked type "ATOMIC_OP"
+ - leaked type "PROPAGATE_NAN"
+ - leaked type "METRIC_TYPE"
+ - ... skipped remainder
+nanobind: leaked 514 functions!
+ - leaked function "__repr__"
+ - leaked function "remove_fn_attr"
+ - leaked function "__init__"
+ - leaked function "get_int128_ty"
+ - leaked function ""
+ - leaked function "is_fp16"
+ - leaked function "get_tensor_memory_scales_layout"
+ - leaked function "get_total_elems_per_thread"
+ - leaked function "create_int_to_ptr"
+ - leaked function "create_memdesc_index"
+ - ... skipped remainder
+nanobind: this is likely caused by a reference counting issue in the binding code.
+See https://nanobind.readthedocs.io/en/latest/refleaks.html--- prefill_heavy (4096 in / 128 out) ---
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795521279.995370    9633 pjrt_api.cc:119] GetPjrtApi was found for TPU at /home/user/uv_venv/lib/python3.12/site-packages/libtpu/libtpu.so
+I0000 00:00:1795521280.972457    9633 device_rt.cc:166] PjRt runtime initialization deferred for tpu
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+I0000 00:00:1795521280.975233    9633 libtpu_version.cc:63] Setting libtpu version to: 0.0.50
+Pin memory is not supported on TPU.
+Namespace(subparser='bench', bench_type='serve', dispatch_function=<function BenchmarkServingSubcommand.cmd at 0x72dc543b4fe0>, trust_remote_code=False, seed=0, num_prompts=1, dataset_name='random', no_stream=False, dataset_path=None, no_oversample=False, skip_chat_template=False, enable_multimodal_chat=False, disable_shuffle=False, custom_output_len=256, custom_ensure_client_side_data=False, spec_bench_output_len=256, spec_bench_category=None, sharegpt_output_len=None, timed_trace_chunk_hash_size=16, timed_trace_sec_multiplier=1, timed_trace_label_timestamp='timestamp', timed_trace_label_input_length='input_length', timed_trace_label_output_length='output_length', timed_trace_label_hash_ids='hash_ids', blazedit_min_distance=0.0, blazedit_max_distance=1.0, asr_max_audio_len_sec=inf, asr_min_audio_len_sec=0.0, random_input_len=4096, random_output_len=128, random_range_ratio='0.0', random_prefix_len=0, random_batch_size=1, no_reranker=False, random_mm_base_items_per_request=1, random_mm_num_mm_items_range_ratio=0.0, random_mm_limit_mm_per_prompt={'image': 255, 'video': 1}, random_mm_bucket_config={(256, 256, 1): 0.5, (720, 1280, 1): 0.5, (720, 1280, 16): 0.0}, hf_subset=None, hf_split=None, hf_name=None, hf_output_len=None, bfcl_categories=None, prefix_repetition_prefix_len=256, prefix_repetition_suffix_len=256, prefix_repetition_num_prefixes=10, prefix_repetition_output_len=128, speed_bench_dataset_subset='qualitative', speed_bench_output_len=4096, speed_bench_category=None, label=None, backend='openai-chat', base_url='http://127.0.0.1:8000', host='127.0.0.1', port=8000, endpoint='/v1/chat/completions', header=None, max_concurrency=None, model='Qwen/Qwen3-8B', input_len=None, output_len=None, tokenizer=None, tokenizer_mode='auto', use_beam_search=False, logprobs=None, request_rate=inf, burstiness=1.0, probe_request_rate=0.0, disable_tqdm=False, num_warmups=0, profile=False, save_result=True, save_detailed=False, append_result=False, metadata=None, result_dir=None, result_filename='results/bench_prefill_heavy.json', ignore_eos=False, self_timed=None, percentile_metrics=None, metric_percentiles='99', goodput=None, request_id_prefix='bench-8958ab99-', top_p=None, top_k=None, min_p=None, temperature=None, frequency_penalty=None, presence_penalty=None, repetition_penalty=None, served_model_name=None, lora_modules=None, lora_assignment='random', ramp_up_strategy=None, ramp_up_start_rps=None, ramp_up_end_rps=None, ready_check_timeout_sec=0, chat_template_kwargs=None, extra_body=None, skip_tokenizer_init=False, insecure=False, plot_timeline=False, timeline_itl_thresholds='25,50', plot_dataset_stats=False, log_config_file=None, logging_config=LoggingConfig(log_level='INFO', formatter='text', configure_logging=True, pylogging_config_file=None))
+
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]
+Fetching 10 files: 100%|██████████| 10/10 [00:00<00:00, 1985.00it/s]
+(MainProcess pid=9633) INFO 11-24 11:54:48 [utils.py:88] Sampling input_len from [4096, 4096] and output_len from [128, 128]
+WARNING: vllm bench serve no longer sets temperature==0 (greedy) in requests by default. The default will be determined on the server side and can be model/API specific. For the old behavior, include --temperature=0.
+Starting initial single prompt test run...
+Skipping endpoint ready check.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1.0 (Poisson process)
+Maximum request concurrency: None
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:02<00:00,  2.03s/it]
+100%|██████████| 1/1 [00:02<00:00,  2.03s/it]
+tip: install termplotlib and gnuplot to plot the metrics
+============ Serving Benchmark Result ============
+Successful requests:                     1         
+Failed requests:                         0         
+Benchmark duration (s):                  2.03      
+Total input tokens:                      4104      
+Total generated tokens:                  128       
+Request throughput (req/s):              0.49      
+Output token throughput (tok/s):         63.05     
+Peak output token throughput (tok/s):    69.00     
+Peak concurrent requests:                1.00      
+Total token throughput (tok/s):          2084.52   
+---------------Time to First Token----------------
+Mean TTFT (ms):                          206.34    
+Median TTFT (ms):                        206.34    
+P99 TTFT (ms):                           206.34    
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          14.36     
+Median TPOT (ms):                        14.36     
+P99 TPOT (ms):                           14.36     
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           14.36     
+Median ITL (ms):                         14.27     
+P99 ITL (ms):                            15.64     
+==================================================
+nanobind: leaked 4 instances!
+nanobind: leaked 64 types!
+ - leaked type "triton._C.libtriton.ir.location"
+ - leaked type "TMEM_LOAD_REDUCE_MODIFIER"
+ - leaked type "triton._C.libtriton.ir.block"
+ - leaked type "triton._C.libtriton.gluon_ir.GluonOpBuilder"
+ - leaked type "triton._C.libtriton.ir.builder"
+ - leaked type "triton._C.libtriton.nvidia.cublas.CublasLt"
+ - leaked type "triton._C.libtriton.ir.integer_attr"
+ - leaked type "ATOMIC_OP"
+ - leaked type "PROPAGATE_NAN"
+ - leaked type "METRIC_TYPE"
+ - ... skipped remainder
+nanobind: leaked 514 functions!
+ - leaked function "get_operation"
+ - leaked function "empty"
+ - leaked function "create_fp_ext"
+ - leaked function "create_async_tdm_gather"
+ - leaked function "__str__"
+ - leaked function "create_async_tma_gather"
+ - leaked function "get_uint32"
+ - leaked function "restore_insertion_point"
+ - leaked function "__mul__"
+ - leaked function "create_packed_arith"
+ - ... skipped remainder
+nanobind: this is likely caused by a reference counting issue in the binding code.
+See https://nanobind.readthedocs.io/en/latest/refleaks.html--- decode_heavy (128 in / 1024 out) ---
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795521293.171281    9829 pjrt_api.cc:119] GetPjrtApi was found for TPU at /home/user/uv_venv/lib/python3.12/site-packages/libtpu/libtpu.so
+I0000 00:00:1795521294.148881    9829 device_rt.cc:166] PjRt runtime initialization deferred for tpu
+Successfully renamed PrivateUse1 backend to 'tpu'. Device: device(type='tpu')
+Registered Python module for 'tpu'.
+Device type: tpu, Device index: default
+Initializing TPU distributed runtime
+I0000 00:00:1795521294.151541    9829 libtpu_version.cc:63] Setting libtpu version to: 0.0.50
+Pin memory is not supported on TPU.
+Namespace(subparser='bench', bench_type='serve', dispatch_function=<function BenchmarkServingSubcommand.cmd at 0x76402b9b4fe0>, trust_remote_code=False, seed=0, num_prompts=1, dataset_name='random', no_stream=False, dataset_path=None, no_oversample=False, skip_chat_template=False, enable_multimodal_chat=False, disable_shuffle=False, custom_output_len=256, custom_ensure_client_side_data=False, spec_bench_output_len=256, spec_bench_category=None, sharegpt_output_len=None, timed_trace_chunk_hash_size=16, timed_trace_sec_multiplier=1, timed_trace_label_timestamp='timestamp', timed_trace_label_input_length='input_length', timed_trace_label_output_length='output_length', timed_trace_label_hash_ids='hash_ids', blazedit_min_distance=0.0, blazedit_max_distance=1.0, asr_max_audio_len_sec=inf, asr_min_audio_len_sec=0.0, random_input_len=128, random_output_len=1024, random_range_ratio='0.0', random_prefix_len=0, random_batch_size=1, no_reranker=False, random_mm_base_items_per_request=1, random_mm_num_mm_items_range_ratio=0.0, random_mm_limit_mm_per_prompt={'image': 255, 'video': 1}, random_mm_bucket_config={(256, 256, 1): 0.5, (720, 1280, 1): 0.5, (720, 1280, 16): 0.0}, hf_subset=None, hf_split=None, hf_name=None, hf_output_len=None, bfcl_categories=None, prefix_repetition_prefix_len=256, prefix_repetition_suffix_len=256, prefix_repetition_num_prefixes=10, prefix_repetition_output_len=128, speed_bench_dataset_subset='qualitative', speed_bench_output_len=4096, speed_bench_category=None, label=None, backend='openai-chat', base_url='http://127.0.0.1:8000', host='127.0.0.1', port=8000, endpoint='/v1/chat/completions', header=None, max_concurrency=None, model='Qwen/Qwen3-8B', input_len=None, output_len=None, tokenizer=None, tokenizer_mode='auto', use_beam_search=False, logprobs=None, request_rate=inf, burstiness=1.0, probe_request_rate=0.0, disable_tqdm=False, num_warmups=0, profile=False, save_result=True, save_detailed=False, append_result=False, metadata=None, result_dir=None, result_filename='results/bench_decode_heavy.json', ignore_eos=False, self_timed=None, percentile_metrics=None, metric_percentiles='99', goodput=None, request_id_prefix='bench-bb9726a6-', top_p=None, top_k=None, min_p=None, temperature=None, frequency_penalty=None, presence_penalty=None, repetition_penalty=None, served_model_name=None, lora_modules=None, lora_assignment='random', ramp_up_strategy=None, ramp_up_start_rps=None, ramp_up_end_rps=None, ready_check_timeout_sec=0, chat_template_kwargs=None, extra_body=None, skip_tokenizer_init=False, insecure=False, plot_timeline=False, timeline_itl_thresholds='25,50', plot_dataset_stats=False, log_config_file=None, logging_config=LoggingConfig(log_level='INFO', formatter='text', configure_logging=True, pylogging_config_file=None))
+
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]
+Fetching 10 files: 100%|██████████| 10/10 [00:00<00:00, 2136.79it/s]
+(MainProcess pid=9829) INFO 11-24 11:55:01 [utils.py:88] Sampling input_len from [128, 128] and output_len from [1024, 1024]
+WARNING: vllm bench serve no longer sets temperature==0 (greedy) in requests by default. The default will be determined on the server side and can be model/API specific. For the old behavior, include --temperature=0.
+Starting initial single prompt test run...
+Skipping endpoint ready check.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1.0 (Poisson process)
+Maximum request concurrency: None
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:14<00:00, 14.53s/it]
+100%|██████████| 1/1 [00:14<00:00, 14.53s/it]
+tip: install termplotlib and gnuplot to plot the metrics
+============ Serving Benchmark Result ============
+Successful requests:                     1         
+Failed requests:                         0         
+Benchmark duration (s):                  14.53     
+Total input tokens:                      136       
+Total generated tokens:                  1024      
+Request throughput (req/s):              0.07      
+Output token throughput (tok/s):         70.48     
+Peak output token throughput (tok/s):    71.00     
+Peak concurrent requests:                1.00      
+Total token throughput (tok/s):          79.84     
+---------------Time to First Token----------------
+Mean TTFT (ms):                          23.43     
+Median TTFT (ms):                        23.43     
+P99 TTFT (ms):                           23.43     
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          14.18     
+Median TPOT (ms):                        14.18     
+P99 TPOT (ms):                           14.18     
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           14.18     
+Median ITL (ms):                         14.05     
+P99 ITL (ms):                            15.61     
+==================================================
+nanobind: leaked 4 instances!
+nanobind: leaked 64 types!
+ - leaked type "triton._C.libtriton.ir.location"
+ - leaked type "TMEM_LOAD_REDUCE_MODIFIER"
+ - leaked type "triton._C.libtriton.ir.block"
+ - leaked type "triton._C.libtriton.gluon_ir.GluonOpBuilder"
+ - leaked type "triton._C.libtriton.ir.builder"
+ - leaked type "triton._C.libtriton.nvidia.cublas.CublasLt"
+ - leaked type "triton._C.libtriton.ir.integer_attr"
+ - leaked type "ATOMIC_OP"
+ - leaked type "PROPAGATE_NAN"
+ - leaked type "METRIC_TYPE"
+ - ... skipped remainder
+nanobind: leaked 514 functions!
+ - leaked function "gemm"
+ - leaked function "get_num_operands"
+ - leaked function "get_block_ty"
+ - leaked function "__str__"
+ - leaked function "get_int8_ty"
+ - leaked function "create_local_store"
+ - leaked function "create_sub"
+ - leaked function "get_bool_attr"
+ - leaked function "get_fp8e4b8_ty"
+ - leaked function "get_distributed_view"
+ - ... skipped remainder
+nanobind: this is likely caused by a reference counting issue in the binding code.
+See https://nanobind.readthedocs.io/en/latest/refleaks.html+ echo BENCH_EXIT=0
+BENCH_EXIT=0
++ echo '###### cache dirs ######'
+###### cache dirs ######
++ du -sh /home/user/vllm_torchtpu_cache/tier3 /home/user/vllm_torchtpu_cache/vllm /home/user/vllm_torchtpu_cache/xla
+271M	/home/user/vllm_torchtpu_cache/tier3
+457M	/home/user/vllm_torchtpu_cache/vllm
+4.0K	/home/user/vllm_torchtpu_cache/xla
++ echo '###### shutdown ######'
+###### shutdown ######
++ pkill -f 'vllm serve'
++ sleep 5
++ echo RUNALL_DONE
+RUNALL_DONE
