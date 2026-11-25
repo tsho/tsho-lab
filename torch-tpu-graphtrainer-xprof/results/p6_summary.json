@@ -1,0 +1,36 @@
+{
+  "8b_A_eager": {
+    "tps_per_chip": 2536,
+    "mfu_pct": 13.34,
+    "alloc_peak_gib": 2.98,
+    "final_loss": 3.04048,
+    "grad_norm_all_zero": false,
+    "device_hbm_peak_gib_any_chip": 27.58,
+    "device_hbm_total_gib": 31.24,
+    "hbm_samples": 96
+  },
+  "8b_B_perblock": {
+    "tps_per_chip": 2537,
+    "mfu_pct": 13.34,
+    "alloc_peak_gib": 2.98,
+    "final_loss": 3.04048,
+    "grad_norm_all_zero": false,
+    "device_hbm_peak_gib_any_chip": 26.78,
+    "device_hbm_total_gib": 31.24,
+    "hbm_samples": 328
+  },
+  "8b_C_gt_eager": null,
+  "8b_C_offload": null,
+  "8b_E_full": null,
+  "8b_E_ingraph": null,
+  "8b_E_offload": {
+    "tps_per_chip": 2444,
+    "mfu_pct": 12.85,
+    "alloc_peak_gib": 8.04,
+    "final_loss": 3.04115,
+    "grad_norm_all_zero": true,
+    "device_hbm_peak_gib_any_chip": 31.22,
+    "device_hbm_total_gib": 31.24,
+    "hbm_samples": 224
+  }
+}

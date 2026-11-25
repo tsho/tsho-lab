@@ -1,0 +1,1866 @@
+{
+  "notes": {
+    "source": "torch.profiler Chrome-trace JSON, iteration_20, ranks 0-3, under results/raw/prof",
+    "tokens_per_step_per_chip": 2048,
+    "step_window": "host-side ProfilerStep#N user_annotation; device intervals clipped to it",
+    "aggregation": "per-rank median over the profiled steps, then median/min/max across ranks",
+    "device_busy_programs": "union of 'XLA Modules' events (one per device program execution)",
+    "device_busy_ops": "union of synchronous 'XLA Ops' events (TensorCore)",
+    "in_program_no_sync_op": "time inside a program with no synchronous op running (waiting on async copies/collectives/DMA)",
+    "barrier_wait": "'barrier-cores' TraceMe on the device; cross-chip barrier, i.e. waiting for other ranks; it lies inside program time",
+    "collective_sync": "union of XLA Ops with hlo_category all-gather / reduce-scatter / all-reduce-scatter fusion / all-reduce; these run on the TensorCore lane and do not overlap other sync ops",
+    "collective_permute_async": "collective-permute start..done spans on 'Async XLA Ops'; they overlap sync ops (overlap reported separately)",
+    "host_blocked_in_item": "aten::_local_scalar_dense on the main thread (.item(), blocking device->host sync)",
+    "host_dispatch_semaphore_wait": "'Acquire semaphore' inside PJRT execute: dispatch blocked because the in-flight program queue is full (host ahead of device)",
+    "idle_by_next_program_kind": "device idle gap attributed to the kind of program that ends it; 'window_end' = tail of the step window",
+    "idle_with_no_host_main_cpu_op": "device idle time during which the host main thread has no recorded cpu_op (Python-level work is not traced: with_stack/python tracing off)",
+    "unprofiled_step_ms_from_tps": "2048 tokens/step/chip / tps_per_chip from results/summary.json; results/summary.json step_ms is rounded to 10 ms because time_end_to_end is logged with 0.01 s resolution",
+    "gap_threshold_us": 100.0
+  },
+  "configs": {
+    "B_perblock": {
+      "ranks_parsed": 4,
+      "profiler_steps": [
+        "ProfilerStep#15",
+        "ProfilerStep#16",
+        "ProfilerStep#17",
+        "ProfilerStep#18",
+        "ProfilerStep#19"
+      ],
+      "counter_events_in_json": 0,
+      "unprofiled_step_ms_from_tps": 195.7,
+      "profiled_run_log_tps_steps_11_30_median": 10478.0,
+      "metrics": {
+        "wall_ms": {
+          "median": 196.819,
+          "min": 196.4,
+          "max": 197.069
+        },
+        "programs": {
+          "median": 110.0,
+          "min": 110,
+          "max": 110
+        },
+        "device_busy_programs_ms": {
+          "median": 188.995,
+          "min": 185.417,
+          "max": 189.169
+        },
+        "device_idle_between_programs_ms": {
+          "median": 8.844,
+          "min": 5.826,
+          "max": 9.672
+        },
+        "device_idle_pct": {
+          "median": 4.514,
+          "min": 2.964,
+          "max": 4.971
+        },
+        "gaps_ge_100us": {
+          "median": 4.0,
+          "min": 4,
+          "max": 6
+        },
+        "gaps_ge_100us_ms": {
+          "median": 8.222,
+          "min": 5.207,
+          "max": 9.053
+        },
+        "max_gap_ms": {
+          "median": 3.012,
+          "min": 2.435,
+          "max": 3.751
+        },
+        "device_busy_ops_ms": {
+          "median": 183.065,
+          "min": 182.616,
+          "max": 183.324
+        },
+        "in_program_no_sync_op_ms": {
+          "median": 5.852,
+          "min": 1.874,
+          "max": 6.467
+        },
+        "barrier_wait_ms": {
+          "median": 4.737,
+          "min": 0.756,
+          "max": 5.35
+        },
+        "collective_sync_ms": {
+          "median": 75.169,
+          "min": 75.143,
+          "max": 75.283
+        },
+        "collective_permute_async_span_ms": {
+          "median": 11.812,
+          "min": 11.793,
+          "max": 11.83
+        },
+        "collective_permute_overlap_with_sync_ops_ms": {
+          "median": 11.809,
+          "min": 11.791,
+          "max": 11.828
+        },
+        "sparsecore_busy_ms": {
+          "median": 7.819,
+          "min": 7.808,
+          "max": 7.85
+        },
+        "host_main_busy_ms": {
+          "median": 186.416,
+          "min": 184.056,
+          "max": 186.664
+        },
+        "host_blocked_in_item_ms": {
+          "median": 165.948,
+          "min": 163.603,
+          "max": 166.773
+        },
+        "host_dispatch_execute_ms": {
+          "median": 151.843,
+          "min": 149.129,
+          "max": 152.62
+        },
+        "host_dispatch_semaphore_wait_ms": {
+          "median": 142.657,
+          "min": 140.422,
+          "max": 143.45
+        },
+        "host_dispatch_excl_semaphore_ms": {
+          "median": 9.052,
+          "min": 8.604,
+          "max": 9.453
+        },
+        "idle_with_host_main_in_cpu_op_ms": {
+          "median": 3.914,
+          "min": 3.61,
+          "max": 4.239
+        },
+        "idle_with_host_main_in_item_ms": {
+          "median": 2.941,
+          "min": 2.825,
+          "max": 3.131
+        },
+        "idle_with_no_host_main_cpu_op_ms": {
+          "median": 4.715,
+          "min": 2.309,
+          "max": 5.432
+        }
+      },
+      "collective_sync_by_type_ms": {
+        "all_gather": {
+          "median": 20.647,
+          "min": 20.633,
+          "max": 20.695
+        },
+        "all_reduce": {
+          "median": 0.113,
+          "min": 0.108,
+          "max": 0.141
+        },
+        "reduce_scatter": {
+          "median": 15.544,
+          "min": 15.535,
+          "max": 15.548
+        },
+        "reduce_scatter_fused": {
+          "median": 38.868,
+          "min": 38.846,
+          "max": 38.892
+        }
+      },
+      "idle_by_next_program_kind_ms": {
+        "collective_program": {
+          "median": 5.016,
+          "min": 2.79,
+          "max": 5.982
+        },
+        "grad_norm_clip": {
+          "median": 0.022,
+          "min": 0.022,
+          "max": 0.022
+        },
+        "optimizer": {
+          "median": 0.009,
+          "min": 0.009,
+          "max": 0.009
+        },
+        "other_eager_op": {
+          "median": 0.268,
+          "min": 0.266,
+          "max": 1.731
+        },
+        "per_block_compiled": {
+          "median": 0.305,
+          "min": 0.305,
+          "max": 0.305
+        },
+        "window_end": {
+          "median": 2.447,
+          "min": 2.387,
+          "max": 2.539
+        }
+      },
+      "program_kinds_rank0": {
+        "collective_program": {
+          "n_per_step": 12,
+          "ms_per_step": 32.016
+        },
+        "grad_norm_clip": {
+          "n_per_step": 6,
+          "ms_per_step": 3.474
+        },
+        "optimizer": {
+          "n_per_step": 1,
+          "ms_per_step": 8.164
+        },
+        "other_eager_op": {
+          "n_per_step": 59,
+          "ms_per_step": 21.931
+        },
+        "per_block_compiled": {
+          "n_per_step": 32,
+          "ms_per_step": 123.218
+        }
+      },
+      "program_names_rank0": {
+        "tt_jit_export_L589C0_fx_to_mlir_traverse_and_compile_compile_mlir_as_strided": {
+          "n_per_step": 32,
+          "ms_per_step": 123.218
+        },
+        "tt_jit_distributed.reduce_scatter_tensor_coalesced_distributed.reduce_scatter_tensor": {
+          "n_per_step": 3,
+          "ms_per_step": 21.836
+        },
+        "tt_jit_fused_adamw_": {
+          "n_per_step": 1,
+          "ms_per_step": 8.164
+        },
+        "tt_jit_distributed.all_gather_into_tensor_distributed.all_gather_into_tensor": {
+          "n_per_step": 3,
+          "ms_per_step": 7.028
+        },
+        "tt_jit_to_copy_copy_": {
+          "n_per_step": 10,
+          "ms_per_step": 5.3
+        },
+        "tt_jit_cross_entropy_loss_backward": {
+          "n_per_step": 1,
+          "ms_per_step": 5.223
+        },
+        "tt_jit_linear_backward": {
+          "n_per_step": 1,
+          "ms_per_step": 4.9
+        },
+        "tt_jit_distributed.all_reduce": {
+          "n_per_step": 6,
+          "ms_per_step": 3.207
+        },
+        "tt_jit_cross_entropy_loss": {
+          "n_per_step": 1,
+          "ms_per_step": 2.847
+        },
+        "tt_jit_linear": {
+          "n_per_step": 1,
+          "ms_per_step": 2.472
+        },
+        "tt_jit_foreach_mul_": {
+          "n_per_step": 1,
+          "ms_per_step": 2.098
+        },
+        "tt_jit_foreach_norm": {
+          "n_per_step": 1,
+          "ms_per_step": 1.31
+        },
+        "tt_jit_embedding_dense_backward": {
+          "n_per_step": 1,
+          "ms_per_step": 0.777
+        },
+        "tt_jit_execute_force_strides_as_strided_inverse": {
+          "n_per_step": 15,
+          "ms_per_step": 0.199
+        },
+        "tt_jit_foreach_add_": {
+          "n_per_step": 1,
+          "ms_per_step": 0.146
+        },
+        "tt_jit_embedding": {
+          "n_per_step": 1,
+          "ms_per_step": 0.104
+        },
+        "tt_jit_stack": {
+          "n_per_step": 1,
+          "ms_per_step": 0.061
+        },
+        "tt_jit_fused_rms_norm_backward": {
+          "n_per_step": 1,
+          "ms_per_step": 0.037
+        },
+        "tt_jit_fused_rms_norm": {
+          "n_per_step": 1,
+          "ms_per_step": 0.024
+        },
+        "tt_jit_div": {
+          "n_per_step": 3,
+          "ms_per_step": 0.018
+        },
+        "tt_jit_mul": {
+          "n_per_step": 4,
+          "ms_per_step": 0.015
+        },
+        "tt_jit_eq": {
+          "n_per_step": 3,
+          "ms_per_step": 0.008
+        },
+        "tt_jit_sub": {
+          "n_per_step": 1,
+          "ms_per_step": 0.008
+        },
+        "tt_jit_add": {
+          "n_per_step": 1,
+          "ms_per_step": 0.006
+        },
+        "tt_jit_cumsum": {
+          "n_per_step": 1,
+          "ms_per_step": 0.005
+        },
+        "tt_jit_logical_and": {
+          "n_per_step": 2,
+          "ms_per_step": 0.003
+        },
+        "tt_jit_ne": {
+          "n_per_step": 2,
+          "ms_per_step": 0.003
+        },
+        "tt_jit_pow": {
+          "n_per_step": 2,
+          "ms_per_step": 0.003
+        },
+        "tt_jit_abs": {
+          "n_per_step": 2,
+          "ms_per_step": 0.002
+        },
+        "tt_jit_all": {
+          "n_per_step": 2,
+          "ms_per_step": 0.002
+        },
+        "tt_jit_linalg_vector_norm": {
+          "n_per_step": 1,
+          "ms_per_step": 0.002
+        },
+        "tt_jit_clamp": {
+          "n_per_step": 1,
+          "ms_per_step": 0.001
+        },
+        "tt_jit_reciprocal": {
+          "n_per_step": 1,
+          "ms_per_step": 0.001
+        },
+        "tt_jit_ones": {
+          "n_per_step": 1,
+          "ms_per_step": 0.0
+        },
+        "tt_jit_ones_like": {
+          "n_per_step": 1,
+          "ms_per_step": 0.0
+        }
+      },
+      "per_step_rank0": [
+        {
+          "step": "ProfilerStep#15",
+          "wall_ms": 197.777,
+          "programs": 110,
+          "device_busy_programs_ms": 188.499,
+          "device_idle_between_programs_ms": 9.278,
+          "device_idle_pct": 4.691,
+          "gaps_ge_100us": 4,
+          "gaps_ge_100us_ms": 8.658,
+          "max_gap_ms": 4.438,
+          "device_busy_ops_ms": 182.709,
+          "in_program_no_sync_op_ms": 5.79,
+          "barrier_wait_ms": 4.675,
+          "collective_sync_ms": 75.193,
+          "collective_permute_async_span_ms": 11.807,
+          "collective_permute_overlap_with_sync_ops_ms": 11.805,
+          "sparsecore_busy_ms": 7.83,
+          "host_main_busy_ms": 186.254,
+          "host_blocked_in_item_ms": 166.264,
+          "host_dispatch_execute_ms": 152.078,
+          "host_dispatch_semaphore_wait_ms": 142.539,
+          "host_dispatch_excl_semaphore_ms": 9.539,
+          "idle_with_host_main_in_cpu_op_ms": 3.65,
+          "idle_with_host_main_in_item_ms": 2.823,
+          "idle_with_no_host_main_cpu_op_ms": 5.628
+        },
+        {
+          "step": "ProfilerStep#16",
+          "wall_ms": 197.069,
+          "programs": 110,
+          "device_busy_programs_ms": 188.892,
+          "device_idle_between_programs_ms": 8.177,
+          "device_idle_pct": 4.149,
+          "gaps_ge_100us": 4,
+          "gaps_ge_100us_ms": 7.554,
+          "max_gap_ms": 2.941,
+          "device_busy_ops_ms": 182.843,
+          "in_program_no_sync_op_ms": 6.049,
+          "barrier_wait_ms": 4.934,
+          "collective_sync_ms": 75.177,
+          "collective_permute_async_span_ms": 11.808,
+          "collective_permute_overlap_with_sync_ops_ms": 11.806,
+          "sparsecore_busy_ms": 7.808,
+          "host_main_busy_ms": 186.568,
+          "host_blocked_in_item_ms": 166.676,
+          "host_dispatch_execute_ms": 152.62,
+          "host_dispatch_semaphore_wait_ms": 143.347,
+          "host_dispatch_excl_semaphore_ms": 9.274,
+          "idle_with_host_main_in_cpu_op_ms": 3.917,
+          "idle_with_host_main_in_item_ms": 3.073,
+          "idle_with_no_host_main_cpu_op_ms": 4.26
+        },
+        {
+          "step": "ProfilerStep#17",
+          "wall_ms": 194.521,
+          "programs": 110,
+          "device_busy_programs_ms": 186.378,
+          "device_idle_between_programs_ms": 8.143,
+          "device_idle_pct": 4.186,
+          "gaps_ge_100us": 5,
+          "gaps_ge_100us_ms": 7.523,
+          "max_gap_ms": 2.531,
+          "device_busy_ops_ms": 182.892,
+          "in_program_no_sync_op_ms": 3.486,
+          "barrier_wait_ms": 2.372,
+          "collective_sync_ms": 75.166,
+          "collective_permute_async_span_ms": 11.808,
+          "collective_permute_overlap_with_sync_ops_ms": 11.806,
+          "sparsecore_busy_ms": 7.815,
+          "host_main_busy_ms": 184.599,
+          "host_blocked_in_item_ms": 165.172,
+          "host_dispatch_execute_ms": 150.292,
+          "host_dispatch_semaphore_wait_ms": 141.119,
+          "host_dispatch_excl_semaphore_ms": 9.174,
+          "idle_with_host_main_in_cpu_op_ms": 4.161,
+          "idle_with_host_main_in_item_ms": 3.011,
+          "idle_with_no_host_main_cpu_op_ms": 3.982
+        },
+        {
+          "step": "ProfilerStep#18",
+          "wall_ms": 196.427,
+          "programs": 110,
+          "device_busy_programs_ms": 189.506,
+          "device_idle_between_programs_ms": 6.921,
+          "device_idle_pct": 3.524,
+          "gaps_ge_100us": 4,
+          "gaps_ge_100us_ms": 6.298,
+          "max_gap_ms": 2.458,
+          "device_busy_ops_ms": 183.562,
+          "in_program_no_sync_op_ms": 5.944,
+          "barrier_wait_ms": 4.828,
+          "collective_sync_ms": 75.181,
+          "collective_permute_async_span_ms": 11.807,
+          "collective_permute_overlap_with_sync_ops_ms": 11.805,
+          "sparsecore_busy_ms": 7.795,
+          "host_main_busy_ms": 186.71,
+          "host_blocked_in_item_ms": 167.156,
+          "host_dispatch_execute_ms": 152.716,
+          "host_dispatch_semaphore_wait_ms": 143.679,
+          "host_dispatch_excl_semaphore_ms": 9.037,
+          "idle_with_host_main_in_cpu_op_ms": 3.727,
+          "idle_with_host_main_in_item_ms": 2.926,
+          "idle_with_no_host_main_cpu_op_ms": 3.195
+        },
+        {
+          "step": "ProfilerStep#19",
+          "wall_ms": 202.457,
+          "programs": 110,
+          "device_busy_programs_ms": 193.93,
+          "device_idle_between_programs_ms": 8.527,
+          "device_idle_pct": 4.212,
+          "gaps_ge_100us": 4,
+          "gaps_ge_100us_ms": 7.904,
+          "max_gap_ms": 3.509,
+          "device_busy_ops_ms": 183.623,
+          "in_program_no_sync_op_ms": 10.307,
+          "barrier_wait_ms": 9.192,
+          "collective_sync_ms": 75.174,
+          "collective_permute_async_span_ms": 11.806,
+          "collective_permute_overlap_with_sync_ops_ms": 11.803,
+          "sparsecore_busy_ms": 7.804,
+          "host_main_busy_ms": 191.665,
+          "host_blocked_in_item_ms": 172.28,
+          "host_dispatch_execute_ms": 158.065,
+          "host_dispatch_semaphore_wait_ms": 148.935,
+          "host_dispatch_excl_semaphore_ms": 9.13,
+          "idle_with_host_main_in_cpu_op_ms": 3.843,
+          "idle_with_host_main_in_item_ms": 3.181,
+          "idle_with_no_host_main_cpu_op_ms": 4.684
+        }
+      ]
+    },
+    "C_gt_eager": {
+      "ranks_parsed": 4,
+      "profiler_steps": [
+        "ProfilerStep#15",
+        "ProfilerStep#16",
+        "ProfilerStep#17",
+        "ProfilerStep#18",
+        "ProfilerStep#19"
+      ],
+      "counter_events_in_json": 0,
+      "unprofiled_step_ms_from_tps": 176.8,
+      "profiled_run_log_tps_steps_11_30_median": 11594.0,
+      "metrics": {
+        "wall_ms": {
+          "median": 178.242,
+          "min": 177.263,
+          "max": 178.391
+        },
+        "programs": {
+          "median": 34.0,
+          "min": 34,
+          "max": 34
+        },
+        "device_busy_programs_ms": {
+          "median": 167.609,
+          "min": 165.208,
+          "max": 170.307
+        },
+        "device_idle_between_programs_ms": {
+          "median": 9.101,
+          "min": 8.421,
+          "max": 10.606
+        },
+        "device_idle_pct": {
+          "median": 5.112,
+          "min": 4.72,
+          "max": 6.053
+        },
+        "gaps_ge_100us": {
+          "median": 5.0,
+          "min": 5,
+          "max": 5
+        },
+        "gaps_ge_100us_ms": {
+          "median": 8.968,
+          "min": 8.329,
+          "max": 10.516
+        },
+        "max_gap_ms": {
+          "median": 3.315,
+          "min": 3.103,
+          "max": 4.683
+        },
+        "device_busy_ops_ms": {
+          "median": 163.942,
+          "min": 163.689,
+          "max": 164.047
+        },
+        "in_program_no_sync_op_ms": {
+          "median": 3.717,
+          "min": 1.07,
+          "max": 6.426
+        },
+        "barrier_wait_ms": {
+          "median": 3.153,
+          "min": 0.505,
+          "max": 5.862
+        },
+        "collective_sync_ms": {
+          "median": 67.209,
+          "min": 66.898,
+          "max": 68.0
+        },
+        "collective_permute_async_span_ms": {
+          "median": 28.21,
+          "min": 28.195,
+          "max": 28.227
+        },
+        "collective_permute_overlap_with_sync_ops_ms": {
+          "median": 28.207,
+          "min": 28.192,
+          "max": 28.224
+        },
+        "sparsecore_busy_ms": {
+          "median": 36.202,
+          "min": 36.201,
+          "max": 36.204
+        },
+        "host_main_busy_ms": {
+          "median": 164.879,
+          "min": 163.47,
+          "max": 166.323
+        },
+        "host_blocked_in_item_ms": {
+          "median": 157.381,
+          "min": 155.419,
+          "max": 159.101
+        },
+        "host_dispatch_execute_ms": {
+          "median": 3.337,
+          "min": 2.756,
+          "max": 3.763
+        },
+        "host_dispatch_semaphore_wait_ms": {
+          "median": 0.027,
+          "min": 0.023,
+          "max": 0.033
+        },
+        "host_dispatch_excl_semaphore_ms": {
+          "median": 3.312,
+          "min": 2.713,
+          "max": 3.734
+        },
+        "idle_with_host_main_in_cpu_op_ms": {
+          "median": 3.586,
+          "min": 3.09,
+          "max": 4.054
+        },
+        "idle_with_host_main_in_item_ms": {
+          "median": 2.656,
+          "min": 2.55,
+          "max": 2.766
+        },
+        "idle_with_no_host_main_cpu_op_ms": {
+          "median": 5.658,
+          "min": 4.772,
+          "max": 6.517
+        }
+      },
+      "collective_sync_by_type_ms": {
+        "all_gather": {
+          "median": 12.457,
+          "min": 12.453,
+          "max": 12.462
+        },
+        "all_reduce": {
+          "median": 0.039,
+          "min": 0.034,
+          "max": 0.043
+        },
+        "reduce_scatter": {
+          "median": 6.015,
+          "min": 5.997,
+          "max": 6.04
+        },
+        "reduce_scatter_fused": {
+          "median": 48.69,
+          "min": 48.407,
+          "max": 49.488
+        }
+      },
+      "idle_by_next_program_kind_ms": {
+        "collective_program": {
+          "median": 5.058,
+          "min": 2.942,
+          "max": 6.707
+        },
+        "fwd_bwd_graph": {
+          "median": 2.068,
+          "min": 0.526,
+          "max": 3.32
+        },
+        "grad_norm_clip": {
+          "median": 0.022,
+          "min": 0.022,
+          "max": 0.022
+        },
+        "optimizer": {
+          "median": 0.009,
+          "min": 0.009,
+          "max": 0.009
+        },
+        "other_eager_op": {
+          "median": 0.055,
+          "min": 0.055,
+          "max": 0.056
+        },
+        "window_end": {
+          "median": 2.161,
+          "min": 2.079,
+          "max": 2.305
+        }
+      },
+      "program_kinds_rank0": {
+        "collective_program": {
+          "n_per_step": 6,
+          "ms_per_step": 2.769
+        },
+        "fwd_bwd_graph": {
+          "n_per_step": 1,
+          "ms_per_step": 155.377
+        },
+        "grad_norm_clip": {
+          "n_per_step": 6,
+          "ms_per_step": 3.474
+        },
+        "optimizer": {
+          "n_per_step": 1,
+          "ms_per_step": 8.088
+        },
+        "other_eager_op": {
+          "n_per_step": 20,
+          "ms_per_step": 0.188
+        }
+      },
+      "program_names_rank0": {
+        "tt_jit_autograd_L43C0_redispatch_no_grad_distributed.reduce_scatter_tensor_coalesced_distr": {
+          "n_per_step": 1,
+          "ms_per_step": 155.377
+        },
+        "tt_jit_fused_adamw_": {
+          "n_per_step": 1,
+          "ms_per_step": 8.088
+        },
+        "tt_jit_distributed.all_reduce": {
+          "n_per_step": 6,
+          "ms_per_step": 2.769
+        },
+        "tt_jit_foreach_mul_": {
+          "n_per_step": 1,
+          "ms_per_step": 2.097
+        },
+        "tt_jit_foreach_norm": {
+          "n_per_step": 1,
+          "ms_per_step": 1.309
+        },
+        "tt_jit_foreach_add_": {
+          "n_per_step": 1,
+          "ms_per_step": 0.147
+        },
+        "tt_jit_stack": {
+          "n_per_step": 1,
+          "ms_per_step": 0.061
+        },
+        "tt_jit_mul": {
+          "n_per_step": 4,
+          "ms_per_step": 0.015
+        },
+        "tt_jit_add": {
+          "n_per_step": 1,
+          "ms_per_step": 0.006
+        },
+        "tt_jit_div": {
+          "n_per_step": 1,
+          "ms_per_step": 0.006
+        },
+        "tt_jit_logical_and": {
+          "n_per_step": 2,
+          "ms_per_step": 0.003
+        },
+        "tt_jit_ne": {
+          "n_per_step": 2,
+          "ms_per_step": 0.003
+        },
+        "tt_jit_pow": {
+          "n_per_step": 2,
+          "ms_per_step": 0.003
+        },
+        "tt_jit_abs": {
+          "n_per_step": 2,
+          "ms_per_step": 0.002
+        },
+        "tt_jit_all": {
+          "n_per_step": 2,
+          "ms_per_step": 0.002
+        },
+        "tt_jit_eq": {
+          "n_per_step": 2,
+          "ms_per_step": 0.002
+        },
+        "tt_jit_linalg_vector_norm": {
+          "n_per_step": 1,
+          "ms_per_step": 0.002
+        },
+        "tt_jit_clamp": {
+          "n_per_step": 1,
+          "ms_per_step": 0.001
+        },
+        "tt_jit_reciprocal": {
+          "n_per_step": 1,
+          "ms_per_step": 0.001
+        },
+        "tt_jit_ones": {
+          "n_per_step": 1,
+          "ms_per_step": 0.0
+        }
+      },
+      "per_step_rank0": [
+        {
+          "step": "ProfilerStep#15",
+          "wall_ms": 178.212,
+          "programs": 34,
+          "device_busy_programs_ms": 168.007,
+          "device_idle_between_programs_ms": 10.205,
+          "device_idle_pct": 5.726,
+          "gaps_ge_100us": 5,
+          "gaps_ge_100us_ms": 10.115,
+          "max_gap_ms": 4.354,
+          "device_busy_ops_ms": 163.747,
+          "in_program_no_sync_op_ms": 4.26,
+          "barrier_wait_ms": 3.696,
+          "collective_sync_ms": 67.123,
+          "collective_permute_async_span_ms": 28.206,
+          "collective_permute_overlap_with_sync_ops_ms": 28.203,
+          "sparsecore_busy_ms": 36.203,
+          "host_main_busy_ms": 165.377,
+          "host_blocked_in_item_ms": 157.775,
+          "host_dispatch_execute_ms": 3.575,
+          "host_dispatch_semaphore_wait_ms": 0.026,
+          "host_dispatch_excl_semaphore_ms": 3.549,
+          "idle_with_host_main_in_cpu_op_ms": 3.079,
+          "idle_with_host_main_in_item_ms": 2.496,
+          "idle_with_no_host_main_cpu_op_ms": 7.125
+        },
+        {
+          "step": "ProfilerStep#16",
+          "wall_ms": 178.404,
+          "programs": 34,
+          "device_busy_programs_ms": 169.983,
+          "device_idle_between_programs_ms": 8.421,
+          "device_idle_pct": 4.72,
+          "gaps_ge_100us": 5,
+          "gaps_ge_100us_ms": 8.329,
+          "max_gap_ms": 3.103,
+          "device_busy_ops_ms": 163.922,
+          "in_program_no_sync_op_ms": 6.061,
+          "barrier_wait_ms": 5.496,
+          "collective_sync_ms": 67.366,
+          "collective_permute_async_span_ms": 28.209,
+          "collective_permute_overlap_with_sync_ops_ms": 28.206,
+          "sparsecore_busy_ms": 36.197,
+          "host_main_busy_ms": 166.393,
+          "host_blocked_in_item_ms": 158.894,
+          "host_dispatch_execute_ms": 3.154,
+          "host_dispatch_semaphore_wait_ms": 0.022,
+          "host_dispatch_excl_semaphore_ms": 3.132,
+          "idle_with_host_main_in_cpu_op_ms": 3.589,
+          "idle_with_host_main_in_item_ms": 2.775,
+          "idle_with_no_host_main_cpu_op_ms": 4.832
+        },
+        {
+          "step": "ProfilerStep#17",
+          "wall_ms": 175.205,
+          "programs": 34,
+          "device_busy_programs_ms": 165.744,
+          "device_idle_between_programs_ms": 9.462,
+          "device_idle_pct": 5.4,
+          "gaps_ge_100us": 5,
+          "gaps_ge_100us_ms": 9.371,
+          "max_gap_ms": 2.902,
+          "device_busy_ops_ms": 163.792,
+          "in_program_no_sync_op_ms": 1.952,
+          "barrier_wait_ms": 1.388,
+          "collective_sync_ms": 67.259,
+          "collective_permute_async_span_ms": 28.209,
+          "collective_permute_overlap_with_sync_ops_ms": 28.206,
+          "sparsecore_busy_ms": 36.197,
+          "host_main_busy_ms": 164.02,
+          "host_blocked_in_item_ms": 156.679,
+          "host_dispatch_execute_ms": 3.171,
+          "host_dispatch_semaphore_wait_ms": 0.022,
+          "host_dispatch_excl_semaphore_ms": 3.149,
+          "idle_with_host_main_in_cpu_op_ms": 3.644,
+          "idle_with_host_main_in_item_ms": 2.48,
+          "idle_with_no_host_main_cpu_op_ms": 5.818
+        },
+        {
+          "step": "ProfilerStep#18",
+          "wall_ms": 177.327,
+          "programs": 34,
+          "device_busy_programs_ms": 170.228,
+          "device_idle_between_programs_ms": 7.099,
+          "device_idle_pct": 4.003,
+          "gaps_ge_100us": 5,
+          "gaps_ge_100us_ms": 7.008,
+          "max_gap_ms": 2.157,
+          "device_busy_ops_ms": 163.921,
+          "in_program_no_sync_op_ms": 6.307,
+          "barrier_wait_ms": 5.744,
+          "collective_sync_ms": 67.307,
+          "collective_permute_async_span_ms": 28.208,
+          "collective_permute_overlap_with_sync_ops_ms": 28.205,
+          "sparsecore_busy_ms": 36.207,
+          "host_main_busy_ms": 166.323,
+          "host_blocked_in_item_ms": 159.14,
+          "host_dispatch_execute_ms": 3.22,
+          "host_dispatch_semaphore_wait_ms": 0.024,
+          "host_dispatch_excl_semaphore_ms": 3.196,
+          "idle_with_host_main_in_cpu_op_ms": 3.29,
+          "idle_with_host_main_in_item_ms": 2.624,
+          "idle_with_no_host_main_cpu_op_ms": 3.809
+        },
+        {
+          "step": "ProfilerStep#19",
+          "wall_ms": 182.329,
+          "programs": 34,
+          "device_busy_programs_ms": 174.546,
+          "device_idle_between_programs_ms": 7.783,
+          "device_idle_pct": 4.269,
+          "gaps_ge_100us": 4,
+          "gaps_ge_100us_ms": 7.682,
+          "max_gap_ms": 3.645,
+          "device_busy_ops_ms": 164.11,
+          "in_program_no_sync_op_ms": 10.436,
+          "barrier_wait_ms": 9.873,
+          "collective_sync_ms": 67.604,
+          "collective_permute_async_span_ms": 28.209,
+          "collective_permute_overlap_with_sync_ops_ms": 28.206,
+          "sparsecore_busy_ms": 36.212,
+          "host_main_busy_ms": 169.925,
+          "host_blocked_in_item_ms": 162.72,
+          "host_dispatch_execute_ms": 3.223,
+          "host_dispatch_semaphore_wait_ms": 0.024,
+          "host_dispatch_excl_semaphore_ms": 3.2,
+          "idle_with_host_main_in_cpu_op_ms": 3.177,
+          "idle_with_host_main_in_item_ms": 2.639,
+          "idle_with_no_host_main_cpu_op_ms": 4.606
+        }
+      ]
+    },
+    "D_gt_separate": {
+      "ranks_parsed": 4,
+      "profiler_steps": [
+        "ProfilerStep#15",
+        "ProfilerStep#16",
+        "ProfilerStep#17",
+        "ProfilerStep#18",
+        "ProfilerStep#19"
+      ],
+      "counter_events_in_json": 0,
+      "unprofiled_step_ms_from_tps": 177.7,
+      "profiled_run_log_tps_steps_11_30_median": 11504.0,
+      "metrics": {
+        "wall_ms": {
+          "median": 178.972,
+          "min": 178.595,
+          "max": 179.287
+        },
+        "programs": {
+          "median": 34.0,
+          "min": 34,
+          "max": 34
+        },
+        "device_busy_programs_ms": {
+          "median": 169.246,
+          "min": 166.196,
+          "max": 170.49
+        },
+        "device_idle_between_programs_ms": {
+          "median": 10.567,
+          "min": 7.656,
+          "max": 12.021
+        },
+        "device_idle_pct": {
+          "median": 5.835,
+          "min": 4.336,
+          "max": 6.814
+        },
+        "gaps_ge_100us": {
+          "median": 5.0,
+          "min": 5,
+          "max": 5
+        },
+        "gaps_ge_100us_ms": {
+          "median": 10.469,
+          "min": 7.563,
+          "max": 11.93
+        },
+        "max_gap_ms": {
+          "median": 3.781,
+          "min": 2.788,
+          "max": 5.408
+        },
+        "device_busy_ops_ms": {
+          "median": 163.66,
+          "min": 163.621,
+          "max": 163.698
+        },
+        "in_program_no_sync_op_ms": {
+          "median": 5.74,
+          "min": 2.497,
+          "max": 6.92
+        },
+        "barrier_wait_ms": {
+          "median": 5.016,
+          "min": 1.787,
+          "max": 6.238
+        },
+        "collective_sync_ms": {
+          "median": 67.129,
+          "min": 66.934,
+          "max": 67.609
+        },
+        "collective_permute_async_span_ms": {
+          "median": 28.211,
+          "min": 28.196,
+          "max": 28.229
+        },
+        "collective_permute_overlap_with_sync_ops_ms": {
+          "median": 28.208,
+          "min": 28.193,
+          "max": 28.226
+        },
+        "sparsecore_busy_ms": {
+          "median": 36.2,
+          "min": 36.199,
+          "max": 36.203
+        },
+        "host_main_busy_ms": {
+          "median": 157.241,
+          "min": 156.771,
+          "max": 158.488
+        },
+        "host_blocked_in_item_ms": {
+          "median": 145.893,
+          "min": 144.692,
+          "max": 147.515
+        },
+        "host_dispatch_execute_ms": {
+          "median": 3.691,
+          "min": 3.522,
+          "max": 4.272
+        },
+        "host_dispatch_semaphore_wait_ms": {
+          "median": 0.021,
+          "min": 0.021,
+          "max": 0.023
+        },
+        "host_dispatch_excl_semaphore_ms": {
+          "median": 3.67,
+          "min": 3.501,
+          "max": 4.25
+        },
+        "idle_with_host_main_in_cpu_op_ms": {
+          "median": 4.117,
+          "min": 3.872,
+          "max": 4.876
+        },
+        "idle_with_host_main_in_item_ms": {
+          "median": 3.292,
+          "min": 3.266,
+          "max": 4.171
+        },
+        "idle_with_no_host_main_cpu_op_ms": {
+          "median": 6.725,
+          "min": 2.998,
+          "max": 7.564
+        }
+      },
+      "collective_sync_by_type_ms": {
+        "all_gather": {
+          "median": 12.459,
+          "min": 12.455,
+          "max": 12.461
+        },
+        "all_reduce": {
+          "median": 0.039,
+          "min": 0.035,
+          "max": 0.043
+        },
+        "reduce_scatter": {
+          "median": 6.016,
+          "min": 5.993,
+          "max": 6.04
+        },
+        "reduce_scatter_fused": {
+          "median": 48.61,
+          "min": 48.437,
+          "max": 49.087
+        }
+      },
+      "idle_by_next_program_kind_ms": {
+        "collective_program": {
+          "median": 6.964,
+          "min": 4.288,
+          "max": 8.616
+        },
+        "fill": {
+          "median": 0.002,
+          "min": 0.002,
+          "max": 0.002
+        },
+        "fwd_bwd_graph": {
+          "median": 1.013,
+          "min": 0.631,
+          "max": 2.657
+        },
+        "grad_norm_clip": {
+          "median": 0.022,
+          "min": 0.022,
+          "max": 0.022
+        },
+        "optimizer": {
+          "median": 0.011,
+          "min": 0.011,
+          "max": 0.011
+        },
+        "other_eager_op": {
+          "median": 0.052,
+          "min": 0.052,
+          "max": 0.053
+        },
+        "window_end": {
+          "median": 1.48,
+          "min": 1.461,
+          "max": 2.539
+        }
+      },
+      "program_kinds_rank0": {
+        "collective_program": {
+          "n_per_step": 6,
+          "ms_per_step": 3.208
+        },
+        "fill": {
+          "n_per_step": 1,
+          "ms_per_step": 0.001
+        },
+        "fwd_bwd_graph": {
+          "n_per_step": 1,
+          "ms_per_step": 155.698
+        },
+        "grad_norm_clip": {
+          "n_per_step": 6,
+          "ms_per_step": 3.474
+        },
+        "optimizer": {
+          "n_per_step": 1,
+          "ms_per_step": 8.15
+        },
+        "other_eager_op": {
+          "n_per_step": 19,
+          "ms_per_step": 0.041
+        }
+      },
+      "program_names_rank0": {
+        "tt_jit_autograd_L43C0_redispatch_no_grad_distributed.reduce_scatter_tensor_coalesced_distr": {
+          "n_per_step": 1,
+          "ms_per_step": 155.698
+        },
+        "tt_jit_export_L204C0_dispatch_fx_node_foreach_addcdiv_": {
+          "n_per_step": 1,
+          "ms_per_step": 8.15
+        },
+        "tt_jit_distributed.all_reduce": {
+          "n_per_step": 6,
+          "ms_per_step": 3.208
+        },
+        "tt_jit_foreach_mul_": {
+          "n_per_step": 1,
+          "ms_per_step": 2.096
+        },
+        "tt_jit_foreach_norm": {
+          "n_per_step": 1,
+          "ms_per_step": 1.31
+        },
+        "tt_jit_stack": {
+          "n_per_step": 1,
+          "ms_per_step": 0.062
+        },
+        "tt_jit_mul": {
+          "n_per_step": 4,
+          "ms_per_step": 0.015
+        },
+        "tt_jit_add": {
+          "n_per_step": 1,
+          "ms_per_step": 0.006
+        },
+        "tt_jit_div": {
+          "n_per_step": 1,
+          "ms_per_step": 0.006
+        },
+        "tt_jit_logical_and": {
+          "n_per_step": 2,
+          "ms_per_step": 0.003
+        },
+        "tt_jit_ne": {
+          "n_per_step": 2,
+          "ms_per_step": 0.003
+        },
+        "tt_jit_pow": {
+          "n_per_step": 2,
+          "ms_per_step": 0.003
+        },
+        "tt_jit_abs": {
+          "n_per_step": 2,
+          "ms_per_step": 0.002
+        },
+        "tt_jit_all": {
+          "n_per_step": 2,
+          "ms_per_step": 0.002
+        },
+        "tt_jit_eq": {
+          "n_per_step": 2,
+          "ms_per_step": 0.002
+        },
+        "tt_jit_linalg_vector_norm": {
+          "n_per_step": 1,
+          "ms_per_step": 0.002
+        },
+        "tt_jit_clamp": {
+          "n_per_step": 1,
+          "ms_per_step": 0.001
+        },
+        "tt_jit_fill_": {
+          "n_per_step": 1,
+          "ms_per_step": 0.001
+        },
+        "tt_jit_reciprocal": {
+          "n_per_step": 1,
+          "ms_per_step": 0.001
+        },
+        "tt_jit_ones": {
+          "n_per_step": 1,
+          "ms_per_step": 0.0
+        }
+      },
+      "per_step_rank0": [
+        {
+          "step": "ProfilerStep#15",
+          "wall_ms": 181.881,
+          "programs": 34,
+          "device_busy_programs_ms": 171.678,
+          "device_idle_between_programs_ms": 10.203,
+          "device_idle_pct": 5.609,
+          "gaps_ge_100us": 4,
+          "gaps_ge_100us_ms": 10.1,
+          "max_gap_ms": 5.46,
+          "device_busy_ops_ms": 163.582,
+          "in_program_no_sync_op_ms": 8.096,
+          "barrier_wait_ms": 7.39,
+          "collective_sync_ms": 66.92,
+          "collective_permute_async_span_ms": 28.207,
+          "collective_permute_overlap_with_sync_ops_ms": 28.204,
+          "sparsecore_busy_ms": 36.197,
+          "host_main_busy_ms": 159.296,
+          "host_blocked_in_item_ms": 147.851,
+          "host_dispatch_execute_ms": 3.873,
+          "host_dispatch_semaphore_wait_ms": 0.022,
+          "host_dispatch_excl_semaphore_ms": 3.851,
+          "idle_with_host_main_in_cpu_op_ms": 4.049,
+          "idle_with_host_main_in_item_ms": 3.356,
+          "idle_with_no_host_main_cpu_op_ms": 6.153
+        },
+        {
+          "step": "ProfilerStep#16",
+          "wall_ms": 179.287,
+          "programs": 34,
+          "device_busy_programs_ms": 169.237,
+          "device_idle_between_programs_ms": 10.05,
+          "device_idle_pct": 5.606,
+          "gaps_ge_100us": 5,
+          "gaps_ge_100us_ms": 9.957,
+          "max_gap_ms": 4.017,
+          "device_busy_ops_ms": 163.727,
+          "in_program_no_sync_op_ms": 5.51,
+          "barrier_wait_ms": 4.805,
+          "collective_sync_ms": 67.318,
+          "collective_permute_async_span_ms": 28.21,
+          "collective_permute_overlap_with_sync_ops_ms": 28.207,
+          "sparsecore_busy_ms": 36.207,
+          "host_main_busy_ms": 157.7,
+          "host_blocked_in_item_ms": 146.161,
+          "host_dispatch_execute_ms": 3.884,
+          "host_dispatch_semaphore_wait_ms": 0.023,
+          "host_dispatch_excl_semaphore_ms": 3.861,
+          "idle_with_host_main_in_cpu_op_ms": 3.788,
+          "idle_with_host_main_in_item_ms": 3.225,
+          "idle_with_no_host_main_cpu_op_ms": 6.262
+        },
+        {
+          "step": "ProfilerStep#17",
+          "wall_ms": 176.4,
+          "programs": 34,
+          "device_busy_programs_ms": 165.069,
+          "device_idle_between_programs_ms": 11.332,
+          "device_idle_pct": 6.424,
+          "gaps_ge_100us": 5,
+          "gaps_ge_100us_ms": 11.239,
+          "max_gap_ms": 3.654,
+          "device_busy_ops_ms": 163.631,
+          "in_program_no_sync_op_ms": 1.437,
+          "barrier_wait_ms": 0.709,
+          "collective_sync_ms": 67.034,
+          "collective_permute_async_span_ms": 28.209,
+          "collective_permute_overlap_with_sync_ops_ms": 28.206,
+          "sparsecore_busy_ms": 36.209,
+          "host_main_busy_ms": 155.171,
+          "host_blocked_in_item_ms": 143.951,
+          "host_dispatch_execute_ms": 3.633,
+          "host_dispatch_semaphore_wait_ms": 0.021,
+          "host_dispatch_excl_semaphore_ms": 3.612,
+          "idle_with_host_main_in_cpu_op_ms": 4.051,
+          "idle_with_host_main_in_item_ms": 3.201,
+          "idle_with_no_host_main_cpu_op_ms": 7.28
+        },
+        {
+          "step": "ProfilerStep#18",
+          "wall_ms": 178.573,
+          "programs": 34,
+          "device_busy_programs_ms": 170.49,
+          "device_idle_between_programs_ms": 8.083,
+          "device_idle_pct": 4.526,
+          "gaps_ge_100us": 5,
+          "gaps_ge_100us_ms": 7.989,
+          "max_gap_ms": 2.802,
+          "device_busy_ops_ms": 163.57,
+          "in_program_no_sync_op_ms": 6.92,
+          "barrier_wait_ms": 6.238,
+          "collective_sync_ms": 67.194,
+          "collective_permute_async_span_ms": 28.213,
+          "collective_permute_overlap_with_sync_ops_ms": 28.21,
+          "sparsecore_busy_ms": 36.199,
+          "host_main_busy_ms": 158.488,
+          "host_blocked_in_item_ms": 147.515,
+          "host_dispatch_execute_ms": 3.773,
+          "host_dispatch_semaphore_wait_ms": 0.022,
+          "host_dispatch_excl_semaphore_ms": 3.751,
+          "idle_with_host_main_in_cpu_op_ms": 3.771,
+          "idle_with_host_main_in_item_ms": 3.392,
+          "idle_with_no_host_main_cpu_op_ms": 4.311
+        },
+        {
+          "step": "ProfilerStep#19",
+          "wall_ms": 182.803,
+          "programs": 34,
+          "device_busy_programs_ms": 176.258,
+          "device_idle_between_programs_ms": 6.546,
+          "device_idle_pct": 3.581,
+          "gaps_ge_100us": 4,
+          "gaps_ge_100us_ms": 6.444,
+          "max_gap_ms": 2.576,
+          "device_busy_ops_ms": 163.632,
+          "in_program_no_sync_op_ms": 12.626,
+          "barrier_wait_ms": 11.914,
+          "collective_sync_ms": 67.156,
+          "collective_permute_async_span_ms": 28.211,
+          "collective_permute_overlap_with_sync_ops_ms": 28.208,
+          "sparsecore_busy_ms": 36.198,
+          "host_main_busy_ms": 163.047,
+          "host_blocked_in_item_ms": 147.637,
+          "host_dispatch_execute_ms": 3.518,
+          "host_dispatch_semaphore_wait_ms": 0.021,
+          "host_dispatch_excl_semaphore_ms": 3.498,
+          "idle_with_host_main_in_cpu_op_ms": 3.88,
+          "idle_with_host_main_in_item_ms": 3.284,
+          "idle_with_no_host_main_cpu_op_ms": 2.666
+        }
+      ]
+    },
+    "E_gt_ingraph": {
+      "ranks_parsed": 4,
+      "profiler_steps": [
+        "ProfilerStep#15",
+        "ProfilerStep#16",
+        "ProfilerStep#17",
+        "ProfilerStep#18",
+        "ProfilerStep#19"
+      ],
+      "counter_events_in_json": 0,
+      "unprofiled_step_ms_from_tps": 174.0,
+      "profiled_run_log_tps_steps_11_30_median": 11722.5,
+      "metrics": {
+        "wall_ms": {
+          "median": 176.035,
+          "min": 175.89,
+          "max": 176.05
+        },
+        "programs": {
+          "median": 6.0,
+          "min": 6,
+          "max": 6
+        },
+        "device_busy_programs_ms": {
+          "median": 165.177,
+          "min": 161.813,
+          "max": 166.164
+        },
+        "device_idle_between_programs_ms": {
+          "median": 11.745,
+          "min": 7.85,
+          "max": 13.385
+        },
+        "device_idle_pct": {
+          "median": 6.598,
+          "min": 4.531,
+          "max": 7.721
+        },
+        "gaps_ge_100us": {
+          "median": 4.0,
+          "min": 3,
+          "max": 4
+        },
+        "gaps_ge_100us_ms": {
+          "median": 11.74,
+          "min": 7.845,
+          "max": 13.38
+        },
+        "max_gap_ms": {
+          "median": 4.774,
+          "min": 3.509,
+          "max": 5.531
+        },
+        "device_busy_ops_ms": {
+          "median": 159.675,
+          "min": 159.672,
+          "max": 159.678
+        },
+        "in_program_no_sync_op_ms": {
+          "median": 5.503,
+          "min": 2.098,
+          "max": 6.655
+        },
+        "barrier_wait_ms": {
+          "median": 5.201,
+          "min": 1.793,
+          "max": 6.355
+        },
+        "collective_sync_ms": {
+          "median": 67.586,
+          "min": 67.355,
+          "max": 68.182
+        },
+        "collective_permute_async_span_ms": {
+          "median": 36.518,
+          "min": 36.502,
+          "max": 36.537
+        },
+        "collective_permute_overlap_with_sync_ops_ms": {
+          "median": 36.451,
+          "min": 36.435,
+          "max": 36.471
+        },
+        "sparsecore_busy_ms": {
+          "median": 36.353,
+          "min": 36.352,
+          "max": 36.353
+        },
+        "host_main_busy_ms": {
+          "median": 159.417,
+          "min": 158.457,
+          "max": 160.009
+        },
+        "host_blocked_in_item_ms": {
+          "median": 146.622,
+          "min": 145.395,
+          "max": 147.166
+        },
+        "host_dispatch_execute_ms": {
+          "median": 1.751,
+          "min": 1.697,
+          "max": 1.824
+        },
+        "host_dispatch_semaphore_wait_ms": {
+          "median": 0.011,
+          "min": 0.008,
+          "max": 0.011
+        },
+        "host_dispatch_excl_semaphore_ms": {
+          "median": 1.74,
+          "min": 1.689,
+          "max": 1.814
+        },
+        "idle_with_host_main_in_cpu_op_ms": {
+          "median": 3.494,
+          "min": 3.073,
+          "max": 4.278
+        },
+        "idle_with_host_main_in_item_ms": {
+          "median": 2.666,
+          "min": 2.653,
+          "max": 3.584
+        },
+        "idle_with_no_host_main_cpu_op_ms": {
+          "median": 6.801,
+          "min": 4.776,
+          "max": 7.324
+        }
+      },
+      "collective_sync_by_type_ms": {
+        "all_gather": {
+          "median": 12.474,
+          "min": 12.471,
+          "max": 12.477
+        },
+        "all_reduce": {
+          "median": 0.028,
+          "min": 0.023,
+          "max": 0.032
+        },
+        "reduce_scatter": {
+          "median": 5.964,
+          "min": 5.95,
+          "max": 5.978
+        },
+        "reduce_scatter_fused": {
+          "median": 49.131,
+          "min": 48.866,
+          "max": 49.712
+        }
+      },
+      "idle_by_next_program_kind_ms": {
+        "collective_program": {
+          "median": 3.634,
+          "min": 0.709,
+          "max": 4.723
+        },
+        "fill": {
+          "median": 0.223,
+          "min": 0.169,
+          "max": 3.735
+        },
+        "step_graph_with_optimizer": {
+          "median": 3.562,
+          "min": 3.252,
+          "max": 5.277
+        },
+        "window_end": {
+          "median": 3.368,
+          "min": 0.711,
+          "max": 3.386
+        }
+      },
+      "program_kinds_rank0": {
+        "collective_program": {
+          "n_per_step": 2,
+          "ms_per_step": 3.127
+        },
+        "fill": {
+          "n_per_step": 3,
+          "ms_per_step": 0.003
+        },
+        "step_graph_with_optimizer": {
+          "n_per_step": 1,
+          "ms_per_step": 163.034
+        }
+      },
+      "program_names_rank0": {
+        "tt_jit_export_L204C0_dispatch_fx_node_addcdiv": {
+          "n_per_step": 1,
+          "ms_per_step": 163.034
+        },
+        "tt_jit_distributed.all_reduce": {
+          "n_per_step": 2,
+          "ms_per_step": 3.127
+        },
+        "tt_jit_fill_": {
+          "n_per_step": 3,
+          "ms_per_step": 0.003
+        }
+      },
+      "per_step_rank0": [
+        {
+          "step": "ProfilerStep#15",
+          "wall_ms": 179.011,
+          "programs": 6,
+          "device_busy_programs_ms": 166.164,
+          "device_idle_between_programs_ms": 12.847,
+          "device_idle_pct": 7.177,
+          "gaps_ge_100us": 4,
+          "gaps_ge_100us_ms": 12.842,
+          "max_gap_ms": 5.883,
+          "device_busy_ops_ms": 159.509,
+          "in_program_no_sync_op_ms": 6.655,
+          "barrier_wait_ms": 6.355,
+          "collective_sync_ms": 67.758,
+          "collective_permute_async_span_ms": 36.515,
+          "collective_permute_overlap_with_sync_ops_ms": 36.449,
+          "sparsecore_busy_ms": 36.352,
+          "host_main_busy_ms": 161.267,
+          "host_blocked_in_item_ms": 146.701,
+          "host_dispatch_execute_ms": 1.735,
+          "host_dispatch_semaphore_wait_ms": 0.01,
+          "host_dispatch_excl_semaphore_ms": 1.725,
+          "idle_with_host_main_in_cpu_op_ms": 5.874,
+          "idle_with_host_main_in_item_ms": 2.599,
+          "idle_with_no_host_main_cpu_op_ms": 6.973
+        },
+        {
+          "step": "ProfilerStep#16",
+          "wall_ms": 176.046,
+          "programs": 6,
+          "device_busy_programs_ms": 165.308,
+          "device_idle_between_programs_ms": 10.738,
+          "device_idle_pct": 6.099,
+          "gaps_ge_100us": 4,
+          "gaps_ge_100us_ms": 10.733,
+          "max_gap_ms": 3.747,
+          "device_busy_ops_ms": 159.53,
+          "in_program_no_sync_op_ms": 5.778,
+          "barrier_wait_ms": 5.475,
+          "collective_sync_ms": 67.517,
+          "collective_permute_async_span_ms": 36.518,
+          "collective_permute_overlap_with_sync_ops_ms": 36.452,
+          "sparsecore_busy_ms": 36.35,
+          "host_main_busy_ms": 158.109,
+          "host_blocked_in_item_ms": 146.222,
+          "host_dispatch_execute_ms": 1.718,
+          "host_dispatch_semaphore_wait_ms": 0.01,
+          "host_dispatch_excl_semaphore_ms": 1.708,
+          "idle_with_host_main_in_cpu_op_ms": 3.158,
+          "idle_with_host_main_in_item_ms": 2.587,
+          "idle_with_no_host_main_cpu_op_ms": 7.58
+        },
+        {
+          "step": "ProfilerStep#17",
+          "wall_ms": 173.28,
+          "programs": 6,
+          "device_busy_programs_ms": 160.499,
+          "device_idle_between_programs_ms": 12.781,
+          "device_idle_pct": 7.376,
+          "gaps_ge_100us": 4,
+          "gaps_ge_100us_ms": 12.776,
+          "max_gap_ms": 6.074,
+          "device_busy_ops_ms": 159.672,
+          "in_program_no_sync_op_ms": 0.827,
+          "barrier_wait_ms": 0.524,
+          "collective_sync_ms": 67.416,
+          "collective_permute_async_span_ms": 36.515,
+          "collective_permute_overlap_with_sync_ops_ms": 36.449,
+          "sparsecore_busy_ms": 36.348,
+          "host_main_busy_ms": 156.018,
+          "host_blocked_in_item_ms": 144.506,
+          "host_dispatch_execute_ms": 1.804,
+          "host_dispatch_semaphore_wait_ms": 0.014,
+          "host_dispatch_excl_semaphore_ms": 1.791,
+          "idle_with_host_main_in_cpu_op_ms": 4.015,
+          "idle_with_host_main_in_item_ms": 2.701,
+          "idle_with_no_host_main_cpu_op_ms": 8.766
+        },
+        {
+          "step": "ProfilerStep#18",
+          "wall_ms": 175.98,
+          "programs": 6,
+          "device_busy_programs_ms": 167.201,
+          "device_idle_between_programs_ms": 8.779,
+          "device_idle_pct": 4.989,
+          "gaps_ge_100us": 3,
+          "gaps_ge_100us_ms": 8.711,
+          "max_gap_ms": 3.386,
+          "device_busy_ops_ms": 159.714,
+          "in_program_no_sync_op_ms": 7.487,
+          "barrier_wait_ms": 7.184,
+          "collective_sync_ms": 67.801,
+          "collective_permute_async_span_ms": 36.512,
+          "collective_permute_overlap_with_sync_ops_ms": 36.446,
+          "sparsecore_busy_ms": 36.352,
+          "host_main_busy_ms": 159.36,
+          "host_blocked_in_item_ms": 147.898,
+          "host_dispatch_execute_ms": 1.687,
+          "host_dispatch_semaphore_wait_ms": 0.011,
+          "host_dispatch_excl_semaphore_ms": 1.677,
+          "idle_with_host_main_in_cpu_op_ms": 3.138,
+          "idle_with_host_main_in_item_ms": 2.676,
+          "idle_with_no_host_main_cpu_op_ms": 5.641
+        },
+        {
+          "step": "ProfilerStep#19",
+          "wall_ms": 179.763,
+          "programs": 6,
+          "device_busy_programs_ms": 171.238,
+          "device_idle_between_programs_ms": 8.525,
+          "device_idle_pct": 4.742,
+          "gaps_ge_100us": 4,
+          "gaps_ge_100us_ms": 8.52,
+          "max_gap_ms": 4.209,
+          "device_busy_ops_ms": 159.676,
+          "in_program_no_sync_op_ms": 11.562,
+          "barrier_wait_ms": 11.259,
+          "collective_sync_ms": 67.837,
+          "collective_permute_async_span_ms": 36.513,
+          "collective_permute_overlap_with_sync_ops_ms": 36.447,
+          "sparsecore_busy_ms": 36.353,
+          "host_main_busy_ms": 161.513,
+          "host_blocked_in_item_ms": 149.777,
+          "host_dispatch_execute_ms": 1.737,
+          "host_dispatch_semaphore_wait_ms": 0.013,
+          "host_dispatch_excl_semaphore_ms": 1.725,
+          "idle_with_host_main_in_cpu_op_ms": 3.17,
+          "idle_with_host_main_in_item_ms": 2.74,
+          "idle_with_no_host_main_cpu_op_ms": 5.355
+        }
+      ]
+    }
+  },
+  "xplane": {
+    "notes": {
+      "scope": "whole profiled window (all ~5 steps plus window edges), not per step",
+      "mxu_utilization_pct_reported": "reported as 0.0 for every file; hardware perf counters were evidently not captured, so treat as not obtainable",
+      "hbm_peak_in_use": "heap allocated + stack reserved (program scratch) at the peak, per XProf memory_profile"
+    },
+    "configs": {
+      "B_perblock": {
+        "ranks": 4,
+        "device_duty_cycle_pct": {
+          "median": 93.15,
+          "min": 92.6,
+          "max": 93.4
+        },
+        "device_idle_time_pct": {
+          "median": 6.55,
+          "min": 6.4,
+          "max": 6.8
+        },
+        "mxu_utilization_pct_reported": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "hbm_capacity_gib": {
+          "median": 31.242,
+          "min": 31.242,
+          "max": 31.242
+        },
+        "hbm_peak_in_use_gib": {
+          "median": 15.008,
+          "min": 15.008,
+          "max": 15.008
+        },
+        "hbm_peak_heap_allocated_gib": {
+          "median": 14.03,
+          "min": 14.03,
+          "max": 14.03
+        },
+        "hbm_stack_reserved_gib": {
+          "median": 0.979,
+          "min": 0.979,
+          "max": 0.979
+        },
+        "hbm_memory_snapshots": {
+          "median": 30.0,
+          "min": 30,
+          "max": 30
+        }
+      },
+      "C_gt_eager": {
+        "ranks": 4,
+        "device_duty_cycle_pct": {
+          "median": 92.4,
+          "min": 92.1,
+          "max": 92.5
+        },
+        "device_idle_time_pct": {
+          "median": 7.25,
+          "min": 7.1,
+          "max": 7.3
+        },
+        "mxu_utilization_pct_reported": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "hbm_capacity_gib": {
+          "median": 31.242,
+          "min": 31.242,
+          "max": 31.242
+        },
+        "hbm_peak_in_use_gib": {
+          "median": 19.309,
+          "min": 19.309,
+          "max": 19.309
+        },
+        "hbm_peak_heap_allocated_gib": {
+          "median": 5.906,
+          "min": 5.906,
+          "max": 5.906
+        },
+        "hbm_stack_reserved_gib": {
+          "median": 13.403,
+          "min": 13.403,
+          "max": 13.403
+        },
+        "hbm_memory_snapshots": {
+          "median": 17.0,
+          "min": 17,
+          "max": 17
+        }
+      },
+      "D_gt_separate": {
+        "ranks": 4,
+        "device_duty_cycle_pct": {
+          "median": 91.35,
+          "min": 91.0,
+          "max": 91.8
+        },
+        "device_idle_time_pct": {
+          "median": 7.9,
+          "min": 7.9,
+          "max": 7.9
+        },
+        "mxu_utilization_pct_reported": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "hbm_capacity_gib": {
+          "median": 31.242,
+          "min": 31.242,
+          "max": 31.242
+        },
+        "hbm_peak_in_use_gib": {
+          "median": 23.496,
+          "min": 23.496,
+          "max": 23.496
+        },
+        "hbm_peak_heap_allocated_gib": {
+          "median": 10.093,
+          "min": 10.093,
+          "max": 10.093
+        },
+        "hbm_stack_reserved_gib": {
+          "median": 13.403,
+          "min": 13.403,
+          "max": 13.403
+        },
+        "hbm_memory_snapshots": {
+          "median": 17.0,
+          "min": 17,
+          "max": 17
+        }
+      },
+      "E_gt_ingraph": {
+        "ranks": 4,
+        "device_duty_cycle_pct": {
+          "median": 90.4,
+          "min": 90.3,
+          "max": 90.7
+        },
+        "device_idle_time_pct": {
+          "median": 8.4,
+          "min": 8.4,
+          "max": 8.4
+        },
+        "mxu_utilization_pct_reported": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "hbm_capacity_gib": {
+          "median": 31.242,
+          "min": 31.242,
+          "max": 31.242
+        },
+        "hbm_peak_in_use_gib": {
+          "median": 21.869,
+          "min": 21.869,
+          "max": 21.869
+        },
+        "hbm_peak_heap_allocated_gib": {
+          "median": 8.449,
+          "min": 8.449,
+          "max": 8.449
+        },
+        "hbm_stack_reserved_gib": {
+          "median": 13.42,
+          "min": 13.42,
+          "max": 13.42
+        },
+        "hbm_memory_snapshots": {
+          "median": 14.0,
+          "min": 14,
+          "max": 14
+        }
+      }
+    }
+  }
+}
