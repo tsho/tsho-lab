@@ -67,13 +67,15 @@ Llama 3 1B, v6e-4, 2048 tokens per device, tokens/s/chip:
 
 - On this TorchTitan commit the optimizer in the graph adds 1.6% (C to E), not
   the 24% measured on `89ef29b`. Re-running `89ef29b` here reproduces a step of
-  about 20%, at throughputs 8-10% below the published ones (unexplained).
+  about 20%, at throughputs about 6-10% below the published ones (unexplained).
 - Programs per step fall from 110 to 6, but device idle time between programs
-  does not fall (8.8 to 11.7 ms). The per-block to graph-trainer gain is in
-  device execution time, not in dispatch gaps.
+  does not fall (8.8 to 11.7 ms). The per-block to graph-trainer gain
+  corresponds to shorter device execution time. Host-side dispatch cost is
+  not the same quantity as device idle and was not separated; see
+  `docs/findings.md` section 3.
 - The memory figure TorchTitan logs equals the stack-reserved part of the
   XProf memory profile, not HBM in use. By `tpu-info`, E uses 21.87 GiB and B
-  11.09 GiB.
+  11.09 GiB (1.97x); by XProf peak, 21.87 and 15.01 GiB (1.46x).
 - At 8192 tokens per device, C and E are within 0.1%; graph trainer over
   per-block grows to 21%.
 - On Llama 3 8B (v6e-8) the graph trainer does not fit with the default memory
@@ -207,7 +209,7 @@ JSON is in `results/`.
   (see `docs/findings.md` section 1 and `docs/troubleshooting.md`).
 - MXU utilisation reads 0.0 in the profiles and host Python time was not
   traced, so neither is analysed.
-- The 8-10% drop when re-running `89ef29b` is not explained.
+- The roughly 6-10% drop when re-running `89ef29b` is not explained.
 - No 8B eager baseline and no 8B graph-trainer profile.
 - Only v6e.
 

@@ -4,9 +4,13 @@ All throughput figures are tokens per second per chip, taken as the median of
 steps 11-30 of a 30-step run. Unless stated otherwise the model is the
 TorchTitan `llama3_1b` recipe on a Cloud TPU v6e-4 (four chips, FSDP through
 `--parallelism.use_simple_fsdp`), sequence length 2048, and TorchTitan
-`experiments/tpu` at commit `e78271f7`. Each configuration was run once, so
-differences below about 1% are within what a single run can resolve and are
-reported as "no measurable difference".
+`experiments/tpu` at commit `e78271f7`. Each configuration was run once. Differences below about 1% are treated here
+as small in practice, but run-to-run variance was not evaluated: none of the
+differences is shown to be statistically significant, and the 1.6%
+difference in section 1 may also lie within that variance. The same
+configuration measured in two separate runs differed by 0.6% (E: 11,772 and
+11,843). Models are trained from random initialization; no pretrained
+weights are used. "Current commit" means TorchTitan main as of 2026-11-23.
 
 Each section separates what was observed from what is inferred.
 
@@ -27,8 +31,8 @@ Each section separates what was observed from what is inferred.
 
 Observed:
 
-- Moving the optimizer into a separate compiled graph changes nothing
-  measurable on either trainer (B to F: -0.6%, C to D: -0.5%).
+- Moving the optimizer into a separate compiled graph shows no clear
+  improvement on either trainer (B to F: -0.6%, C to D: -0.5%).
 - Moving the optimizer into the training graph adds 1.6% over the graph
   trainer with an eager optimizer (C to E).
 - Compiling the gradient-norm computation adds 0.6% (C to C2) and 0.4%
@@ -57,14 +61,17 @@ graph: a 24% step for the optimizer and 2.06x over eager in total.
 
 Observed:
 
-- On the old commit the shape of the result reproduces: the optimizer step is
-  still about 20%.
+- On the old commit the gain from moving the optimizer into the graph
+  reproduces (about 20%). Eager was not re-measured on the old commit, so
+  the 2.06x over eager itself was not reproduced.
 - On the current commit the graph trainer with an eager optimizer has caught
   up, and the optimizer step has shrunk to 1.6%. The best configuration is
-  1.87x over eager, not 2.06x.
-- The old commit re-run is 8-10% below the published numbers in every row.
+  1.87x over eager, not 2.06x. Which change between the two commits made
+  the graph trainer alone faster was not identified.
+- The old commit re-run is about 6-10% below the published numbers in every
+  row (-8.1%, -6.5%, -9.9%).
 
-Not explained: the 8-10% drop on the same TorchTitan commit. The earlier
+Not explained: the 6-10% drop on the same TorchTitan commit. The earlier
 run recorded Python and seven packages. Python (3.14.10), torch
 (2.15.0+cpu), torch_tpu (0.2.0) and libtpu (0.0.50) match that record. Four
 of the recorded packages differ in the environment of the re-run: tokamax,
@@ -88,7 +95,8 @@ under the profiler was 0.6-1.2% longer than without it.
 | Device idle between programs (ms) | 8.8 | 9.1 | 10.6 | 11.7 |
 | Device idle (% of step) | 4.5 | 5.1 | 5.8 | 6.6 |
 | Synchronous collectives (ms) | 75.2 | 67.2 | 67.1 | 67.6 |
-| Host time inside PJRT execute calls (ms) | 151.8 | 3.3 | 3.7 | 1.8 |
+| Host time in PJRT execute calls, excluding queue wait (ms) | 9.1 | 3.3 | 3.7 | 1.7 |
+| Host waiting for an execution-queue slot (ms) | 142.7 | 0.03 | 0.02 | 0.01 |
 | Host blocked in `.item()` (ms) | 165.9 | 157.4 | 145.9 | 146.6 |
 | Optimizer program on device (ms) | 8.16 | 8.09 | 8.15 | in the step graph |
 
@@ -107,20 +115,35 @@ Observed:
 - In every configuration the host main thread spends most of the step blocked
   in a device-to-host scalar read.
 
+- Host time in dispatch calls, excluding queue wait, falls by about 7 ms
+  from B to E. In per-block mode the host spends 142.7 ms per step waiting
+  for a free execution-queue slot, i.e. it is ahead of the device.
+
+How the figures are computed: device execution time is the length of the
+union of program intervals within the host-side step window, so overlapping
+intervals are not counted twice. Idle is the step window minus that union.
+Synchronous collectives lie inside program execution time and are not a
+separate quantity. Step windows come from host-side timestamps; any offset
+from device-side step boundaries was not evaluated.
+
 Inferred:
 
-- The dispatch-overhead explanation given for the earlier result (fewer
-  programs means fewer host round trips and less device idle time) is not
-  supported by these profiles. If dispatch gaps were the bottleneck, idle
-  time would fall as the program count falls; it does not.
-- The per-block to graph-trainer gain comes from the device doing less work
-  per step. In per-block mode, 59 small eager programs take 21.9 ms and 12
-  collective programs take 32.0 ms; in the graph trainer those are 0.2 ms and
-  2.8 ms, with the collectives running inside the single forward/backward
-  graph. Which compiler-level changes produce that reduction (fusion, fewer
-  copies, different collective scheduling) was not determined.
-- `separate_graph` cannot help in this setup because the eager optimizer was
-  already a single device program of the same duration.
+- The hypothesis that the speedup comes from less device idle time between
+  programs is not supported: idle does not fall as the program count falls.
+- Idle time between programs is not the same thing as host-side dispatch
+  cost. Host work can overlap device execution without appearing as device
+  idle. Dispatch-call time did fall by about 7 ms; how much of the roughly
+  22 ms shorter step (B to E) it accounts for was not separated, so it
+  cannot be concluded that host dispatch is not a bottleneck.
+- What corresponds to the per-block to graph-trainer gain is device
+  execution time. In per-block mode, 59 small eager programs take 21.9 ms
+  and 12 collective programs take 32.0 ms; in the graph trainer those are
+  0.2 ms and 2.8 ms, with the collectives running inside the single
+  forward/backward graph. The profiles show the reduction in time; which
+  compiler-level changes produce it (fusion, fewer copies, different
+  collective scheduling) was not determined.
+- That `separate_graph` shows no improvement is consistent with the eager
+  optimizer already being a single device program of the same duration.
 
 Not obtainable:
 
@@ -146,13 +169,15 @@ HBM capacity is 31.24 GiB per chip.
 
 Observed:
 
-- The figure in the TorchTitan log equals the stack-reserved (program
-  scratch) part of the XProf memory profile in all four configurations. It is
-  not the total HBM in use.
-- By device HBM, the graph trainer with the optimizer in the graph uses about
-  2x the memory of per-block compile (21.87 against 11.09 GiB by `tpu-info`;
-  21.87 against 15.01 GiB by XProf peak), not the 13.7x that the logged
-  figure suggests (13.42 against 0.98 GiB).
+- The figure in the TorchTitan log numerically equals the stack-reserved
+  (program scratch) part of the XProf memory profile in all four
+  configurations. It is not the total HBM in use. Whether the two refer to
+  the same internal region was not confirmed in the implementation.
+- The device HBM ratio between the graph trainer with the optimizer in the
+  graph and per-block compile is about 1.97x by `tpu-info` sampled peak
+  (21.87 against 11.09 GiB) and about 1.46x by XProf peak (21.87 against
+  15.01 GiB). Both are well below the 13.7x that the logged figure suggests
+  (13.42 against 0.98 GiB).
 - For per-block compile the two-second `tpu-info` sampling reads 11.09 GiB
   while XProf reports a 15.01 GiB peak. The two were taken in different runs,
   and a two-second sampler can miss a short peak.
@@ -166,8 +191,8 @@ Observed:
 | `tpu_selective` (`save_regions=feed_forward.w2`) | 11,811 | -0.3% | 13.42 | 21.87 |
 | `full_and_offload` | 11,020 | -6.9% | 5.21 | 13.97 |
 
-Observed: `full` and `tpu_selective` change neither speed nor memory for this
-model. `full_and_offload` frees about 8 GiB of HBM for a 7% loss in
+Observed: no clear difference for `full` and `tpu_selective` under these
+conditions. The `default` row is configuration E measured in a separate run. `full_and_offload` frees about 8 GiB of HBM for a 7% loss in
 throughput.
 
 Notes: `tpu_selective` requires `save_regions`. Only the region
@@ -215,8 +240,9 @@ Eight chips, 2048 tokens per device, Spot capacity.
 
 Observed:
 
-- With the default memory policy the graph trainer does not fit on a v6e
-  chip for this model at this batch size.
+- With the default memory policy the graph trainer did not fit on a v6e
+  chip for this model at this batch size. Only the configurations in the
+  table were tried.
 - The one graph-trainer configuration that ran is 3.7% slower than per-block
   compile and peaks within 0.02 GiB of HBM capacity.
 - There is no eager baseline for 8B. The `llama3_8b` recipe enables per-block
@@ -261,7 +287,7 @@ Observed:
 | Hypothesis | Verdict | Evidence |
 |---|---|---|
 | Putting the optimizer in the graph gives about +24% | Supported on `89ef29b5` (+20%), not on `e78271f7` (+1.6%) | Section 2 |
-| The gain comes from fewer host dispatches and less device idle time | Not supported | Section 3: programs 110 to 6, idle 8.8 to 11.7 ms |
+| The gain comes from less device idle time between programs | Not supported; host dispatch cost itself is not separated | Section 3: programs 110 to 6, idle 8.8 to 11.7 ms |
 | `separate_graph` recovers part of the `in_graph` gain | Not supported | Sections 1 and 3 |
 | Compiling the gradient norm matters | Not supported (+0.4-0.6%) | Section 1 |
 | The logged memory figure is device HBM occupancy | Not supported | Section 4 |
@@ -270,7 +296,7 @@ Observed:
 
 ## 9. Not verified
 
-- The cause of the 8-10% drop when re-running the old commit.
+- The cause of the 6-10% drop when re-running the old commit.
 - Which compiler-level changes make the single graph cheaper on the device.
 - That the in-graph gradient clipping of `in_graph` is numerically
   equivalent to the clipping used by the other modes (read from source only).
@@ -280,3 +306,8 @@ Observed:
 - A profile of any 8B graph-trainer run: none exists (the `default`-policy
   profile runs failed and the `full_and_offload` run was not profiled).
 - Any hardware other than v6e.
+- How much host-side dispatch contributes to step time.
+- The effect of host/device step-boundary offset on the idle figure.
+- Whether parameter updates are correct with `in_graph`.
+- Whether collective time on 8B is driven by model size or by chip count
+  (1B ran on four chips, 8B on eight).
