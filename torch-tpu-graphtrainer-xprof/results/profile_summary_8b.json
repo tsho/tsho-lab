@@ -1,0 +1,478 @@
+{
+  "notes": {
+    "source": "torch.profiler Chrome-trace JSON, iteration_20, ranks 0-7, under results/raw_p6/p6/prof",
+    "tokens_per_step_per_chip": 2048,
+    "step_window": "host-side ProfilerStep#N user_annotation; device intervals clipped to it",
+    "aggregation": "per-rank median over the profiled steps, then median/min/max across ranks",
+    "device_busy_programs": "union of 'XLA Modules' events (one per device program execution)",
+    "device_busy_ops": "union of synchronous 'XLA Ops' events (TensorCore)",
+    "in_program_no_sync_op": "time inside a program with no synchronous op running (waiting on async copies/collectives/DMA)",
+    "barrier_wait": "'barrier-cores' TraceMe on the device; cross-chip barrier, i.e. waiting for other ranks; it lies inside program time",
+    "collective_sync": "union of XLA Ops with hlo_category all-gather / reduce-scatter / all-reduce-scatter fusion / all-reduce; these run on the TensorCore lane and do not overlap other sync ops",
+    "collective_permute_async": "collective-permute start..done spans on 'Async XLA Ops'; they overlap sync ops (overlap reported separately)",
+    "host_blocked_in_item": "aten::_local_scalar_dense on the main thread (.item(), blocking device->host sync)",
+    "host_dispatch_semaphore_wait": "'Acquire semaphore' inside PJRT execute: dispatch blocked because the in-flight program queue is full (host ahead of device)",
+    "idle_by_next_program_kind": "device idle gap attributed to the kind of program that ends it; 'window_end' = tail of the step window",
+    "idle_with_no_host_main_cpu_op": "device idle time during which the host main thread has no recorded cpu_op (Python-level work is not traced: with_stack/python tracing off)",
+    "unprofiled_step_ms_from_tps": "2048 tokens/step/chip / tps_per_chip from results/p6_summary.json; results/summary.json step_ms is rounded to 10 ms because time_end_to_end is logged with 0.01 s resolution",
+    "gap_threshold_us": 100.0
+  },
+  "configs": {
+    "B_perblock": {
+      "ranks_parsed": 8,
+      "profiler_steps": [
+        "ProfilerStep#15",
+        "ProfilerStep#16",
+        "ProfilerStep#17",
+        "ProfilerStep#18",
+        "ProfilerStep#19"
+      ],
+      "counter_events_in_json": 0,
+      "unprofiled_step_ms_from_tps": 807.3,
+      "profiled_run_log_tps_steps_11_30_median": 2526.0,
+      "metrics": {
+        "wall_ms": {
+          "median": 803.538,
+          "min": 802.545,
+          "max": 803.715
+        },
+        "programs": {
+          "median": 94.0,
+          "min": 93,
+          "max": 94
+        },
+        "device_busy_programs_ms": {
+          "median": 802.93,
+          "min": 801.947,
+          "max": 803.108
+        },
+        "device_idle_between_programs_ms": {
+          "median": 0.608,
+          "min": 0.606,
+          "max": 0.613
+        },
+        "device_idle_pct": {
+          "median": 0.076,
+          "min": 0.075,
+          "max": 0.076
+        },
+        "gaps_ge_100us": {
+          "median": 0.0,
+          "min": 0,
+          "max": 0
+        },
+        "gaps_ge_100us_ms": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "max_gap_ms": {
+          "median": 0.015,
+          "min": 0.015,
+          "max": 0.015
+        },
+        "device_busy_ops_ms": {
+          "median": 798.116,
+          "min": 796.635,
+          "max": 799.233
+        },
+        "in_program_no_sync_op_ms": {
+          "median": 4.692,
+          "min": 3.86,
+          "max": 5.707
+        },
+        "barrier_wait_ms": {
+          "median": 2.018,
+          "min": 1.218,
+          "max": 3.055
+        },
+        "collective_sync_ms": {
+          "median": 481.764,
+          "min": 480.349,
+          "max": 482.077
+        },
+        "collective_permute_async_span_ms": {
+          "median": 132.898,
+          "min": 132.853,
+          "max": 133.208
+        },
+        "collective_permute_overlap_with_sync_ops_ms": {
+          "median": 132.891,
+          "min": 132.846,
+          "max": 133.203
+        },
+        "sparsecore_busy_ms": {
+          "median": 36.221,
+          "min": 35.873,
+          "max": 36.321
+        },
+        "host_main_busy_ms": {
+          "median": 25.912,
+          "min": 25.152,
+          "max": 27.513
+        },
+        "host_blocked_in_item_ms": {
+          "median": 0.003,
+          "min": 0.002,
+          "max": 0.005
+        },
+        "host_dispatch_execute_ms": {
+          "median": 373.13,
+          "min": 361.6,
+          "max": 373.918
+        },
+        "host_dispatch_semaphore_wait_ms": {
+          "median": 361.282,
+          "min": 350.013,
+          "max": 363.254
+        },
+        "host_dispatch_excl_semaphore_ms": {
+          "median": 11.841,
+          "min": 10.549,
+          "max": 13.048
+        },
+        "idle_with_host_main_in_cpu_op_ms": {
+          "median": 0.03,
+          "min": 0.022,
+          "max": 0.04
+        },
+        "idle_with_host_main_in_item_ms": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "idle_with_no_host_main_cpu_op_ms": {
+          "median": 0.585,
+          "min": 0.573,
+          "max": 0.592
+        }
+      },
+      "collective_sync_by_type_ms": {
+        "all_gather": {
+          "median": 142.68,
+          "min": 142.552,
+          "max": 143.05
+        },
+        "all_reduce": {
+          "median": 0.367,
+          "min": 0.33,
+          "max": 0.518
+        },
+        "reduce_scatter": {
+          "median": 134.895,
+          "min": 133.78,
+          "max": 135.102
+        },
+        "reduce_scatter_fused": {
+          "median": 203.928,
+          "min": 203.357,
+          "max": 204.075
+        }
+      },
+      "idle_by_next_program_kind_ms": {
+        "collective_program": {
+          "median": 0.048,
+          "min": 0.048,
+          "max": 0.048
+        },
+        "grad_norm_clip": {
+          "median": 0.011,
+          "min": 0.011,
+          "max": 0.011
+        },
+        "optimizer": {
+          "median": 0.01,
+          "min": 0.01,
+          "max": 0.01
+        },
+        "other_eager_op": {
+          "median": 0.078,
+          "min": 0.078,
+          "max": 0.079
+        },
+        "per_block_compiled": {
+          "median": 0.46,
+          "min": 0.451,
+          "max": 0.461
+        },
+        "window_end": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      },
+      "program_kinds_rank0": {
+        "collective_program": {
+          "n_per_step": 9,
+          "ms_per_step": 60.343
+        },
+        "grad_norm_clip": {
+          "n_per_step": 1,
+          "ms_per_step": 5.452
+        },
+        "optimizer": {
+          "n_per_step": 1,
+          "ms_per_step": 23.957
+        },
+        "other_eager_op": {
+          "n_per_step": 18,
+          "ms_per_step": 36.992
+        },
+        "per_block_compiled": {
+          "n_per_step": 65,
+          "ms_per_step": 680.602
+        }
+      },
+      "program_names_rank0": {
+        "tt_jit_export_L589C0_fx_to_mlir_traverse_and_compile_compile_mlir_as_strided": {
+          "n_per_step": 65,
+          "ms_per_step": 680.602
+        },
+        "tt_jit_distributed.reduce_scatter_tensor_coalesced_distributed.reduce_scatter_tensor": {
+          "n_per_step": 3,
+          "ms_per_step": 46.965
+        },
+        "tt_jit_call_custom_kernel_custom_kernel": {
+          "n_per_step": 2,
+          "ms_per_step": 24.466
+        },
+        "tt_jit_fused_adamw_": {
+          "n_per_step": 1,
+          "ms_per_step": 23.957
+        },
+        "tt_jit_distributed.all_gather_into_tensor_distributed.all_gather_into_tensor": {
+          "n_per_step": 3,
+          "ms_per_step": 12.977
+        },
+        "tt_jit_foreach_mul_": {
+          "n_per_step": 1,
+          "ms_per_step": 5.452
+        },
+        "tt_jit_copy__as_strided": {
+          "n_per_step": 1,
+          "ms_per_step": 5.084
+        },
+        "tt_jit_to_copy_copy_": {
+          "n_per_step": 7,
+          "ms_per_step": 4.756
+        },
+        "tt_jit_pow": {
+          "n_per_step": 1,
+          "ms_per_step": 2.609
+        },
+        "tt_jit_distributed.all_reduce": {
+          "n_per_step": 3,
+          "ms_per_step": 0.98
+        },
+        "tt_jit_where": {
+          "n_per_step": 2,
+          "ms_per_step": 0.055
+        },
+        "tt_jit_div": {
+          "n_per_step": 1,
+          "ms_per_step": 0.015
+        },
+        "tt_jit_eq": {
+          "n_per_step": 1,
+          "ms_per_step": 0.004
+        },
+        "tt_jit_logical_and": {
+          "n_per_step": 1,
+          "ms_per_step": 0.002
+        },
+        "tt_jit_ones": {
+          "n_per_step": 1,
+          "ms_per_step": 0.0
+        },
+        "tt_jit_ones_like": {
+          "n_per_step": 1,
+          "ms_per_step": 0.0
+        }
+      },
+      "per_step_rank0": [
+        {
+          "step": "ProfilerStep#15",
+          "wall_ms": 34.938,
+          "programs": 10,
+          "device_busy_programs_ms": 32.586,
+          "device_idle_between_programs_ms": 2.352,
+          "device_idle_pct": 6.732,
+          "gaps_ge_100us": 1,
+          "gaps_ge_100us_ms": 2.297,
+          "max_gap_ms": 2.297,
+          "device_busy_ops_ms": 24.53,
+          "in_program_no_sync_op_ms": 8.056,
+          "barrier_wait_ms": 7.955,
+          "collective_sync_ms": 13.79,
+          "collective_permute_async_span_ms": 0.0,
+          "collective_permute_overlap_with_sync_ops_ms": 0.0,
+          "sparsecore_busy_ms": 2.132,
+          "host_main_busy_ms": 26.008,
+          "host_blocked_in_item_ms": 0.002,
+          "host_dispatch_execute_ms": 25.159,
+          "host_dispatch_semaphore_wait_ms": 21.359,
+          "host_dispatch_excl_semaphore_ms": 3.8,
+          "idle_with_host_main_in_cpu_op_ms": 0.499,
+          "idle_with_host_main_in_item_ms": 0.0,
+          "idle_with_no_host_main_cpu_op_ms": 1.853
+        },
+        {
+          "step": "ProfilerStep#16",
+          "wall_ms": 788.736,
+          "programs": 90,
+          "device_busy_programs_ms": 788.165,
+          "device_idle_between_programs_ms": 0.571,
+          "device_idle_pct": 0.072,
+          "gaps_ge_100us": 0,
+          "gaps_ge_100us_ms": 0.0,
+          "max_gap_ms": 0.015,
+          "device_busy_ops_ms": 784.688,
+          "in_program_no_sync_op_ms": 3.477,
+          "barrier_wait_ms": 0.876,
+          "collective_sync_ms": 474.846,
+          "collective_permute_async_span_ms": 132.891,
+          "collective_permute_overlap_with_sync_ops_ms": 132.884,
+          "sparsecore_busy_ms": 34.625,
+          "host_main_busy_ms": 26.011,
+          "host_blocked_in_item_ms": 0.003,
+          "host_dispatch_execute_ms": 357.625,
+          "host_dispatch_semaphore_wait_ms": 346.8,
+          "host_dispatch_excl_semaphore_ms": 10.824,
+          "idle_with_host_main_in_cpu_op_ms": 0.028,
+          "idle_with_host_main_in_item_ms": 0.0,
+          "idle_with_no_host_main_cpu_op_ms": 0.543
+        },
+        {
+          "step": "ProfilerStep#17",
+          "wall_ms": 803.834,
+          "programs": 94,
+          "device_busy_programs_ms": 803.228,
+          "device_idle_between_programs_ms": 0.606,
+          "device_idle_pct": 0.075,
+          "gaps_ge_100us": 0,
+          "gaps_ge_100us_ms": 0.0,
+          "max_gap_ms": 0.015,
+          "device_busy_ops_ms": 799.179,
+          "in_program_no_sync_op_ms": 4.049,
+          "barrier_wait_ms": 1.354,
+          "collective_sync_ms": 482.185,
+          "collective_permute_async_span_ms": 132.897,
+          "collective_permute_overlap_with_sync_ops_ms": 132.89,
+          "sparsecore_busy_ms": 36.197,
+          "host_main_busy_ms": 25.789,
+          "host_blocked_in_item_ms": 0.003,
+          "host_dispatch_execute_ms": 373.918,
+          "host_dispatch_semaphore_wait_ms": 363.254,
+          "host_dispatch_excl_semaphore_ms": 10.664,
+          "idle_with_host_main_in_cpu_op_ms": 0.028,
+          "idle_with_host_main_in_item_ms": 0.0,
+          "idle_with_no_host_main_cpu_op_ms": 0.578
+        },
+        {
+          "step": "ProfilerStep#18",
+          "wall_ms": 803.644,
+          "programs": 94,
+          "device_busy_programs_ms": 803.037,
+          "device_idle_between_programs_ms": 0.608,
+          "device_idle_pct": 0.076,
+          "gaps_ge_100us": 0,
+          "gaps_ge_100us_ms": 0.0,
+          "max_gap_ms": 0.015,
+          "device_busy_ops_ms": 798.352,
+          "in_program_no_sync_op_ms": 4.685,
+          "barrier_wait_ms": 2.0,
+          "collective_sync_ms": 481.725,
+          "collective_permute_async_span_ms": 132.894,
+          "collective_permute_overlap_with_sync_ops_ms": 132.888,
+          "sparsecore_busy_ms": 36.209,
+          "host_main_busy_ms": 25.805,
+          "host_blocked_in_item_ms": 0.003,
+          "host_dispatch_execute_ms": 374.065,
+          "host_dispatch_semaphore_wait_ms": 363.268,
+          "host_dispatch_excl_semaphore_ms": 10.796,
+          "idle_with_host_main_in_cpu_op_ms": 0.028,
+          "idle_with_host_main_in_item_ms": 0.0,
+          "idle_with_no_host_main_cpu_op_ms": 0.58
+        },
+        {
+          "step": "ProfilerStep#19",
+          "wall_ms": 1605.263,
+          "programs": 184,
+          "device_busy_programs_ms": 1599.091,
+          "device_idle_between_programs_ms": 6.171,
+          "device_idle_pct": 0.384,
+          "gaps_ge_100us": 3,
+          "gaps_ge_100us_ms": 4.975,
+          "max_gap_ms": 2.592,
+          "device_busy_ops_ms": 1589.233,
+          "in_program_no_sync_op_ms": 9.858,
+          "barrier_wait_ms": 4.483,
+          "collective_sync_ms": 958.489,
+          "collective_permute_async_span_ms": 265.746,
+          "collective_permute_overlap_with_sync_ops_ms": 265.732,
+          "sparsecore_busy_ms": 71.87,
+          "host_main_busy_ms": 825.334,
+          "host_blocked_in_item_ms": 798.769,
+          "host_dispatch_execute_ms": 708.635,
+          "host_dispatch_semaphore_wait_ms": 690.513,
+          "host_dispatch_excl_semaphore_ms": 18.121,
+          "idle_with_host_main_in_cpu_op_ms": 4.337,
+          "idle_with_host_main_in_item_ms": 3.891,
+          "idle_with_no_host_main_cpu_op_ms": 1.835
+        }
+      ]
+    }
+  },
+  "xplane": {
+    "notes": {
+      "scope": "whole profiled window (all ~5 steps plus window edges), not per step",
+      "mxu_utilization_pct_reported": "reported as 0.0 for every file; hardware perf counters were evidently not captured, so treat as not obtainable",
+      "hbm_peak_in_use": "heap allocated + stack reserved (program scratch) at the peak, per XProf memory_profile"
+    },
+    "configs": {
+      "B_perblock": {
+        "ranks": 8,
+        "device_duty_cycle_pct": {
+          "median": 98.55,
+          "min": 98.3,
+          "max": 98.7
+        },
+        "device_idle_time_pct": {
+          "median": 0.8,
+          "min": 0.7,
+          "max": 0.9
+        },
+        "mxu_utilization_pct_reported": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "hbm_capacity_gib": {
+          "median": 31.242,
+          "min": 31.242,
+          "max": 31.242
+        },
+        "hbm_peak_in_use_gib": {
+          "median": 27.583,
+          "min": 27.582,
+          "max": 27.583
+        },
+        "hbm_peak_heap_allocated_gib": {
+          "median": 24.604,
+          "min": 24.604,
+          "max": 24.604
+        },
+        "hbm_stack_reserved_gib": {
+          "median": 2.979,
+          "min": 2.979,
+          "max": 2.979
+        },
+        "hbm_memory_snapshots": {
+          "median": 19.0,
+          "min": 19,
+          "max": 19
+        }
+      }
+    }
+  }
+}
